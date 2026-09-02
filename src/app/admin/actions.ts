@@ -135,9 +135,10 @@ export async function updateProduct(id: string, data: any) {
       }
     });
 
-    if (data.image) {
-      // Very basic approach: delete old images and add the new one
+    if (data.image !== undefined) {
+      // Delete old images
       await prisma.productImage.deleteMany({ where: { productId: id } });
+      // If a new image URL is provided, save it
       if (data.image !== '') {
         await prisma.productImage.create({
           data: {
