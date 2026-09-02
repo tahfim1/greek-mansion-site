@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import Link from 'next/link';
 
 const prisma = new PrismaClient();
 export const dynamic = 'force-dynamic';
@@ -29,22 +30,22 @@ export default async function AdminDashboard() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Stat Cards */}
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8DCCB]">
-          <p className="text-[#11102F]/60 text-sm font-bold uppercase tracking-wider mb-2">Published Products</p>
+        <Link href="/admin/menu/products" className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8DCCB] hover:shadow-md transition-shadow group">
+          <p className="text-[#11102F]/60 text-sm font-bold uppercase tracking-wider mb-2 group-hover:text-[#B18C56] transition-colors">Published Products</p>
           <p className="text-4xl font-bold text-[#1E1C59]">{publishedProducts}</p>
-        </div>
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8DCCB]">
-          <p className="text-[#11102F]/60 text-sm font-bold uppercase tracking-wider mb-2">Draft Products</p>
+        </Link>
+        <Link href="/admin/menu/products" className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8DCCB] hover:shadow-md transition-shadow group">
+          <p className="text-[#11102F]/60 text-sm font-bold uppercase tracking-wider mb-2 group-hover:text-[#B18C56] transition-colors">Draft Products</p>
           <p className="text-4xl font-bold text-[#1E1C59]">{draftProducts}</p>
-        </div>
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8DCCB]">
-          <p className="text-[#11102F]/60 text-sm font-bold uppercase tracking-wider mb-2">Sold Out Products</p>
+        </Link>
+        <Link href="/admin/menu/products" className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8DCCB] hover:shadow-md transition-shadow group">
+          <p className="text-[#11102F]/60 text-sm font-bold uppercase tracking-wider mb-2 group-hover:text-red-500 transition-colors">Sold Out Products</p>
           <p className="text-4xl font-bold text-red-600">{soldOutProducts}</p>
-        </div>
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8DCCB]">
-          <p className="text-[#11102F]/60 text-sm font-bold uppercase tracking-wider mb-2">Active Categories</p>
+        </Link>
+        <Link href="/admin/menu/categories" className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8DCCB] hover:shadow-md transition-shadow group">
+          <p className="text-[#11102F]/60 text-sm font-bold uppercase tracking-wider mb-2 group-hover:text-[#B18C56] transition-colors">Active Categories</p>
           <p className="text-4xl font-bold text-[#1E1C59]">{activeCategories}</p>
-        </div>
+        </Link>
       </div>
     </div>
   );

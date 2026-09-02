@@ -222,7 +222,9 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
                     <div
                       key={product.id}
                       onClick={() => openProductModal(product)}
-                      className="bg-white rounded-xl overflow-hidden border border-[#E8DCCB]/60 card-hover group h-full flex flex-col cursor-pointer"
+                      className={`bg-white rounded-xl overflow-hidden border border-[#E8DCCB]/60 card-hover group h-full flex flex-col cursor-pointer ${
+                        product.status === 'sold_out' ? 'opacity-70 grayscale-[0.3]' : ''
+                      }`}
                       role="button"
                       tabIndex={0}
                     >
@@ -236,26 +238,39 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
                             className="object-cover"
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           />
-                          {product.cateringOnly && (
-                            <span className="absolute top-3 left-3 bg-[#1E1C59] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
-                              Catering Only
-                            </span>
-                          )}
+                          <div className="absolute top-3 left-3 flex flex-col gap-2">
+                            {product.status === 'sold_out' ? (
+                              <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                                Sold Out
+                              </span>
+                            ) : (
+                              <span className="bg-[#1E1C59]/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider border border-[#1E1C59]/20">
+                                In Stock
+                              </span>
+                            )}
+                            {product.cateringOnly && (
+                              <span className="bg-[#1E1C59] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                                Catering Only
+                              </span>
+                            )}
+                          </div>
                         </div>
                       )}
 
                       {/* Info */}
                       <div className="p-4 flex flex-col flex-1">
-                        <h3 className="text-base font-bold text-[#1E1C59] mb-1" style={{ fontFamily: "'Marcellus', serif" }}>
-                          {product.name}
-                        </h3>
-                        <p className="text-[#11102F]/50 text-xs leading-relaxed mb-4 line-clamp-2 flex-1">
+                        <div className="flex justify-between items-start mb-1 gap-2">
+                          <h3 className="text-lg font-bold text-[#1E1C59] leading-tight" style={{ fontFamily: "'Marcellus', serif" }}>
+                            {product.name}
+                          </h3>
+                        </div>
+                        <p className="text-[#11102F]/60 text-xs leading-relaxed mb-4 line-clamp-2 flex-1">
                           {product.description}
                         </p>
 
                         {/* Variants / Price */}
                         {product.variants && product.variants.length > 0 ? (
-                          <div className="flex flex-wrap gap-2 mb-3">
+                          <div className="flex flex-wrap gap-2 mb-4">
                             {product.variants.map((v) => (
                               <span
                                 key={v.label}
@@ -266,7 +281,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
                             ))}
                           </div>
                         ) : (
-                          <p className="text-[#1E1C59] font-bold text-lg mb-3">
+                          <p className="text-[#B18C56] font-bold text-lg mb-4">
                             {formatPrice(product.price)}
                           </p>
                         )}
@@ -277,10 +292,14 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
                             e.preventDefault();
                             openProductModal(product);
                           }}
-                          className="w-full py-2.5 rounded-lg bg-[#F7F3EA] text-[#1E1C59] border border-[#E8DCCB] text-sm font-semibold hover:bg-[#E8DCCB] transition-colors flex items-center justify-center gap-2"
+                          className={`w-full py-2.5 rounded-lg border text-sm font-semibold transition-colors flex items-center justify-center gap-2 ${
+                            product.status === 'sold_out' 
+                              ? 'bg-gray-100 text-gray-500 border-gray-200' 
+                              : 'bg-[#F7F3EA] text-[#1E1C59] border-[#E8DCCB] hover:bg-[#E8DCCB]'
+                          }`}
                           aria-label={`View details for ${product.name}`}
                         >
-                          View Details
+                          {product.status === 'sold_out' ? 'Sold Out' : 'View Details'}
                         </button>
                       </div>
                     </div>
@@ -292,70 +311,113 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
         </div>
       </section>
 
-      {/* Product Detail Modal */}
+      {/* Premium Product Detail Modal */}
       {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#11102F]/60 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-[#11102F]/80 backdrop-blur-md animate-fade-in">
           {/* Backdrop click to close */}
           <div className="absolute inset-0" onClick={() => setSelectedProduct(null)} />
           
-          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-slide-up flex flex-col max-h-[90vh]">
+          <div className="relative bg-[#F7F3EA] rounded-2xl shadow-2xl w-full max-w-5xl overflow-hidden animate-slide-up flex flex-col lg:flex-row max-h-[95vh] texture-ivory border border-[#E8DCCB]">
             {/* Close button */}
             <button 
               onClick={() => setSelectedProduct(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 bg-black/40 hover:bg-black/60 text-white rounded-full flex items-center justify-center transition-colors backdrop-blur-md"
+              className="absolute top-4 right-4 z-20 w-12 h-12 bg-white/50 hover:bg-white text-[#1E1C59] rounded-full flex items-center justify-center transition-colors backdrop-blur-md shadow-lg border border-[#E8DCCB]"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
             </button>
 
-            {/* Header Image with Overlay Text */}
-            <div className="relative h-64 sm:h-72 shrink-0 bg-[#E8DCCB]">
+            {/* Left/Top: Image Column */}
+            <div className={`relative w-full lg:w-1/2 ${selectedProduct.image ? 'h-64 sm:h-80 lg:h-auto' : 'hidden lg:block bg-[#1E1C59]'} shrink-0`}>
               {selectedProduct.image ? (
-                <Image src={selectedProduct.image} alt={selectedProduct.name} fill className="object-cover" sizes="(max-width: 640px) 100vw, 500px" />
+                <Image 
+                  src={selectedProduct.image} 
+                  alt={selectedProduct.name} 
+                  fill 
+                  className={`object-cover ${selectedProduct.status === 'sold_out' ? 'grayscale-[0.3]' : ''}`} 
+                  sizes="(max-width: 1024px) 100vw, 50vw" 
+                  priority
+                />
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1E1C59]/10 to-[#E8DCCB]/50">
-                  <span className="text-[#B18C56]/30 text-5xl font-bold" style={{ fontFamily: "'Marcellus', serif" }}>GM</span>
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1E1C59]/10 to-[#E8DCCB]/50 texture-indigo">
+                  <span className="text-[#B18C56]/20 text-8xl font-bold" style={{ fontFamily: "'Marcellus', serif" }}>GM</span>
                 </div>
               )}
-              {/* Gradient Overlay for Text Visibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 w-full p-6 text-white">
-                <h2 className="text-3xl font-bold mb-2 shadow-sm" style={{ fontFamily: "'Marcellus', serif", color: '#ffffff' }}>
-                  {selectedProduct.name}
-                </h2>
-                <p className="text-white/90 text-sm leading-relaxed drop-shadow-md" style={{ color: '#ffffff' }}>
-                  {selectedProduct.description}
-                </p>
+              
+              {/* Badges on Image */}
+              <div className="absolute top-6 left-6 flex flex-col gap-3 z-10">
+                {selectedProduct.status === 'sold_out' ? (
+                  <span className="bg-red-600 text-white text-sm font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-widest border border-red-500">
+                    Sold Out
+                  </span>
+                ) : (
+                  <span className="bg-[#1E1C59]/90 backdrop-blur-md text-white text-sm font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-widest border border-white/20">
+                    In Stock
+                  </span>
+                )}
               </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:hidden" />
             </div>
 
-            {/* Content Body */}
-            <div className="p-6 overflow-y-auto">
-              
-              {/* Variants */}
+            {/* Right/Bottom: Content Column */}
+            <div className="w-full lg:w-1/2 p-8 lg:p-12 overflow-y-auto flex flex-col">
+              <div className="mb-8">
+                <h2 className="text-4xl lg:text-5xl font-bold text-[#1E1C59] mb-4 leading-tight" style={{ fontFamily: "'Marcellus', serif" }}>
+                  {selectedProduct.name}
+                </h2>
+                
+                {/* Price Display */}
+                {selectedProduct.variants && selectedProduct.variants.length === 0 && (
+                  <p className="text-3xl text-[#B18C56] font-bold" style={{ fontFamily: "'Marcellus', serif" }}>
+                    {formatPrice(selectedProduct.price)}
+                  </p>
+                )}
+                <div className="gold-line-left mt-6 mb-6" />
+                
+                {/* Description */}
+                <div className="prose prose-lg text-[#11102F]/80">
+                  <p className="leading-relaxed">
+                    {selectedProduct.description}
+                  </p>
+                </div>
+              </div>
+
+              {/* Variants Selection */}
               {selectedProduct.variants && selectedProduct.variants.length > 0 && (
-                <div className="mb-6">
-                  <label className="block text-[#1E1C59] font-bold text-sm uppercase tracking-wider mb-3">
-                    Size / Option
+                <div className="mb-10 mt-auto">
+                  <label className="block text-[#1E1C59] font-bold text-sm uppercase tracking-widest mb-4">
+                    Available Options
                   </label>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {selectedProduct.variants.map((v) => (
                       <button
                         key={v.label}
                         onClick={() => setSelectedVariant(v)}
-                        className={`py-3 px-4 rounded-xl border-2 text-left transition-all ${
+                        className={`p-4 rounded-xl border-2 text-left transition-all flex flex-col items-start ${
                           selectedVariant?.label === v.label 
-                            ? 'border-[#B18C56] bg-[#B18C56]/5 text-[#1E1C59]' 
-                            : 'border-[#E8DCCB] text-[#11102F]/60 hover:border-[#B18C56]/50'
+                            ? 'border-[#B18C56] bg-white shadow-md text-[#1E1C59]' 
+                            : 'border-[#E8DCCB] bg-white/50 text-[#11102F]/70 hover:border-[#B18C56]/50 hover:bg-white'
                         }`}
                       >
-                        <div className="font-bold text-sm mb-1">{v.label}</div>
-                        <div className="text-sm">{formatPrice(v.price)}</div>
+                        <span className="font-bold text-lg mb-1" style={{ fontFamily: "'Marcellus', serif" }}>{v.label}</span>
+                        <span className="text-[#B18C56] font-bold">{formatPrice(v.price)}</span>
                       </button>
                     ))}
                   </div>
                 </div>
               )}
-
+              
+              {/* Action Area */}
+              <div className="mt-auto pt-8 border-t border-[#E8DCCB]">
+                 {selectedProduct.status === 'sold_out' ? (
+                   <div className="w-full py-4 text-center rounded-xl bg-gray-200 text-gray-500 font-bold uppercase tracking-widest border border-gray-300">
+                     Currently Unavailable
+                   </div>
+                 ) : (
+                   <div className="w-full py-4 text-center rounded-xl bg-[#1E1C59] text-white font-bold tracking-widest border border-[#1E1C59] shadow-lg">
+                     Available In-Store
+                   </div>
+                 )}
+              </div>
             </div>
           </div>
         </div>
