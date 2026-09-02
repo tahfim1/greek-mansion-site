@@ -17,7 +17,7 @@ export default function CateringPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-24 pb-16 bg-[#1E1C59]">
+      <section className="relative pt-24 pb-16 bg-[#1E1C59] texture-indigo">
         <div className="absolute inset-0 opacity-20">
           <Image src="/images/food/family-meal.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>
@@ -33,7 +33,7 @@ export default function CateringPage() {
       </section>
 
       {/* Catering Packages */}
-      <section className="section-padding bg-[#F7F3EA]">
+      <section className="section-padding bg-[#F7F3EA] texture-ivory">
         <div className="container-custom mx-auto">
           <div className="text-center mb-12">
             <p className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Packages</p>
@@ -99,7 +99,7 @@ export default function CateringPage() {
       </section>
 
       {/* Occasions */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-white texture-white">
         <div className="container-custom mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -141,7 +141,7 @@ export default function CateringPage() {
       </section>
 
       {/* Inquiry Form */}
-      <section className="section-padding bg-[#F7F3EA]" id="inquiry">
+      <section className="section-padding bg-[#F7F3EA] texture-ivory" id="inquiry">
         <div className="container-custom mx-auto max-w-3xl">
           <div className="text-center mb-10">
             <p className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Get Started</p>

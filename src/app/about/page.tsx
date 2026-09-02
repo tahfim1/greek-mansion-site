@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-24 pb-16 bg-[#1E1C59]">
+      <section className="relative pt-24 pb-16 bg-[#1E1C59] texture-indigo">
         <div className="absolute inset-0 opacity-15">
           <Image src="/images/food/hero-hq.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>
@@ -28,7 +28,7 @@ export default function AboutPage() {
       </section>
 
       {/* Content */}
-      <section className="section-padding bg-[#F7F3EA]">
+      <section className="section-padding bg-[#F7F3EA] texture-ivory">
         <div className="container-custom mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="relative">
@@ -77,7 +77,7 @@ export default function AboutPage() {
       </section>
 
       {/* Food Gallery Strip */}
-      <section className="bg-white py-12">
+      <section className="bg-white py-12 texture-white">
         <div className="container-custom mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
@@ -95,7 +95,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-[#1E1C59]">
+      <section className="section-padding bg-[#1E1C59] texture-indigo">
         <div className="container-custom mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl text-white mb-4" style={{ fontFamily: "'Marcellus', serif" }}>
             Come Taste the Difference

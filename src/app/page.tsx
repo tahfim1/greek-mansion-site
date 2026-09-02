@@ -91,7 +91,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Quick Service Choices ──────────────────────────── */}
-      <section className="section-padding bg-white" id="services">
+      <section className="section-padding bg-white texture-white" id="services">
         <div className="container-custom mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 text-center md:text-left">
             <motion.div {...fadeInUp} className="max-w-2xl mb-6 md:mb-0 flex flex-col items-center md:items-start">
@@ -192,7 +192,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Signature Menu Highlights ─────────────────────── */}
-      <section className="section-padding bg-[#F7F3EA] relative" id="highlights">
+      <section className="section-padding bg-[#F7F3EA] relative texture-ivory" id="highlights">
         <div className="container-custom mx-auto relative z-10">
           <motion.div {...fadeInUp} className="text-center mb-12">
             <p className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">From Our Kitchen</p>
@@ -264,7 +264,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Brand Experience Section ──────────────────────── */}
-      <section className="section-padding bg-[#1E1C59] relative overflow-hidden">
+      <section className="section-padding bg-[#1E1C59] relative overflow-hidden texture-indigo">
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -332,7 +332,7 @@ export default function HomePage() {
       </section>
 
       {/* 💼 Catering Preview ================================================= */}
-      <section className="pt-20 pb-8 lg:pt-24 lg:pb-12 bg-white relative overflow-hidden">
+      <section className="pt-20 pb-8 lg:pt-24 lg:pb-12 bg-white relative overflow-hidden texture-white">
         {/* Decorative Background Map / Meander */}
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] pointer-events-none" 
              style={{ backgroundImage: 'repeating-linear-gradient(45deg, #1E1C59 0px, #1E1C59 2px, transparent 2px, transparent 12px)' }}>
@@ -429,7 +429,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Food Gallery Mosaic ────────────────────────────── */}
-      <section className="section-padding bg-white relative">
+      <section className="section-padding bg-white relative texture-white">
         <div className="container-custom mx-auto relative z-10">
           <motion.div {...fadeInUp} className="text-center mb-12">
             <p className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Gallery</p>
@@ -473,7 +473,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Location & Visit ──────────────────────────────── */}
-      <section className="section-padding bg-[#F7F3EA] relative" id="location">
+      <section className="section-padding bg-[#F7F3EA] relative texture-ivory" id="location">
         <div className="container-custom mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Map Area */}

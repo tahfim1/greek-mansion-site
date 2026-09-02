@@ -105,7 +105,7 @@ export default function MenuPageClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-24 pb-12 bg-[#1E1C59]">
+      <section className="relative pt-24 pb-12 bg-[#1E1C59] texture-indigo">
         <div className="absolute inset-0 opacity-15">
           <Image src="/images/food/hero.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>
@@ -136,7 +136,7 @@ export default function MenuPageClient() {
       </section>
 
       {/* PDF Menu Embed */}
-      <section className="bg-[#F7F3EA] py-12 border-b border-[#E8DCCB]">
+      <section className="bg-[#F7F3EA] py-12 border-b border-[#E8DCCB] texture-ivory">
         <div className="container-custom mx-auto px-4 sm:px-6">
           <div className="text-center mb-8">
             <h2 className="text-3xl sm:text-4xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
@@ -191,7 +191,7 @@ export default function MenuPageClient() {
       </div>
 
       {/* Menu Content */}
-      <section className="section-padding bg-[#F7F3EA] !pt-12">
+      <section className="section-padding bg-[#F7F3EA] !pt-12 texture-ivory">
         <div className="container-custom mx-auto">
           <div className="text-center mb-12 animate-slide-down">
             <h2 className="text-3xl sm:text-4xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>

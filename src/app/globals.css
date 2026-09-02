@@ -48,14 +48,53 @@ body {
   font-family: 'Manrope', sans-serif;
 }
 
-body::before {
+/* Greek Texture Pack */
+.texture-ivory {
+  position: relative;
+  z-index: 1;
+}
+.texture-ivory::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
-  background-image: url('/images/textures/greek-pattern.jpg');
+  background-image: url('/images/textures/ivory-meander.jpg');
   background-repeat: repeat;
-  background-size: 300px; /* Adjust size based on generated image */
-  opacity: 0.15; /* Subtle opacity */
+  background-size: 400px;
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.texture-indigo {
+  position: relative;
+  z-index: 1;
+}
+.texture-indigo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/textures/indigo-meander.jpg');
+  background-repeat: repeat;
+  background-size: 400px;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.texture-white {
+  position: relative;
+  z-index: 1;
+}
+.texture-white::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/textures/white-marble.jpg');
+  background-repeat: repeat;
+  background-size: 400px;
+  opacity: 0.4;
   mix-blend-mode: multiply;
   pointer-events: none;
   z-index: -1;
