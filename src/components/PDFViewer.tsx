@@ -132,11 +132,14 @@ export default function PDFViewer({ file }: { file: string }) {
 
           {/* Scrollable Document Canvas */}
           <div className="flex-1 overflow-auto p-4 sm:p-8">
-            <Document 
-              file={file} 
+            <div
               className="flex flex-col gap-8 items-center pb-20 mx-auto transition-all duration-300 ease-out origin-top"
               style={{ width: `${lightboxScale * 100}%`, minWidth: '100%' }}
             >
+              <Document 
+                file={file} 
+                className="w-full flex flex-col gap-8 items-center"
+              >
               {Array.from(new Array(numPages), (el, index) => (
                 <div 
                   key={`lb_page_${index + 1}`} 
@@ -151,7 +154,8 @@ export default function PDFViewer({ file }: { file: string }) {
                   />
                 </div>
               ))}
-            </Document>
+              </Document>
+            </div>
           </div>
         </div>
       )}
