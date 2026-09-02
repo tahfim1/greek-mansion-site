@@ -5,14 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { BUSINESS, NAV_LINKS } from '@/lib/constants';
-import { useCartStore } from '@/store/cartStore';
-import CartSidebar from './CartSidebar';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { getItemCount, toggleSidebar } = useCartStore();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -88,51 +85,19 @@ export default function Header() {
               {BUSINESS.phone}
             </a>
             
-            {/* Cart Button */}
-            <button 
-              onClick={toggleSidebar}
-              className="relative p-2 text-white hover:text-[#B18C56] transition-colors"
-              aria-label="View Cart"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <path d="M16 10a4 4 0 0 1-8 0" />
-              </svg>
-              {mounted && getItemCount() > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[#B18C56] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">
-                  {getItemCount()}
-                </span>
-              )}
-            </button>
+
 
             <Link
               href="/menu"
               className="ml-3 btn-gold !py-2.5 !px-6 !text-sm !rounded-full"
             >
-              Order Online
+              View Menu
             </Link>
           </div>
 
           {/* Mobile Actions */}
           <div className="flex lg:hidden items-center gap-3">
-            {/* Mobile Cart Button */}
-            <button 
-              onClick={toggleSidebar}
-              className="relative p-2 text-white"
-              aria-label="View Cart"
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <path d="M16 10a4 4 0 0 1-8 0" />
-              </svg>
-              {mounted && getItemCount() > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[#B18C56] text-white text-[10px] font-bold w-[18px] h-[18px] rounded-full flex items-center justify-center border-2 border-[#1E1C59]">
-                  {getItemCount()}
-                </span>
-              )}
-            </button>
+
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -183,15 +148,14 @@ export default function Header() {
                 {BUSINESS.phone}
               </a>
               <Link href="/menu" className="btn-gold !w-full !justify-center">
-                Order Online
+                View Menu
               </Link>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Global Cart Sidebar */}
-      <CartSidebar />
+
     </>
   );
 }

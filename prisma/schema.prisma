@@ -57,7 +57,7 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-// Ordering System
+// Ordering System (Legacy/Preserved)
 model Order {
   id            String      @id @default(cuid())
   orderNumber   String      @unique // e.g. GM-1004
@@ -110,4 +110,126 @@ model RestaurantSetting {
   key         String      @id
   value       String
   updatedAt   DateTime    @updatedAt
+}
+
+// CMS Models
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  image       String?
+  displayOrder Int      @default(0)
+  isHidden    Boolean   @default(false)
+  isArchived  Boolean   @default(false)
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Product {
+  id              String    @id @default(cuid())
+  name            String
+  slug            String    @unique
+  shortDescription String?
+  fullDescription String?
+  basePrice       Int       // Price in cents
+  categoryId      String?
+  category        Category? @relation(fields: [categoryId], references: [id])
+  images          ProductImage[]
+  isAvailable     Boolean   @default(true)
+  isSoldOut       Boolean   @default(false)
+  isFeatured      Boolean   @default(false)
+  status          String    @default("DRAFT") // DRAFT, PUBLISHED, ARCHIVED
+  displayOrder    Int       @default(0)
+  menuInfoGroups  String?   // JSON for sides, sizes, combos
+  
+  collections     MenuCollectionProduct[]
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model ProductImage {
+  id          String   @id @default(cuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url         String
+  altText     String?
+  displayOrder Int     @default(0)
+}
+
+model MenuCollection {
+  id          String    @id @default(cuid())
+  name        String    // e.g. "Signature Dishes", "Best Sellers"
+  slug        String    @unique
+  subtitle    String?
+  image       String?
+  layout      String    @default("GRID") // GRID, LIST, CAROUSEL
+  isPublished Boolean   @default(false)
+  isArchived  Boolean   @default(false)
+  showOnHome  Boolean   @default(false)
+  showOnMenu  Boolean   @default(false)
+  startDate   DateTime?
+  endDate     DateTime?
+  
+  products    MenuCollectionProduct[]
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model MenuCollectionProduct {
+  id           String         @id @default(cuid())
+  collectionId String
+  collection   MenuCollection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  productId    String
+  product      Product        @relation(fields: [productId], references: [id], onDelete: Cascade)
+  displayOrder Int            @default(0)
+
+  @@unique([collectionId, productId])
+}
+
+model HomepageSection {
+  id              String   @id @default(cuid())
+  identifier      String   @unique // e.g. "HERO", "SERVICES", "CATERING"
+  heading         String?
+  subheading      String?
+  content         String?
+  primaryImage    String?
+  secondaryImage  String?
+  buttonText      String?
+  buttonLink      String?
+  
+  isHidden        Boolean  @default(false)
+  
+  // For sections that feature specific products manually
+  productSelections HomepageProductSelection[]
+  
+  // Or link to a whole collection
+  collectionId    String?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model HomepageProductSelection {
+  id           String          @id @default(cuid())
+  sectionId    String
+  section      HomepageSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  productId    String
+  displayOrder Int             @default(0)
+}
+
+model MediaAsset {
+  id          String   @id @default(cuid())
+  url         String
+  publicId    String?  @unique // For Cloudinary/S3 deletion
+  altText     String?
+  mimeType    String
+  sizeBytes   Int
+  width       Int?
+  height      Int?
+  
+  createdAt   DateTime @default(now())
 }

@@ -21,13 +21,13 @@ export default function MobileBottomBar() {
 
         {/* Menu */}
         <Link
-          href="/menu"
+          href="/catering"
           className="flex-1 flex flex-col items-center justify-center py-2.5 text-white/80 hover:text-[#B18C56] transition-colors active:bg-white/5"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M4 6h16M4 12h16M4 18h16" />
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
           </svg>
-          <span className="text-[10px] font-semibold mt-0.5">Menu</span>
+          <span className="text-[10px] font-semibold mt-0.5">Catering</span>
         </Link>
 
         {/* Order - Prominent */}
@@ -36,11 +36,9 @@ export default function MobileBottomBar() {
           className="flex-1 flex flex-col items-center justify-center py-2.5 bg-[#B18C56] text-white hover:bg-[#8F7045] transition-colors active:bg-[#8F7045]"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="9" cy="21" r="1" />
-            <circle cx="20" cy="21" r="1" />
-            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" />
+            <path d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-          <span className="text-[10px] font-bold mt-0.5">Order</span>
+          <span className="text-[10px] font-bold mt-0.5">Menu</span>
         </Link>
       </div>
     </div>

@@ -3,8 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MENU_CATEGORIES, formatPrice, Product, ProductVariant } from '@/data/menu';
-import { useCartStore } from '@/store/cartStore';
+import { formatPrice, Product, ProductVariant, Category } from '@/data/menu';
 import dynamic from 'next/dynamic';
 
 const PDFViewer = dynamic(() => import('@/components/PDFViewer'), {
@@ -16,39 +15,23 @@ const PDFViewer = dynamic(() => import('@/components/PDFViewer'), {
   ),
 });
 
-export default function MenuPageClient() {
-  const [activeCategory, setActiveCategory] = useState(MENU_CATEGORIES[0].id);
+interface MenuPageClientProps {
+  initialCategories: Category[];
+}
+
+export default function MenuPageClient({ initialCategories }: MenuPageClientProps) {
+  const [activeCategory, setActiveCategory] = useState(initialCategories[0]?.id || '');
   const [searchQuery, setSearchQuery] = useState('');
   const categoryRefs = useRef<Record<string, HTMLElement | null>>({});
   const navRef = useRef<HTMLDivElement>(null);
 
-  // Cart & Modal State
-  const addItem = useCartStore((state) => state.addItem);
+  // Modal State
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
-  const [quantity, setQuantity] = useState(1);
-  const [specialInstructions, setSpecialInstructions] = useState('');
 
   const openProductModal = (product: Product) => {
     setSelectedProduct(product);
     setSelectedVariant(product.variants && product.variants.length > 0 ? product.variants[0] : null);
-    setQuantity(1);
-    setSpecialInstructions('');
-  };
-
-  const handleAddToCart = () => {
-    if (!selectedProduct) return;
-    
-    addItem({
-      product: selectedProduct as any,
-      variantLabel: selectedVariant ? selectedVariant.label : 'Regular',
-      basePrice: selectedVariant ? selectedVariant.price : selectedProduct.price,
-      quantity,
-      modifiers: [],
-      specialInstructions: specialInstructions.trim(),
-    });
-    
-    setSelectedProduct(null);
   };
 
   // Scroll to category
@@ -76,16 +59,16 @@ export default function MenuPageClient() {
       { rootMargin: '-120px 0px -60% 0px', threshold: 0 }
     );
 
-    MENU_CATEGORIES.forEach((cat) => {
+    initialCategories.forEach((cat) => {
       const el = categoryRefs.current[cat.id];
       if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [initialCategories]);
 
   // Filter out products that have no images
-  const categoriesWithValidProducts = MENU_CATEGORIES.map(cat => ({
+  const categoriesWithValidProducts = initialCategories.map(cat => ({
     ...cat,
     products: cat.products.filter(p => p.image !== '')
   })).filter(cat => cat.products.length > 0);
@@ -195,7 +178,7 @@ export default function MenuPageClient() {
         <div className="container-custom mx-auto">
           <div className="text-center mb-12 animate-slide-down">
             <h2 className="text-3xl sm:text-4xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
-              Online Ordering
+              Explore Our Menu
             </h2>
             <div className="gold-line-center mt-4" />
           </div>
@@ -288,20 +271,16 @@ export default function MenuPageClient() {
                           </p>
                         )}
 
-                        {/* Add to Order button */}
+                        {/* View Details button */}
                         <button
                           onClick={(e) => {
                             e.preventDefault();
                             openProductModal(product);
                           }}
-                          className="w-full py-2.5 rounded-lg bg-[#1E1C59] text-white text-sm font-semibold hover:bg-[#2A2870] transition-colors flex items-center justify-center gap-2"
-                          aria-label={`Add ${product.name} to order`}
+                          className="w-full py-2.5 rounded-lg bg-[#F7F3EA] text-[#1E1C59] border border-[#E8DCCB] text-sm font-semibold hover:bg-[#E8DCCB] transition-colors flex items-center justify-center gap-2"
+                          aria-label={`View details for ${product.name}`}
                         >
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="12" y1="5" x2="12" y2="19" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                          </svg>
-                          Add to Order
+                          View Details
                         </button>
                       </div>
                     </div>
@@ -377,51 +356,6 @@ export default function MenuPageClient() {
                 </div>
               )}
 
-              {/* Special Instructions */}
-              <div className="mb-6">
-                <label className="block text-[#1E1C59] font-bold text-sm uppercase tracking-wider mb-2 border-b border-[#E8DCCB] pb-2">
-                  Special Instructions
-                </label>
-                <textarea 
-                  className="w-full form-input resize-none"
-                  rows={2}
-                  placeholder="e.g. No tomatoes, extra sauce on the side..."
-                  value={specialInstructions}
-                  onChange={(e) => setSpecialInstructions(e.target.value)}
-                />
-              </div>
-
-              {/* Quantity */}
-              <div className="flex items-center justify-between py-2 border-y border-[#E8DCCB]">
-                <span className="text-[#1E1C59] font-bold text-sm uppercase tracking-wider">
-                  Quantity
-                </span>
-                <div className="flex items-center border-2 border-[#E8DCCB] rounded-lg overflow-hidden">
-                  <button 
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-10 h-10 flex items-center justify-center text-[#1E1C59] hover:bg-[#F7F3EA]"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12" /></svg>
-                  </button>
-                  <span className="w-12 text-center font-bold text-[#1E1C59]">{quantity}</span>
-                  <button 
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="w-10 h-10 flex items-center justify-center text-[#1E1C59] hover:bg-[#F7F3EA]"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-4 border-t border-[#E8DCCB] bg-[#F7F3EA] mt-auto">
-              <button
-                onClick={handleAddToCart}
-                className="w-full btn-primary !justify-center py-4 text-base shadow-lg shadow-indigo-900/10 flex justify-between px-6"
-              >
-                <span>Add to Order</span>
-                <span>{formatPrice((selectedVariant?.price || selectedProduct.price) * quantity)}</span>
-              </button>
             </div>
           </div>
         </div>
