@@ -116,7 +116,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Quick Service Choices ──────────────────────────── */}
-      <section className="section-padding !pt-32 lg:!pt-48 relative z-20 -mt-24" id="services">
+      <section className="section-padding !pt-32 lg:!pt-48 relative z-20 -mt-24 overflow-hidden" id="services">
         {/* Fading background at the start of the 2nd section that crossfades over the hero */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-white -z-10 pointer-events-none" />
         <div className="absolute inset-0 texture-white -z-10 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)' }} />
@@ -387,7 +387,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Food Gallery Mosaic ────────────────────────────── */}
-      <section className="section-padding bg-white relative texture-white">
+      <section className="section-padding bg-white relative texture-white overflow-hidden">
         <div className="container-custom mx-auto relative z-10">
           <motion.div variants={fadeInUpSlow} initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-50px" }} className="text-center mb-12">
             <p className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Gallery</p>
@@ -424,7 +424,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Location & Visit ──────────────────────────────── */}
-      <section className="section-padding bg-white relative texture-white" id="location">
+      <section className="section-padding bg-white relative texture-white overflow-hidden" id="location">
         <div className="container-custom mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Map Area */}
