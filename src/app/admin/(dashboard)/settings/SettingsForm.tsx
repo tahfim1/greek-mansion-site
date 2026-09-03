@@ -88,6 +88,78 @@ export default function SettingsForm({ initialConfig }: { initialConfig: Record<
           </div>
         )}
       </div>
+
+      <div className="bg-white rounded-lg shadow-sm border border-[#E8DCCB] p-6 max-w-3xl mt-8">
+        <h2 className="text-xl font-bold text-[#1E1C59] mb-4">Homepage Food Gallery</h2>
+        <p className="text-sm text-[#11102F]/60 mb-6">Manage the image mosaic displayed on the homepage. You can copy image URLs from your Media Library.</p>
+        
+        <div className="space-y-4">
+          {(() => {
+            let gallery: {src: string, alt: string}[] = [];
+            try {
+              if (config['HOMEPAGE_GALLERY']) gallery = JSON.parse(config['HOMEPAGE_GALLERY']);
+            } catch (e) {}
+
+            return (
+              <>
+                {gallery.map((img, idx) => (
+                  <div key={idx} className="flex flex-col sm:flex-row gap-4 items-start sm:items-center bg-[#F7F3EA] p-4 rounded border border-[#E8DCCB]">
+                    {img.src && (
+                      <div className="w-16 h-16 shrink-0 relative rounded overflow-hidden bg-gray-200">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+                      </div>
+                    )}
+                    <div className="flex-1 space-y-2 w-full">
+                      <input 
+                        type="text" 
+                        placeholder="Image URL"
+                        value={img.src} 
+                        onChange={e => {
+                          const newGallery = [...gallery];
+                          newGallery[idx].src = e.target.value;
+                          handleChange('HOMEPAGE_GALLERY', JSON.stringify(newGallery));
+                        }}
+                        className="w-full form-input rounded border border-[#E8DCCB] p-2 text-sm" 
+                      />
+                      <input 
+                        type="text" 
+                        placeholder="Alt Text (e.g. Greek Salad)"
+                        value={img.alt} 
+                        onChange={e => {
+                          const newGallery = [...gallery];
+                          newGallery[idx].alt = e.target.value;
+                          handleChange('HOMEPAGE_GALLERY', JSON.stringify(newGallery));
+                        }}
+                        className="w-full form-input rounded border border-[#E8DCCB] p-2 text-sm" 
+                      />
+                    </div>
+                    <button 
+                      onClick={() => {
+                        const newGallery = gallery.filter((_, i) => i !== idx);
+                        handleChange('HOMEPAGE_GALLERY', JSON.stringify(newGallery));
+                      }}
+                      className="text-red-600 hover:text-red-800 p-2 font-medium text-sm whitespace-nowrap"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+                
+                <button
+                  onClick={() => {
+                    const newGallery = [...gallery, { src: '', alt: '' }];
+                    handleChange('HOMEPAGE_GALLERY', JSON.stringify(newGallery));
+                  }}
+                  className="mt-4 px-4 py-2 border-2 border-dashed border-[#B18C56] text-[#B18C56] font-medium rounded hover:bg-[#F7F3EA] w-full"
+                >
+                  + Add Another Image
+                </button>
+              </>
+            );
+          })()}
+        </div>
+      </div>
     </>
   );
 }

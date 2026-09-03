@@ -71,8 +71,8 @@ export default function Header() {
               >
                 {link.label}
                 <span
-                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-[#B18C56] transition-all duration-300 ${
-                    pathname === link.href ? 'w-6' : 'w-0 group-hover:w-6'
+                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-[#B18C56] transition-opacity duration-300 ${
+                    pathname === link.href ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
                   }`}
                 />
               </Link>

@@ -5,23 +5,37 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { formatPrice, Product, ProductVariant, Category } from '@/data/menu';
 import dynamic from 'next/dynamic';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  heroFadeInUp, 
+  staggerHero, 
+  fadeInUpSlow, 
+  fadeInScale, 
+  staggerContainerSlow 
+} from '@/lib/animations';
+import ProductModal from '@/components/menu/ProductModal';
 
-const PDFViewer = dynamic(() => import('@/components/PDFViewer'), {
-  ssr: false,
-  loading: () => (
-    <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto rounded-2xl h-64 border-4 border-[#1E1C59] bg-white text-[#1E1C59] animate-pulse">
-      Loading print menu...
-    </div>
-  ),
-});
 
 interface MenuPageClientProps {
   initialCategories: Category[];
 }
 
 export default function MenuPageClient({ initialCategories }: MenuPageClientProps) {
+  const [categories, setCategories] = useState(initialCategories);
   const [activeCategory, setActiveCategory] = useState(initialCategories[0]?.id || '');
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Silently fetch fresh CMS data in the background
+  useEffect(() => {
+    fetch('/api/menu')
+      .then(res => res.json())
+      .then(data => {
+        if (data && Array.isArray(data) && data.length > 0) {
+          setCategories(data);
+        }
+      })
+      .catch(err => console.error('Error refreshing menu:', err));
+  }, []);
   const categoryRefs = useRef<Record<string, HTMLElement | null>>({});
   const navRef = useRef<HTMLDivElement>(null);
 
@@ -59,16 +73,16 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
       { rootMargin: '-120px 0px -60% 0px', threshold: 0 }
     );
 
-    initialCategories.forEach((cat) => {
+    categories.forEach((cat) => {
       const el = categoryRefs.current[cat.id];
       if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
-  }, [initialCategories]);
+  }, [categories]);
 
   // Filter out products that have no images
-  const categoriesWithValidProducts = initialCategories.map(cat => ({
+  const categoriesWithValidProducts = categories.map(cat => ({
     ...cat,
     products: cat.products.filter(p => p.image !== '')
   })).filter(cat => cat.products.length > 0);
@@ -88,48 +102,39 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-24 pb-12 bg-[#1E1C59] texture-indigo">
+      <section className="relative pt-24 pb-12 bg-[#1E1C59] texture-indigo overflow-hidden">
         <div className="absolute inset-0 opacity-15">
           <Image src="/images/food/hero.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>
-        <div className="relative z-10 container-custom mx-auto px-4 sm:px-6 text-center py-8">
-          <p className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">
+        <motion.div 
+          className="relative z-10 container-custom mx-auto px-4 sm:px-6 text-center py-8"
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true }}
+          variants={staggerHero}
+        >
+          <motion.p variants={heroFadeInUp} className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">
             Greek Mansion Restaurant
-          </p>
-          <h1 className="text-4xl sm:text-5xl text-white mb-4" style={{ fontFamily: "'Marcellus', serif", color: '#ffffff' }}>
+          </motion.p>
+          <motion.h1 variants={heroFadeInUp} className="text-4xl sm:text-5xl text-white mb-4" style={{ fontFamily: "'Marcellus', serif", color: '#ffffff' }}>
             Our Menu
-          </h1>
-          <p className="text-white/60 max-w-lg mx-auto mb-6 text-sm">
+          </motion.h1>
+          <motion.p variants={heroFadeInUp} className="text-white/60 max-w-lg mx-auto mb-6 text-sm">
             Authentic Greek cuisine made fresh daily. Browse our full menu below or download the PDF.
-          </p>
-          <a
-            href="/Greek-Mansion-Menu.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[#B18C56] hover:text-[#C9A872] transition-colors text-sm font-semibold"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Download Menu PDF
-          </a>
-        </div>
+          </motion.p>
+          <motion.div variants={heroFadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="/Greek-Mansion-Menu.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold !rounded-full !px-8 !py-3 !text-sm shadow-xl shadow-black/20 font-semibold tracking-wide"
+            >
+              See Original Print Menu
+            </a>
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* PDF Menu Embed */}
-      <section className="bg-[#F7F3EA] py-12 border-b border-[#E8DCCB] texture-ivory">
-        <div className="container-custom mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl sm:text-4xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
-              Original Print Menu
-            </h2>
-            <div className="gold-line-center mt-4 mb-8" />
-          </div>
-          <PDFViewer file="/Greek-Mansion-Menu.pdf" />
-        </div>
-      </section>
 
       {/* Search + Category Navigation (Sticky) */}
       <div className="sticky top-[56px] lg:top-[64px] z-30 bg-white/95 backdrop-blur-md border-b border-[#E8DCCB] shadow-sm">
@@ -174,14 +179,20 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
       </div>
 
       {/* Menu Content */}
-      <section className="section-padding bg-[#F7F3EA] !pt-12 texture-ivory">
+      <section className="section-padding bg-[#F7F3EA] !pt-12 texture-ivory overflow-hidden">
         <div className="container-custom mx-auto">
-          <div className="text-center mb-12 animate-slide-down">
+          <motion.div 
+            className="text-center mb-12"
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeInUpSlow}
+          >
             <h2 className="text-3xl sm:text-4xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
               Explore Our Menu
             </h2>
             <div className="gold-line-center mt-4" />
-          </div>
+          </motion.div>
 
           {filteredCategories.length === 0 ? (
             <div className="text-center py-16">
@@ -197,32 +208,37 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
             </div>
           ) : (
             filteredCategories.map((category) => (
-              <section
+              <motion.section
                 key={category.id}
                 id={category.id}
                 ref={(el) => { categoryRefs.current[category.id] = el; }}
                 className="mb-14 scroll-mt-36"
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={staggerContainerSlow}
               >
                 {/* Category header */}
-                <div className="flex items-center gap-4 mb-2">
+                <motion.div variants={fadeInUpSlow} className="flex items-center gap-4 mb-2">
                   <h2 className="text-2xl sm:text-3xl text-[#1E1C59] whitespace-nowrap" style={{ fontFamily: "'Marcellus', serif" }}>
                     {category.name}
                   </h2>
                   <div className="flex-1 h-px bg-[#B18C56]/20" />
-                </div>
+                </motion.div>
                 {category.description && (
-                  <p className="text-[#11102F]/50 text-sm mb-6 max-w-2xl">
+                  <motion.p variants={fadeInUpSlow} className="text-[#11102F]/50 text-sm mb-6 max-w-2xl">
                     {category.description}
-                  </p>
+                  </motion.p>
                 )}
 
                 {/* Products grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                   {category.products.map((product) => (
-                    <div
+                    <motion.div
                       key={product.id}
+                      variants={fadeInScale}
                       onClick={() => openProductModal(product)}
-                      className={`bg-white rounded-xl overflow-hidden border border-[#E8DCCB]/60 card-hover group h-full flex flex-col cursor-pointer ${
+                      className={`bg-white rounded-xl overflow-hidden border border-[#E8DCCB]/60 card-hover group h-full flex flex-col cursor-pointer shadow-sm hover:shadow-xl transition-all ${
                         product.status === 'sold_out' ? 'opacity-70 grayscale-[0.3]' : ''
                       }`}
                       role="button"
@@ -302,126 +318,16 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
                           {product.status === 'sold_out' ? 'Sold Out' : 'View Details'}
                         </button>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
-              </section>
+              </motion.section>
             ))
           )}
         </div>
       </section>
 
-      {/* Premium Product Detail Modal */}
-      {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-[#11102F]/80 backdrop-blur-md animate-fade-in">
-          {/* Backdrop click to close */}
-          <div className="absolute inset-0" onClick={() => setSelectedProduct(null)} />
-          
-          <div className="relative bg-[#F7F3EA] rounded-2xl shadow-2xl w-full max-w-5xl overflow-hidden animate-slide-up flex flex-col lg:flex-row max-h-[95vh] texture-ivory border border-[#E8DCCB]">
-            {/* Close button */}
-            <button 
-              onClick={() => setSelectedProduct(null)}
-              className="absolute top-4 right-4 z-20 w-12 h-12 bg-white/50 hover:bg-white text-[#1E1C59] rounded-full flex items-center justify-center transition-colors backdrop-blur-md shadow-lg border border-[#E8DCCB]"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
-            </button>
-
-            {/* Left/Top: Image Column */}
-            <div className={`relative w-full lg:w-1/2 ${selectedProduct.image ? 'h-64 sm:h-80 lg:h-auto' : 'hidden lg:block bg-[#1E1C59]'} shrink-0`}>
-              {selectedProduct.image ? (
-                <Image 
-                  src={selectedProduct.image} 
-                  alt={selectedProduct.name} 
-                  fill 
-                  className={`object-cover ${selectedProduct.status === 'sold_out' ? 'grayscale-[0.3]' : ''}`} 
-                  sizes="(max-width: 1024px) 100vw, 50vw" 
-                  priority
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1E1C59]/10 to-[#E8DCCB]/50 texture-indigo">
-                  <span className="text-[#B18C56]/20 text-8xl font-bold" style={{ fontFamily: "'Marcellus', serif" }}>GM</span>
-                </div>
-              )}
-              
-              {/* Badges on Image */}
-              <div className="absolute top-6 left-6 flex flex-col gap-3 z-10">
-                {selectedProduct.status === 'sold_out' ? (
-                  <span className="bg-red-600 text-white text-sm font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-widest border border-red-500">
-                    Sold Out
-                  </span>
-                ) : (
-                  <span className="bg-[#1E1C59]/90 backdrop-blur-md text-white text-sm font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-widest border border-white/20">
-                    In Stock
-                  </span>
-                )}
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:hidden" />
-            </div>
-
-            {/* Right/Bottom: Content Column */}
-            <div className="w-full lg:w-1/2 p-8 lg:p-12 overflow-y-auto flex flex-col">
-              <div className="mb-8">
-                <h2 className="text-4xl lg:text-5xl font-bold text-[#1E1C59] mb-4 leading-tight" style={{ fontFamily: "'Marcellus', serif" }}>
-                  {selectedProduct.name}
-                </h2>
-                
-                {/* Price Display */}
-                {selectedProduct.variants && selectedProduct.variants.length === 0 && (
-                  <p className="text-3xl text-[#B18C56] font-bold" style={{ fontFamily: "'Marcellus', serif" }}>
-                    {formatPrice(selectedProduct.price)}
-                  </p>
-                )}
-                <div className="gold-line-left mt-6 mb-6" />
-                
-                {/* Description */}
-                <div className="prose prose-lg text-[#11102F]/80">
-                  <p className="leading-relaxed">
-                    {selectedProduct.description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Variants Selection */}
-              {selectedProduct.variants && selectedProduct.variants.length > 0 && (
-                <div className="mb-10 mt-auto">
-                  <label className="block text-[#1E1C59] font-bold text-sm uppercase tracking-widest mb-4">
-                    Available Options
-                  </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {selectedProduct.variants.map((v) => (
-                      <button
-                        key={v.label}
-                        onClick={() => setSelectedVariant(v)}
-                        className={`p-4 rounded-xl border-2 text-left transition-all flex flex-col items-start ${
-                          selectedVariant?.label === v.label 
-                            ? 'border-[#B18C56] bg-white shadow-md text-[#1E1C59]' 
-                            : 'border-[#E8DCCB] bg-white/50 text-[#11102F]/70 hover:border-[#B18C56]/50 hover:bg-white'
-                        }`}
-                      >
-                        <span className="font-bold text-lg mb-1" style={{ fontFamily: "'Marcellus', serif" }}>{v.label}</span>
-                        <span className="text-[#B18C56] font-bold">{formatPrice(v.price)}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-              
-              {/* Action Area */}
-              <div className="mt-auto pt-8 border-t border-[#E8DCCB]">
-                 {selectedProduct.status === 'sold_out' ? (
-                   <div className="w-full py-4 text-center rounded-xl bg-gray-200 text-gray-500 font-bold uppercase tracking-widest border border-gray-300">
-                     Currently Unavailable
-                   </div>
-                 ) : (
-                   <div className="w-full py-4 text-center rounded-xl bg-[#1E1C59] text-white font-bold tracking-widest border border-[#1E1C59] shadow-lg">
-                     Available In-Store
-                   </div>
-                 )}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
     </>
   );
 }

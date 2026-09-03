@@ -4,6 +4,7 @@ import { BUSINESS } from "@/lib/constants";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBottomBar from "@/components/MobileBottomBar";
+import SplashScreen from "@/components/SplashScreen";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -98,6 +99,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${manrope.variable} ${marcellus.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <head>
         <script
@@ -105,7 +107,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]" style={{ fontFamily: "'Manrope', sans-serif" }}>
+      <body suppressHydrationWarning className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]" style={{ fontFamily: "'Manrope', sans-serif" }}>
+        <SplashScreen />
         <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
         <main id="main-content" className="flex-1">
