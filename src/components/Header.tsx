@@ -125,10 +125,10 @@ export default function Header() {
         {/* Mobile Menu Drawer */}
         <div
           className={`lg:hidden absolute top-full left-0 w-full bg-[#1E1C59] border-t border-white/10 shadow-xl overflow-hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+            isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className="px-4 py-4 flex flex-col gap-4">
+          <div className="px-4 pt-4 pb-8 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
