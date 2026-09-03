@@ -70,7 +70,7 @@ export default function HomePage() {
             sizes="100vw"
           />
           {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1E1C59]/80 via-[#1E1C59]/60 to-[#1E1C59]/90" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(30,28,89,0.8), rgba(30,28,89,0.6), rgba(30,28,89,0.9))' }} />
         </div>
 
         {/* Content */}
@@ -518,7 +518,7 @@ export default function HomePage() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[#1E1C59]/85" />
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(30,28,89,0.85)' }} />
         </div>
         <motion.div 
           className="relative z-10 container-custom mx-auto px-4 sm:px-6 text-center"

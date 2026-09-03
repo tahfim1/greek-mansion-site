@@ -57,6 +57,20 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
     offset: ["start start", "end end"]
   });
 
+  // Nudge animation to hint scrollability on mobile
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const activeGrid = document.getElementById(`grid-scroll-0`);
+      if (activeGrid && window.innerWidth < 1024 && activeGrid.scrollLeft === 0) {
+        activeGrid.scrollBy({ left: 80, behavior: 'smooth' });
+        setTimeout(() => {
+          activeGrid.scrollBy({ left: -80, behavior: 'smooth' });
+        }, 600);
+      }
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     return scrollYProgress.onChange((latest) => {
       // Use Math.round to distribute the active slide evenly across the scroll progress
@@ -114,18 +128,18 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                   )}
                 </div>
 
-                {/* Mobile Swipe Hint */}
-                <div className="lg:hidden flex items-center justify-end w-full max-w-6xl mx-auto px-6 mb-2 text-[#B18C56] text-xs font-semibold uppercase tracking-widest gap-2 opacity-80 shrink-0">
-                  Swipe <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                </div>
+
 
                 {/* Products Grid (Scrollable Inner Wheel) */}
-                <div className="flex-1 w-full max-w-6xl mx-auto overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden px-4 sm:px-6 lg:px-2 pb-6 min-h-0 relative hide-scrollbar lg:custom-scrollbar snap-x snap-mandatory lg:snap-none">
-                  <div className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 w-full h-full lg:h-auto">
+                <div 
+                  id={`grid-scroll-${index}`}
+                  className="flex-1 w-full max-w-6xl mx-auto overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden px-4 sm:px-6 lg:px-2 pb-2 min-h-0 relative hide-scrollbar lg:custom-scrollbar snap-x snap-mandatory lg:snap-none"
+                >
+                  <div className="flex lg:grid lg:grid-cols-3 gap-4 lg:gap-8 w-full h-full lg:h-auto">
                       {category.products.map(product => (
                         <div 
                           key={product.id} 
-                          className="group cursor-pointer shrink-0 w-[85vw] sm:w-[320px] lg:w-auto h-full snap-center"
+                          className="group cursor-pointer shrink-0 w-[78vw] sm:w-[320px] lg:w-auto h-full snap-center"
                           onClick={() => setSelectedProduct(product)}
                         >
                           <div className="bg-white rounded-2xl overflow-hidden card-hover border border-[#E8DCCB]/40 shadow-sm hover:shadow-xl transition-all h-full flex flex-col">
@@ -178,6 +192,13 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                         </div>
                       ))}
                   </div>
+                </div>
+
+                {/* Mobile Pagination Dots */}
+                <div className="lg:hidden flex justify-center gap-2 mt-4 shrink-0">
+                  {category.products.map((_, i) => (
+                    <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-[#B18C56]' : 'bg-[#1E1C59]/20'}`} />
+                  ))}
                 </div>
                 
                 {/* View Menu Button */}
