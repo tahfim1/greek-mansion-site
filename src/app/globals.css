@@ -10,7 +10,7 @@
   --color-mansion-indigo: #1E1C59;
   --color-mansion-gold: #B18C56;
   --color-mansion-white: #FFFFFF;
-  --color-mansion-ivory: #F7F3EA;
+  --color-mansion-ivory: #FFFFFF;
   --color-mansion-sand: #E8DCCB;
   --color-mansion-ink: #11102F;
   --color-mansion-olive: #73704A;
@@ -22,7 +22,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #F7F3EA;
+  --background: #FFFFFF;
   --foreground: #11102F;
 }
 

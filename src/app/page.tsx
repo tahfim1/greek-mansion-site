@@ -327,7 +327,7 @@ export default function HomePage() {
                   { icon: <Landmark color="#B18C56" size={24} />, title: 'Community Events' },
                   { icon: <Users color="#B18C56" size={24} />, title: 'Team Gatherings' }
                 ].map((item) => (
-                  <div key={item.title} className="flex items-center gap-4 bg-[#F7F3EA] p-4 rounded-2xl border border-[#E8DCCB] hover:border-[#B18C56]/50 hover:bg-[#E8DCCB] transition-all card-hover">
+                  <div key={item.title} className="flex items-center gap-4 bg-white p-4 rounded-2xl border border-[#E8DCCB] hover:border-[#B18C56]/50 hover:bg-[#E8DCCB] transition-all card-hover">
                     <div className="w-12 h-12 rounded-full bg-[#1E1C59]/5 flex items-center justify-center shrink-0">
                       {item.icon}
                     </div>
@@ -424,7 +424,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Location & Visit ──────────────────────────────── */}
-      <section className="section-padding bg-[#F7F3EA] relative texture-ivory" id="location">
+      <section className="section-padding bg-white relative texture-white" id="location">
         <div className="container-custom mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Map Area */}

@@ -72,99 +72,13 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
 
   return (
     <>
-      {/* Mobile Layout - Simple Stacked List */}
-      <div className="w-full bg-[#F7F3EA] texture-ivory lg:hidden flex flex-col gap-12 py-16">
-        {categories.map((category) => (
-          <div key={category.id} className="container-custom mx-auto px-4">
-            {/* Category Title Area */}
-            <div className="text-center mb-6">
-              <p className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">From Our Kitchen</p>
-              <h2 className="text-4xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
-                {category.name}
-              </h2>
-              <div className="gold-line-center mt-4" />
-              {category.description && (
-                <p className="text-[#11102F]/60 max-w-2xl mx-auto mt-4 line-clamp-2">
-                  {category.description}
-                </p>
-              )}
-            </div>
-
-            {/* Products Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-              {category.products.map(product => (
-                <div 
-                  key={product.id} 
-                  className="group cursor-pointer h-full"
-                  onClick={() => setSelectedProduct(product)}
-                >
-                  <div className="bg-[#F7F3EA] rounded-2xl overflow-hidden card-hover border border-[#E8DCCB]/40 shadow-sm transition-all h-full flex flex-col">
-                    {product.image ? (
-                      <div className="relative aspect-[4/3] w-full bg-[#1E1C59]/5 shrink-0">
-                        <Image
-                          src={product.image}
-                          alt={product.name}
-                          fill
-                          className={`object-cover ${product.status === 'sold_out' ? 'grayscale-[0.3]' : ''}`}
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                        />
-                        {product.status === 'sold_out' && (
-                          <div className="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-widest">
-                            Sold Out
-                          </div>
-                        )}
-                      </div>
-                    ) : (
-                      <div className="aspect-[4/3] w-full bg-[#E8DCCB] flex items-center justify-center shrink-0">
-                        <span className="text-[#B18C56]/50 text-4xl" style={{ fontFamily: "'Marcellus', serif" }}>GM</span>
-                      </div>
-                    )}
-                    <div className="p-5 flex-1 flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-lg text-[#1E1C59] mb-1" style={{ fontFamily: "'Marcellus', serif" }}>
-                          {product.name}
-                        </h3>
-                        <p className="text-[#11102F]/50 text-sm mb-3 line-clamp-2">
-                          {product.description}
-                        </p>
-                      </div>
-                      <div className="flex items-center justify-between mt-auto">
-                        <span className="text-[#1E1C59] font-bold">
-                          {product.variants && product.variants.length > 0 
-                            ? `From ${formatPrice(Math.min(...product.variants.map(v => v.price)))}`
-                            : formatPrice(product.price)
-                          }
-                        </span>
-                        <span className="text-[#B18C56] text-sm font-semibold group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                          View 
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* View Menu Button (Only after the last category on mobile) */}
-            {category.id === categories[categories.length - 1].id && (
-              <div className="mt-8 flex justify-center shrink-0 w-full">
-                <a href="/menu" className="btn-primary">
-                  View Full Menu
-                </a>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* Desktop Layout - Scroll-jacked container */}
+      {/* Desktop & Mobile Layout - Scroll-jacked container */}
       <div 
         ref={containerRef} 
         style={{ height: `calc(100vh + ${(totalSlides - 1) * 60}vh)` }}
-        className="relative w-full bg-[#F7F3EA] hidden lg:block"
+        className="relative w-full bg-white"
       >
-        <div className="!sticky top-0 h-screen w-full overflow-hidden bg-[#F7F3EA] texture-ivory">  
+        <div className="!sticky top-0 h-screen w-full overflow-hidden bg-white texture-white">  
           {/* Progress Indicators */}
           <div className="absolute right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
             {categories.map((_, idx) => (
@@ -181,7 +95,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
           {categories.map((category, index) => (
             <div 
               key={category.id}
-              className={`!absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-[#F7F3EA] texture-ivory transition-opacity duration-700 ease-in-out ${
+              className={`!absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-white texture-white transition-opacity duration-700 ease-in-out ${
                 index === activeIndex ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
               }`}
             >
@@ -209,7 +123,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                           className="group cursor-pointer"
                           onClick={() => setSelectedProduct(product)}
                         >
-                          <div className="bg-[#F7F3EA] rounded-2xl overflow-hidden card-hover border border-[#E8DCCB]/40 shadow-sm hover:shadow-xl transition-all h-full flex flex-col">
+                          <div className="bg-white rounded-2xl overflow-hidden card-hover border border-[#E8DCCB]/40 shadow-sm hover:shadow-xl transition-all h-full flex flex-col">
                             {product.image ? (
                               <div className="relative aspect-[4/3] w-full img-zoom bg-[#1E1C59]/5 shrink-0">
                                 <Image
