@@ -75,10 +75,10 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
       {/* Desktop & Mobile Layout - Scroll-jacked container */}
       <div 
         ref={containerRef} 
-        style={{ height: `calc(100vh + ${(totalSlides - 1) * 60}vh)` }}
+        style={{ height: `calc(100dvh + ${(totalSlides - 1) * 60}vh)` }}
         className="relative w-full bg-white"
       >
-        <div className="!sticky top-0 h-screen w-full overflow-hidden bg-white texture-white">  
+        <div className="!sticky top-0 h-[100dvh] w-full overflow-hidden bg-white texture-white">  
           {/* Progress Indicators */}
           <div className="absolute right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
             {categories.map((_, idx) => (
@@ -99,9 +99,9 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                 index === activeIndex ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
               }`}
             >
-              <div className="container-custom mx-auto relative px-4 h-full pt-32 pb-12 flex flex-col min-h-0">
+              <div className="container-custom mx-auto relative px-4 h-full pt-24 pb-24 lg:pt-32 lg:pb-12 flex flex-col min-h-0">
                 {/* Category Title Area */}
-                <div className="text-center mb-8 shrink-0">
+                <div className="text-center mb-6 lg:mb-8 shrink-0">
                   <p className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">From Our Kitchen</p>
                   <h2 className="text-5xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
                     {category.name}
@@ -112,6 +112,11 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                       {category.description}
                     </p>
                   )}
+                </div>
+
+                {/* Mobile Swipe Hint */}
+                <div className="lg:hidden flex items-center justify-end w-full max-w-6xl mx-auto px-6 mb-2 text-[#B18C56] text-xs font-semibold uppercase tracking-widest gap-2 opacity-80 shrink-0">
+                  Swipe <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                 </div>
 
                 {/* Products Grid (Scrollable Inner Wheel) */}
@@ -144,7 +149,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                                 <span className="text-[#B18C56]/50 text-4xl" style={{ fontFamily: "'Marcellus', serif" }}>GM</span>
                               </div>
                             )}
-                            <div className="p-5 flex-1 flex flex-col justify-between">
+                            <div className="p-4 lg:p-5 flex-1 flex flex-col justify-between">
                               <div>
                                 <p className="text-[#B18C56] text-xs font-semibold tracking-wider uppercase mb-1">
                                   {category.name}
