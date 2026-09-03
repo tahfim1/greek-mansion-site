@@ -19,6 +19,8 @@
   --color-mansion-gold-dark: #8F7045;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #F7F3EA;
   --foreground: #11102F;
