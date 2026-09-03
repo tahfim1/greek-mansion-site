@@ -108,7 +108,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] w-full overflow-x-hidden" style={{ fontFamily: "'Manrope', sans-serif" }}>
+      <body suppressHydrationWarning className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] w-full" style={{ fontFamily: "'Manrope', sans-serif", overflowX: 'clip' }}>
         <SplashScreen />
         <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
