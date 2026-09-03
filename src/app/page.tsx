@@ -31,7 +31,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/food/hero-hq.jpg"
+            src="/images/food/home-hero.jpg"
             alt="Greek Mansion Restaurant — Authentic Greek cuisine spread with gyro, souvlaki, salads, and pita"
             fill
             priority
