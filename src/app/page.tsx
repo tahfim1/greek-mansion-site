@@ -59,7 +59,7 @@ export default function HomePage() {
           </motion.p>
           
           {/* Main Heading */}
-          <motion.h1 variants={fadeInUp} className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-tight mb-6" style={{ fontFamily: "'Marcellus', serif", color: '#ffffff' }}>
+          <motion.h1 variants={fadeInUp} className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-tight mb-6" style={{ fontFamily: "'VeganStyle', cursive", color: '#ffffff' }}>
             Discover Our Flavours
           </motion.h1>
 
@@ -72,9 +72,6 @@ export default function HomePage() {
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <Link href="/menu" className="btn-gold !rounded-full !px-8 !py-3.5 !text-base">
               View Our Menu
-            </Link>
-            <Link href="/menu" className="btn-outline-white !rounded-full !px-8 !py-3.5 !text-base">
-              Order Online
             </Link>
           </motion.div>
 
@@ -125,8 +122,8 @@ export default function HomePage() {
               {
                 image: '/images/food/gyro-wrap.jpg',
                 title: 'Takeout',
-                desc: 'Order ahead and pick up your favourites — hot and ready.',
-                cta: { label: 'Order Online', href: '/menu', external: false },
+                desc: 'Pick up your favourites — hot and ready.',
+                cta: { label: 'View Menu', href: '/menu', external: false },
               },
               {
                 image: '/images/food/family-meal.jpg',
@@ -587,14 +584,11 @@ export default function HomePage() {
             Ready for a Taste of Greece?
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-white/70 max-w-lg mx-auto mb-8">
-            Explore our full menu, order online for pickup, or plan your next event with our catering packages.
+            Explore our full menu, or plan your next event with our catering packages.
           </motion.p>
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/menu" className="btn-gold !rounded-full !px-8 !py-3.5">
               View Menu
-            </Link>
-            <Link href="/menu" className="btn-outline-white !rounded-full !px-8 !py-3.5">
-              Order Online
             </Link>
             <Link href="/catering" className="btn-outline-white !rounded-full !px-8 !py-3.5">
               Plan Catering

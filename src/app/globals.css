@@ -432,3 +432,10 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-mansion-indigo);
   margin-bottom: 6px;
 }
+
+@font-face {
+  font-family: 'VeganStyle';
+  src: url('/fonts/VeganStylePersonalUse-5Y58.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

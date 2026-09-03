@@ -61,12 +61,7 @@ export default function Footer() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/menu"
-                className="text-[#B18C56] hover:text-[#C9A872] text-sm font-semibold transition-colors"
-              >
-                Order Online →
-              </Link>
+
             </nav>
           </div>
 
