@@ -122,7 +122,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                   </h2>
                   <div className="gold-line-center mt-4" />
                   {category.description && (
-                    <p className="text-[#11102F]/60 max-w-2xl mx-auto mt-4 line-clamp-2">
+                    <p className="text-[#11102F]/60 max-w-2xl mx-auto mt-4 lg:line-clamp-2">
                       {category.description}
                     </p>
                   )}
@@ -171,7 +171,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                                 <h3 className="text-lg text-[#1E1C59] mb-1" style={{ fontFamily: "'Marcellus', serif" }}>
                                   {product.name}
                                 </h3>
-                                <p className="text-[#11102F]/50 text-sm mb-3 line-clamp-2">
+                                <p className="text-[#11102F]/50 text-sm mb-3 lg:line-clamp-2">
                                   {product.description}
                                 </p>
                               </div>
