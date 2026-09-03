@@ -115,12 +115,12 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                 </div>
 
                 {/* Products Grid (Scrollable Inner Wheel) */}
-                <div className="flex-1 w-full max-w-6xl mx-auto overflow-y-auto custom-scrollbar px-2 pb-6 min-h-0 relative">
-                  <div className="grid grid-cols-3 gap-8 w-full">
+                <div className="flex-1 w-full max-w-6xl mx-auto overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden px-4 sm:px-6 lg:px-2 pb-6 min-h-0 relative hide-scrollbar lg:custom-scrollbar snap-x snap-mandatory lg:snap-none">
+                  <div className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 w-full h-full lg:h-auto">
                       {category.products.map(product => (
                         <div 
                           key={product.id} 
-                          className="group cursor-pointer"
+                          className="group cursor-pointer shrink-0 w-[85vw] sm:w-[320px] lg:w-auto h-full snap-center"
                           onClick={() => setSelectedProduct(product)}
                         >
                           <div className="bg-white rounded-2xl overflow-hidden card-hover border border-[#E8DCCB]/40 shadow-sm hover:shadow-xl transition-all h-full flex flex-col">
@@ -131,7 +131,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                                   alt={product.name}
                                   fill
                                   className={`object-cover ${product.status === 'sold_out' ? 'grayscale-[0.3]' : ''}`}
-                                  sizes="33vw"
+                                  sizes="(max-width: 1024px) 85vw, 33vw"
                                 />
                                 {product.status === 'sold_out' && (
                                   <div className="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-widest">
