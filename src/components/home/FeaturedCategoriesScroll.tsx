@@ -122,7 +122,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                   </h2>
                   <div className="gold-line-center mt-4" />
                   {category.description && (
-                    <p className="text-[#11102F]/60 max-w-2xl mx-auto mt-4 lg:line-clamp-2">
+                    <p className="text-[#11102F]/60 max-w-2xl mx-auto mt-4 line-clamp-2">
                       {category.description}
                     </p>
                   )}
@@ -135,16 +135,16 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                   id={`grid-scroll-${index}`}
                   className="flex-1 w-full max-w-6xl mx-auto overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden px-4 sm:px-6 lg:px-2 pb-2 min-h-0 relative hide-scrollbar lg:custom-scrollbar snap-x snap-mandatory lg:snap-none"
                 >
-                  <div className="flex lg:grid lg:grid-cols-3 gap-4 lg:gap-8 w-full h-full lg:h-auto">
+                  <div className="flex lg:grid lg:grid-cols-3 gap-4 lg:gap-8 w-full lg:h-auto">
                       {category.products.map(product => (
                         <div 
                           key={product.id} 
-                          className="group cursor-pointer shrink-0 w-[78vw] sm:w-[320px] lg:w-auto h-full snap-center"
+                          className="group cursor-pointer shrink-0 w-[78vw] sm:w-[320px] lg:w-auto snap-center"
                           onClick={() => setSelectedProduct(product)}
                         >
-                          <div className="bg-white rounded-2xl overflow-hidden card-hover border border-[#E8DCCB]/40 shadow-sm hover:shadow-xl transition-all h-full flex flex-col">
+                          <div className="bg-white rounded-2xl overflow-hidden card-hover border border-[#E8DCCB]/40 shadow-sm hover:shadow-xl transition-all flex flex-col">
                             {product.image ? (
-                              <div className="relative aspect-[4/3] w-full img-zoom bg-[#1E1C59]/5 shrink-0">
+                              <div className="relative aspect-[3/2] lg:aspect-[4/3] w-full img-zoom bg-[#1E1C59]/5 shrink-0">
                                 <Image
                                   src={product.image}
                                   alt={product.name}
@@ -171,7 +171,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                                 <h3 className="text-lg text-[#1E1C59] mb-1" style={{ fontFamily: "'Marcellus', serif" }}>
                                   {product.name}
                                 </h3>
-                                <p className="text-[#11102F]/50 text-sm mb-3 lg:line-clamp-2">
+                                <p className="text-[#11102F]/50 text-sm mb-3 line-clamp-2">
                                   {product.description}
                                 </p>
                               </div>
