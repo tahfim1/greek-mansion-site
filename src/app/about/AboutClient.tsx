@@ -59,7 +59,7 @@ export default function AboutClient() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 w-full h-full rounded-t-[100px] rounded-b-2xl border-2 border-[#B18C56]/20 -z-10" />
+              <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 w-full h-full rounded-t-[100px] rounded-b-2xl border-2 border-[#B18C56]/20 -z-10" />
             </motion.div>
 
             <motion.div
@@ -82,15 +82,15 @@ export default function AboutClient() {
                 Whether you&apos;re dining in, picking up a quick lunch box, or feeding a crowd, Greek Mansion is here to make every meal memorable.
               </motion.p>
 
-              <motion.div variants={slideInRightSlow} className="grid grid-cols-3 gap-4">
+              <motion.div variants={slideInRightSlow} className="grid grid-cols-3 gap-2.5 sm:gap-4">
                 {[
                   { label: 'Dine-In', icon: '🍽️' },
                   { label: 'Takeout', icon: '📦' },
                   { label: 'Catering', icon: '👨‍👩‍👧‍👦' },
                 ].map((s) => (
-                  <div key={s.label} className="text-center bg-white rounded-xl p-4 border border-[#E8DCCB]/60 shadow-sm transition-transform hover:-translate-y-1">
-                    <span className="text-2xl mb-2 block">{s.icon}</span>
-                    <span className="text-[#1E1C59] font-bold text-sm">{s.label}</span>
+                  <div key={s.label} className="text-center bg-white rounded-xl p-2.5 sm:p-4 border border-[#E8DCCB]/60 shadow-sm transition-transform hover:-translate-y-1">
+                    <span className="text-xl sm:text-2xl mb-1 sm:mb-2 block">{s.icon}</span>
+                    <span className="text-[#1E1C59] font-bold text-xs sm:text-sm">{s.label}</span>
                   </div>
                 ))}
               </motion.div>

@@ -118,30 +118,30 @@ export default function Header() {
 
         {/* Mobile Menu Drawer */}
         <div
-          className={`lg:hidden absolute top-full left-0 w-full bg-[#1E1C59]/98 backdrop-blur-xl border-t border-white/10 shadow-2xl overflow-hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+          className={`lg:hidden absolute top-full left-0 w-full bg-[#1E1C59]/98 backdrop-blur-xl border-t border-white/10 shadow-2xl transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'max-h-[calc(100dvh-4.5rem)] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0 overflow-hidden pointer-events-none'
           }`}
         >
-          <div className="px-6 pt-5 pb-8 flex flex-col gap-3">
+          <div className="px-5 sm:px-6 pt-4 pb-8 flex flex-col gap-2.5">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-xl font-bold py-3.5 border-b border-white/10 tracking-wide transition-colors ${
+                className={`text-lg sm:text-xl font-bold py-3 border-b border-white/10 tracking-wide transition-colors ${
                   pathname === link.href ? 'text-[#B18C56]' : 'text-white hover:text-[#B18C56]'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-4 pb-2 flex flex-col gap-4">
-              <a href={BUSINESS.phoneTel} className="text-white font-bold text-lg flex items-center gap-3 py-1 hover:text-[#B18C56] transition-colors">
+            <div className="pt-3 pb-2 flex flex-col gap-3.5">
+              <a href={BUSINESS.phoneTel} className="text-white font-bold text-base sm:text-lg flex items-center gap-3 py-1 hover:text-[#B18C56] transition-colors">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B18C56" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                 </svg>
                 <span>{BUSINESS.phone}</span>
               </a>
-              <Link href="/menu" className="btn-gold !w-full !justify-center !py-4 !text-lg !font-bold !rounded-full shadow-lg">
+              <Link href="/menu" className="btn-gold !w-full !justify-center !py-3.5 !text-base sm:!text-lg !font-bold !rounded-full shadow-lg">
                 View Menu
               </Link>
             </div>

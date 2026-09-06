@@ -75,30 +75,30 @@ export default function HomePage() {
 
         {/* Content */}
         <motion.div 
-          className="relative z-30 container-custom mx-auto px-4 sm:px-6 text-center py-32 lg:py-40"
+          className="relative z-30 container-custom mx-auto px-4 sm:px-6 text-center pt-28 pb-16 sm:py-36 lg:py-40"
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true }}
           variants={staggerHero}
         >
           {/* Eyebrow */}
-          <motion.p variants={heroFadeInUp} className="text-[#B18C56] text-base sm:text-lg lg:text-xl font-bold tracking-[0.25em] uppercase mb-6">
+          <motion.p variants={heroFadeInUp} className="text-[#B18C56] text-sm sm:text-lg lg:text-xl font-bold tracking-[0.25em] uppercase mb-4 sm:mb-6">
             {BUSINESS.tagline}
           </motion.p>
           
           {/* Main Heading */}
-          <motion.h1 variants={heroFadeInUp} className="text-white text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-normal leading-tight mb-8" style={{ fontFamily: "'BlessedDay', cursive", color: '#ffffff', textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
+          <motion.h1 variants={heroFadeInUp} className="text-white text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-normal leading-tight mb-6 sm:mb-8" style={{ fontFamily: "'BlessedDay', cursive", color: '#ffffff', textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
             Discover Our Flavours
           </motion.h1>
 
           {/* Supporting line */}
-          <motion.p variants={heroFadeInUp} className="text-white/90 text-lg sm:text-xl lg:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+          <motion.p variants={heroFadeInUp} className="text-white/90 text-base sm:text-xl lg:text-2xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed font-light">
             Fresh Greek favourites for dine-in, takeout, and catering at {BUSINESS.address.shortLocation}.
           </motion.p>
 
           {/* CTAs */}
-          <motion.div variants={heroFadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
-            <Link href="/menu" className="btn-gold !rounded-full !px-10 !py-4 !text-lg shadow-xl shadow-black/20 font-semibold tracking-wide">
+          <motion.div variants={heroFadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8">
+            <Link href="/menu" className="btn-gold !rounded-full !px-8 sm:!px-10 !py-3.5 sm:!py-4 !text-base sm:!text-lg shadow-xl shadow-black/20 font-semibold tracking-wide w-full sm:w-auto justify-center">
               View Our Menu
             </Link>
           </motion.div>
@@ -107,16 +107,16 @@ export default function HomePage() {
           <motion.a
             variants={heroFadeInUp}
             href={BUSINESS.phoneTel}
-            className="inline-flex items-center gap-2.5 text-white/80 hover:text-[#B18C56] transition-colors text-base sm:text-lg font-medium"
+            className="inline-flex items-center gap-2.5 text-white/80 hover:text-[#B18C56] transition-colors text-sm sm:text-base font-medium"
           >
-            <Phone size={20} />
+            <Phone size={18} />
             Call {BUSINESS.phone}
           </motion.a>
         </motion.div>
       </section>
 
       {/* ── Quick Service Choices ──────────────────────────── */}
-      <section className="section-padding !pt-32 lg:!pt-48 relative z-20 -mt-24 overflow-hidden" id="services">
+      <section className="section-padding !pt-16 sm:!pt-28 lg:!pt-48 relative z-20 mt-0 lg:-mt-24 overflow-hidden" id="services">
         {/* Fading background at the start of the 2nd section that crossfades over the hero */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-white -z-10 pointer-events-none" />
         <div className="absolute inset-0 texture-white -z-10 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)' }} />
@@ -254,7 +254,7 @@ export default function HomePage() {
                 />
               </div>
               {/* Gold border accent */}
-              <div className="absolute -bottom-3 -right-3 w-full h-full rounded-t-[100px] rounded-b-2xl border-2 border-[#B18C56]/30 -z-10" />
+              <div className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-full h-full rounded-t-[100px] rounded-b-2xl border-2 border-[#B18C56]/30 -z-10" />
             </motion.div>
 
             {/* Text */}
@@ -348,12 +348,12 @@ export default function HomePage() {
 
             {/* Image (Right) - Breakout Design */}
             <motion.div 
-              className="lg:w-[45%] w-full relative z-10 lg:-mr-24 lg:-my-8"
+              className="lg:w-[45%] w-full relative z-10 lg:-mr-16 xl:-mr-24 lg:-my-8 mt-4 lg:mt-0"
               variants={fadeInScale}
               initial="initial"
               whileInView="whileInView"
             >
-              <div className="relative aspect-square lg:aspect-[4/5] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl border-[12px] border-[#1E1C59] transition-transform duration-500 bg-[#E8DCCB]">
+              <div className="relative aspect-square lg:aspect-[4/5] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl border-[6px] sm:border-[12px] border-[#1E1C59] transition-transform duration-500 bg-[#E8DCCB]">
                 <Image
                   src="/images/food/family-meal.jpg"
                   alt="Greek Mansion family meal spread for catering"
@@ -364,19 +364,19 @@ export default function HomePage() {
                 
                 {/* Glassmorphic Price Badge overlay */}
                 <motion.div 
-                  className="absolute bottom-6 left-6 right-6 sm:right-auto bg-[#11102F]/80 backdrop-blur-md border border-white/10 p-5 rounded-2xl shadow-2xl flex items-center gap-5"
+                  className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-auto bg-[#11102F]/80 backdrop-blur-md border border-white/10 p-3.5 sm:p-5 rounded-2xl shadow-2xl flex items-center gap-3.5 sm:gap-5"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                 >
-                  <div className="w-14 h-14 bg-[#B18C56] rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
-                    <Landmark size={24} />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#B18C56] rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
+                    <Landmark size={22} />
                   </div>
                   <div>
-                    <p className="text-[#B18C56] text-xs font-bold uppercase tracking-widest mb-1">Packages From</p>
-                    <p className="text-3xl font-bold text-white leading-none" style={{ fontFamily: "'Marcellus', serif", color: '#ffffff' }}>$129.95</p>
-                    <p className="text-white/50 text-xs mt-1">Feeds up to 10 people</p>
+                    <p className="text-[#B18C56] text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">Packages From</p>
+                    <p className="text-2xl sm:text-3xl font-bold text-white leading-none" style={{ fontFamily: "'Marcellus', serif", color: '#ffffff' }}>$129.95</p>
+                    <p className="text-white/50 text-[11px] sm:text-xs mt-1">Feeds up to 10 people</p>
                   </div>
                 </motion.div>
               </div>

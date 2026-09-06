@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Marcellus } from "next/font/google";
 import { BUSINESS } from "@/lib/constants";
 import Header from "@/components/Header";
@@ -6,6 +6,15 @@ import Footer from "@/components/Footer";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import SplashScreen from "@/components/SplashScreen";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
+  colorScheme: "light",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+};
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -103,16 +112,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${manrope.variable} ${marcellus.variable} h-full antialiased`}
+      data-theme="light"
+      style={{ colorScheme: 'light' }}
       suppressHydrationWarning
     >
       <head>
-        <meta name="color-scheme" content="light only" />
+        <meta name="color-scheme" content="light" />
+        <meta name="supported-color-schemes" content="light" />
+        <meta name="theme-color" content="#FFFFFF" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] w-full" style={{ fontFamily: "'Manrope', sans-serif", overflowX: 'clip' }}>
+      <body suppressHydrationWarning className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] w-full" style={{ fontFamily: "'Manrope', sans-serif", overflowX: 'clip', colorScheme: 'light' }}>
         <SplashScreen />
         <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />

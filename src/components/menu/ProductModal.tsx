@@ -26,7 +26,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
     <AnimatePresence>
       {product && (
         <motion.div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-[#11102F]/80 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 lg:p-8 bg-[#11102F]/80 backdrop-blur-md"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -36,7 +36,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
           <div className="absolute inset-0" onClick={onClose} />
           
           <motion.div 
-            className="relative bg-[#F7F3EA] rounded-2xl shadow-2xl w-full max-w-5xl overflow-hidden flex flex-col lg:flex-row max-h-[95vh] texture-ivory border border-[#E8DCCB]"
+            className="relative bg-[#F7F3EA] rounded-2xl shadow-2xl w-full max-w-5xl overflow-hidden flex flex-col lg:flex-row max-h-[92dvh] texture-ivory border border-[#E8DCCB]"
             initial={{ scale: 0.9, y: 30, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.95, y: 20, opacity: 0 }}
@@ -45,13 +45,14 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             {/* Close button */}
             <button 
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 w-12 h-12 bg-white/50 hover:bg-white text-[#1E1C59] rounded-full flex items-center justify-center transition-colors backdrop-blur-md shadow-lg border border-[#E8DCCB]"
+              className="absolute top-3 right-3 z-20 w-10 h-10 sm:w-12 sm:h-12 bg-white/70 hover:bg-white text-[#1E1C59] rounded-full flex items-center justify-center transition-colors backdrop-blur-md shadow-lg border border-[#E8DCCB]"
+              aria-label="Close modal"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
             </button>
 
             {/* Left/Top: Image Column */}
-            <div className={`relative w-full lg:w-1/2 ${product.image ? 'h-64 sm:h-80 lg:h-auto' : 'hidden lg:block bg-[#1E1C59]'} shrink-0`}>
+            <div className={`relative w-full lg:w-1/2 ${product.image ? 'h-44 sm:h-64 lg:h-auto' : 'hidden lg:block bg-[#1E1C59]'} shrink-0`}>
               {product.image ? (
                 <Image 
                   src={product.image} 
@@ -68,13 +69,13 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               )}
               
               {/* Badges on Image */}
-              <div className="absolute top-6 left-6 flex flex-col gap-3 z-10">
+              <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex flex-col gap-2 z-10">
                 {product.status === 'sold_out' ? (
-                  <span className="bg-red-600 text-white text-sm font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-widest border border-red-500">
+                  <span className="bg-red-600 text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full shadow-lg uppercase tracking-widest border border-red-500">
                     Sold Out
                   </span>
                 ) : (
-                  <span className="bg-[#1E1C59]/90 backdrop-blur-md text-white text-sm font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-widest border border-white/20">
+                  <span className="bg-[#1E1C59]/90 backdrop-blur-md text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full shadow-lg uppercase tracking-widest border border-white/20">
                     In Stock
                   </span>
                 )}
@@ -83,15 +84,15 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             </div>
 
             {/* Right/Bottom: Content Column */}
-            <div className="w-full lg:w-1/2 p-8 lg:p-12 overflow-y-auto flex flex-col">
-              <div className="mb-8">
-                <h2 className="text-4xl lg:text-5xl font-bold text-[#1E1C59] mb-4 leading-tight" style={{ fontFamily: "'Marcellus', serif" }}>
+            <div className="w-full lg:w-1/2 p-5 sm:p-8 lg:p-12 overflow-y-auto flex flex-col">
+              <div className="mb-4 sm:mb-8">
+                <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#1E1C59] mb-2 sm:mb-4 leading-tight" style={{ fontFamily: "'Marcellus', serif" }}>
                   {product.name}
                 </h2>
                 
                 {/* Price Display */}
                 {product.variants && product.variants.length === 0 && (
-                  <p className="text-3xl text-[#B18C56] font-bold" style={{ fontFamily: "'Marcellus', serif" }}>
+                  <p className="text-2xl sm:text-3xl text-[#B18C56] font-bold" style={{ fontFamily: "'Marcellus', serif" }}>
                     {formatPrice(product.price)}
                   </p>
                 )}

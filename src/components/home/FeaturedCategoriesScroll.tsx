@@ -141,38 +141,36 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                 index === activeIndex ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
               }`}
             >
-              <div className="container-custom mx-auto relative px-4 h-full pt-24 pb-24 lg:pt-32 lg:pb-12 flex flex-col min-h-0">
+              <div className="container-custom mx-auto relative px-3 sm:px-4 h-full pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-32 lg:pb-12 flex flex-col min-h-0">
                 {/* Category Title Area */}
-                <div className="text-center mb-6 lg:mb-8 shrink-0">
-                  <p className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">From Our Kitchen</p>
-                  <h2 className="text-5xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
+                <div className="text-center mb-3 sm:mb-6 lg:mb-8 shrink-0">
+                  <p className="text-[#B18C56] text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase mb-1 sm:mb-3">From Our Kitchen</p>
+                  <h2 className="text-2xl sm:text-4xl lg:text-5xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
                     {category.name}
                   </h2>
-                  <div className="gold-line-center mt-4" />
+                  <div className="gold-line-center mt-2 sm:mt-4" />
                   {category.description && (
-                    <p className="text-[#11102F]/60 max-w-2xl mx-auto mt-4 line-clamp-2">
+                    <p className="text-[#11102F]/60 text-xs sm:text-sm max-w-2xl mx-auto mt-2 sm:mt-4 line-clamp-1 sm:line-clamp-2">
                       {category.description}
                     </p>
                   )}
                 </div>
 
-
-
                 {/* Products Grid (Scrollable Inner Wheel) */}
                 <div 
                   id={`grid-scroll-${index}`}
-                  className="flex-1 w-full max-w-6xl mx-auto overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden px-4 sm:px-6 lg:px-2 pb-2 min-h-0 relative hide-scrollbar lg:custom-scrollbar snap-x snap-mandatory lg:snap-none"
+                  className="flex-1 w-full max-w-6xl mx-auto overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden px-2 sm:px-6 lg:px-2 pb-2 min-h-0 relative hide-scrollbar lg:custom-scrollbar snap-x snap-mandatory lg:snap-none"
                 >
-                  <div className="flex lg:grid lg:grid-cols-3 gap-4 lg:gap-8 w-full lg:h-auto">
+                  <div className="flex lg:grid lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-8 w-full lg:h-auto">
                       {(category.products || []).map(product => (
                         <div 
                           key={product.id} 
-                          className="group cursor-pointer shrink-0 w-[78vw] sm:w-[320px] lg:w-auto snap-center"
+                          className="group cursor-pointer shrink-0 w-[82vw] max-w-[320px] lg:w-auto snap-center"
                           onClick={() => setSelectedProduct(product)}
                         >
-                          <div className="bg-white rounded-2xl overflow-hidden card-hover border border-[#E8DCCB]/40 shadow-sm hover:shadow-xl transition-all flex flex-col">
+                          <div className="bg-white rounded-2xl overflow-hidden card-hover border border-[#E8DCCB]/40 shadow-sm hover:shadow-xl transition-all flex flex-col h-full">
                             {product.image ? (
-                              <div className="relative aspect-[3/2] lg:aspect-[4/3] w-full img-zoom bg-[#1E1C59]/5 shrink-0">
+                              <div className="relative aspect-[16/10] sm:aspect-[3/2] lg:aspect-[4/3] w-full img-zoom bg-[#1E1C59]/5 shrink-0">
                                 <Image
                                   src={product.image}
                                   alt={product.name}
@@ -181,36 +179,36 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                                   sizes="(max-width: 1024px) 85vw, 33vw"
                                 />
                                 {product.status === 'sold_out' && (
-                                  <div className="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-widest">
+                                  <div className="absolute top-3 left-3 bg-red-600 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full shadow-lg uppercase tracking-widest">
                                     Sold Out
                                   </div>
                                 )}
                               </div>
                             ) : (
-                              <div className="aspect-[4/3] w-full bg-[#E8DCCB] flex items-center justify-center shrink-0">
-                                <span className="text-[#B18C56]/50 text-4xl" style={{ fontFamily: "'Marcellus', serif" }}>GM</span>
+                              <div className="aspect-[16/10] sm:aspect-[4/3] w-full bg-[#E8DCCB] flex items-center justify-center shrink-0">
+                                <span className="text-[#B18C56]/50 text-3xl sm:text-4xl" style={{ fontFamily: "'Marcellus', serif" }}>GM</span>
                               </div>
                             )}
-                            <div className="p-4 lg:p-5 flex-1 flex flex-col justify-between">
+                            <div className="p-3.5 sm:p-4 lg:p-5 flex-1 flex flex-col justify-between">
                               <div>
-                                <p className="text-[#B18C56] text-xs font-semibold tracking-wider uppercase mb-1">
+                                <p className="text-[#B18C56] text-[10px] sm:text-xs font-semibold tracking-wider uppercase mb-1">
                                   {category.name}
                                 </p>
-                                <h3 className="text-lg text-[#1E1C59] mb-1" style={{ fontFamily: "'Marcellus', serif" }}>
+                                <h3 className="text-base sm:text-lg text-[#1E1C59] mb-1 leading-snug" style={{ fontFamily: "'Marcellus', serif" }}>
                                   {product.name}
                                 </h3>
-                                <p className="text-[#11102F]/50 text-sm mb-3 line-clamp-2">
+                                <p className="text-[#11102F]/50 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-2">
                                   {product.description}
                                 </p>
                               </div>
-                              <div className="flex items-center justify-between mt-auto">
-                                <span className="text-[#1E1C59] font-bold">
+                              <div className="flex items-center justify-between mt-auto pt-2">
+                                <span className="text-[#1E1C59] font-bold text-sm sm:text-base">
                                   {product.variants && product.variants.length > 0 
                                     ? `From ${formatPrice(Math.min(...product.variants.map(v => v.price)))}`
                                     : formatPrice(product.price)
                                   }
                                 </span>
-                                <span className="text-[#B18C56] text-sm font-semibold group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                                <span className="text-[#B18C56] text-xs sm:text-sm font-semibold group-hover:translate-x-1 transition-transform flex items-center gap-1">
                                   View 
                                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                                 </span>
@@ -223,15 +221,15 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                 </div>
 
                 {/* Mobile Pagination Dots */}
-                <div className="lg:hidden flex justify-center gap-2 mt-4 shrink-0">
+                <div className="lg:hidden flex justify-center gap-1.5 mt-2 sm:mt-4 shrink-0">
                   {(category.products || []).map((_, i) => (
                     <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-[#B18C56]' : 'bg-[#1E1C59]/20'}`} />
                   ))}
                 </div>
                 
                 {/* View Menu Button */}
-                <div className="mt-6 flex justify-center shrink-0 w-full">
-                  <a href="/menu" className="btn-primary">
+                <div className="mt-3 sm:mt-6 flex justify-center shrink-0 w-full">
+                  <a href="/menu" className="btn-primary !py-2.5 !px-6 !text-sm sm:!text-base">
                     View Full Menu
                   </a>
                 </div>

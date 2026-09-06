@@ -95,7 +95,7 @@ export default function CateringClient() {
           {/* Pita Platters */}
           {pitaPlatterCategory && (
             <motion.div
-              className="bg-white rounded-2xl p-8 border border-[#E8DCCB]/60 mb-8 shadow-sm"
+              className="bg-white rounded-2xl p-5 sm:p-8 border border-[#E8DCCB]/60 mb-8 shadow-sm"
               initial="initial"
               whileInView="whileInView"
               viewport={{ once: true, margin: "-50px" }}
@@ -105,13 +105,13 @@ export default function CateringClient() {
                 Pita Platters
               </h3>
               <p className="text-[#11102F]/50 text-sm mb-4">{pitaPlatterCategory.description}</p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3 sm:gap-4">
                 {pitaPlatterCategory.products.map((pkg) => {
                   const people = pkg.name.match(/\d+/)?.[0] || '';
                   return (
-                    <div key={pkg.id} className="bg-[#F7F3EA] rounded-xl px-6 py-4 flex items-center gap-4 transition-transform hover:-translate-y-1">
-                      <span className="text-[#1E1C59] font-bold text-lg">{people} people</span>
-                      <span className="text-[#B18C56] font-bold text-xl">{formatPrice(pkg.price)}</span>
+                    <div key={pkg.id} className="bg-[#F7F3EA] rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between sm:justify-start gap-3 sm:gap-4 w-full sm:w-auto transition-transform hover:-translate-y-1">
+                      <span className="text-[#1E1C59] font-bold text-base sm:text-lg">{people} people</span>
+                      <span className="text-[#B18C56] font-bold text-lg sm:text-xl">{formatPrice(pkg.price)}</span>
                     </div>
                   );
                 })}
@@ -120,13 +120,13 @@ export default function CateringClient() {
           )}
 
           <motion.div
-            className="bg-[#1E1C59] rounded-2xl p-6 text-center shadow-lg"
+            className="bg-[#1E1C59] rounded-2xl p-5 sm:p-6 text-center shadow-lg"
             initial="initial"
             whileInView="whileInView"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeInUpSlow}
           >
-            <p className="text-white/70 text-sm">
+            <p className="text-white/70 text-xs sm:text-sm">
               <strong className="text-[#B18C56]">Note:</strong> All catering is cash or debit only — surcharges may apply otherwise. No limit to number of people — call the store for larger parties.
             </p>
           </motion.div>

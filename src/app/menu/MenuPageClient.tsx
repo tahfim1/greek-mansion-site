@@ -137,7 +137,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
 
 
       {/* Search + Category Navigation (Sticky) */}
-      <div className="sticky top-[56px] lg:top-[64px] z-30 bg-white/95 backdrop-blur-md border-b border-[#E8DCCB] shadow-sm">
+      <div className="sticky top-[64px] sm:top-[72px] lg:top-[88px] z-30 bg-white/95 backdrop-blur-md border-b border-[#E8DCCB] shadow-sm">
         <div className="container-custom mx-auto px-4 sm:px-6">
           {/* Search */}
           <div className="py-3">
@@ -219,8 +219,8 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
                 variants={staggerContainerSlow}
               >
                 {/* Category header */}
-                <motion.div variants={fadeInUpSlow} className="flex items-center gap-4 mb-2">
-                  <h2 className="text-2xl sm:text-3xl text-[#1E1C59] whitespace-nowrap" style={{ fontFamily: "'Marcellus', serif" }}>
+                <motion.div variants={fadeInUpSlow} className="flex items-center gap-3 sm:gap-4 mb-2">
+                  <h2 className="text-xl sm:text-3xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
                     {category.name}
                   </h2>
                   <div className="flex-1 h-px bg-[#B18C56]/20" />

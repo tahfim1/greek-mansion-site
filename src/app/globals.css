@@ -22,15 +22,20 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  color-scheme: light !important;
+  supported-color-schemes: light;
   --background: #FFFFFF;
   --foreground: #11102F;
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling and forced light mode */
 html {
+  color-scheme: light !important;
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
   overflow-x: clip;
+  background-color: #FFFFFF !important;
+  color: #11102F !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -46,9 +51,27 @@ html {
 }
 
 body {
+  color-scheme: light !important;
   background: var(--background);
+  background-color: #FFFFFF !important;
   color: var(--foreground);
+  color: #11102F !important;
   font-family: 'Manrope', sans-serif;
+  overflow-x: clip;
+}
+
+/* Force light mode even if device has prefers-color-scheme: dark */
+@media (prefers-color-scheme: dark) {
+  :root, html, body {
+    color-scheme: light !important;
+    background-color: #FFFFFF !important;
+    color: #11102F !important;
+  }
+}
+
+/* Mobile safe area utility */
+.safe-area-bottom {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
 }
 
 /* Greek Texture Pack */
@@ -105,8 +128,15 @@ body {
 
 /* Custom Utilities */
 .section-padding {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -357,30 +387,30 @@ body {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
     max-width: 1280px;
   }
 }
 
 @media (min-width: 640px) {
   .container-custom {
-    padding-left: 24px !important;
-    padding-right: 24px !important;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
 @media (min-width: 768px) {
   .container-custom {
-    padding-left: 40px !important;
-    padding-right: 40px !important;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .container-custom {
-    padding-left: 64px !important;
-    padding-right: 64px !important;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 
@@ -419,7 +449,7 @@ body {
   border: 2px solid var(--color-mansion-sand);
   border-radius: 8px;
   font-family: 'Manrope', sans-serif;
-  font-size: 0.9375rem;
+  font-size: 16px; /* 16px prevents iOS Safari auto-zoom on mobile */
   background: white;
   color: var(--color-mansion-ink);
   transition: border-color 0.2s;
