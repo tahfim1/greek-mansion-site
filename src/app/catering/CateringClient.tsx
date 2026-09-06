@@ -1,19 +1,18 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { BUSINESS } from '@/lib/constants';
 import { MENU_CATEGORIES, formatPrice } from '@/data/menu';
 import CateringForm from './CateringForm';
-import { 
-  heroFadeInUp, 
-  staggerHero, 
-  fadeInUpSlow, 
-  fadeInScale, 
-  slideInRightSlow, 
-  slideInLeftSlow, 
-  staggerContainerSlow 
+import {
+  heroFadeInUp,
+  staggerHero,
+  fadeInUpSlow,
+  fadeInScale,
+  slideInRightSlow,
+  slideInLeftSlow,
+  staggerContainerSlow
 } from '@/lib/animations';
 
 export default function CateringClient() {
@@ -27,7 +26,7 @@ export default function CateringClient() {
         <div className="absolute inset-0 opacity-20">
           <Image src="/images/food/family-meal.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>
-        <motion.div 
+        <motion.div
           className="relative z-10 container-custom mx-auto px-4 sm:px-6 text-center py-12"
           initial="initial"
           whileInView="whileInView"
@@ -47,7 +46,7 @@ export default function CateringClient() {
       {/* Catering Packages */}
       <section className="section-padding bg-[#F7F3EA] texture-ivory overflow-hidden">
         <div className="container-custom mx-auto">
-          <motion.div 
+          <motion.div
             className="text-center mb-12"
             initial="initial"
             whileInView="whileInView"
@@ -66,7 +65,7 @@ export default function CateringClient() {
 
           {/* Combo cards */}
           {cateringCategory && (
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
               initial="initial"
               whileInView="whileInView"
@@ -95,7 +94,7 @@ export default function CateringClient() {
 
           {/* Pita Platters */}
           {pitaPlatterCategory && (
-            <motion.div 
+            <motion.div
               className="bg-white rounded-2xl p-8 border border-[#E8DCCB]/60 mb-8 shadow-sm"
               initial="initial"
               whileInView="whileInView"
@@ -120,7 +119,7 @@ export default function CateringClient() {
             </motion.div>
           )}
 
-          <motion.div 
+          <motion.div
             className="bg-[#1E1C59] rounded-2xl p-6 text-center shadow-lg"
             initial="initial"
             whileInView="whileInView"
@@ -168,7 +167,7 @@ export default function CateringClient() {
                 ))}
               </motion.div>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="relative aspect-[4/3] rounded-2xl overflow-hidden img-zoom shadow-xl"
               initial="initial"
               whileInView="whileInView"
@@ -189,7 +188,7 @@ export default function CateringClient() {
 
       {/* Inquiry Form */}
       <section className="section-padding bg-[#F7F3EA] texture-ivory overflow-hidden" id="inquiry">
-        <motion.div 
+        <motion.div
           className="container-custom mx-auto max-w-3xl"
           initial="initial"
           whileInView="whileInView"

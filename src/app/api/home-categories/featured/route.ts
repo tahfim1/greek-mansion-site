@@ -72,6 +72,6 @@ export async function GET() {
     return NextResponse.json(orderedCategories);
   } catch (error) {
     console.error('Error fetching featured home categories:', error);
-    return NextResponse.json({ error: 'Failed to fetch' }, { status: 500 });
+    return NextResponse.json([]);
   }
 }

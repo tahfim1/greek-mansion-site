@@ -18,7 +18,7 @@ export default function AboutClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-24 pb-16 bg-[#1E1C59] texture-indigo">
+      <section className="relative pt-28 lg:pt-32 pb-16 bg-[#1E1C59] texture-indigo">
         <div className="absolute inset-0 opacity-15">
           <Image src="/images/food/hero-hq.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>

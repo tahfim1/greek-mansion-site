@@ -31,14 +31,14 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#1E1C59]/98 backdrop-blur-md shadow-lg py-2'
-            : 'bg-[#1E1C59] py-3'
+            ? 'bg-[#1E1C59]/98 backdrop-blur-md shadow-lg py-3 lg:py-3.5'
+            : 'bg-[#1E1C59] py-3.5 sm:py-4 lg:py-5'
         }`}
       >
-        <div className="container-custom mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center group py-1" aria-label="Greek Mansion Restaurant — Home">
-            <div className="relative h-9 sm:h-11 w-32 sm:w-40">
+          <Link href="/" className="flex items-center group py-0.5" aria-label="Greek Mansion Restaurant — Home">
+            <div className="relative h-[46px] sm:h-[54px] lg:h-[62px] xl:h-[68px] w-[145px] sm:w-[170px] lg:w-[195px] xl:w-[214px] transition-all duration-300">
               <Image
                 src="/images/logo/logo.png"
                 alt="Greek Mansion Restaurant"
@@ -50,12 +50,12 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2" aria-label="Main navigation">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 text-sm font-semibold tracking-wide transition-colors relative group ${
+                className={`px-3.5 xl:px-4 py-2.5 text-base xl:text-[17px] font-bold tracking-wide transition-colors relative group ${
                   pathname === link.href
                     ? 'text-[#B18C56]'
                     : 'text-white/90 hover:text-white'
@@ -63,8 +63,8 @@ export default function Header() {
               >
                 {link.label}
                 <span
-                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-[#B18C56] transition-opacity duration-300 ${
-                    pathname === link.href ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-[3px] rounded-full bg-[#B18C56] transition-all duration-300 ${
+                    pathname === link.href ? 'opacity-100 scale-100' : 'opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100'
                   }`}
                 />
               </Link>
@@ -72,16 +72,20 @@ export default function Header() {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a href={BUSINESS.phoneTel} className="text-white font-bold text-sm hover:text-[#B18C56] transition-colors">
-              {BUSINESS.phone}
+          <div className="hidden lg:flex items-center gap-4 xl:gap-5">
+            <a
+              href={BUSINESS.phoneTel}
+              className="text-white font-bold text-base xl:text-lg hover:text-[#B18C56] transition-colors flex items-center gap-2"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#B18C56]">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg>
+              <span>{BUSINESS.phone}</span>
             </a>
-            
-
 
             <Link
               href="/menu"
-              className="ml-3 btn-gold !py-2.5 !px-6 !text-sm !rounded-full"
+              className="ml-2 xl:ml-3 btn-gold !py-3 xl:!py-3.5 !px-6 xl:!px-8 !text-base xl:!text-[17px] !font-bold !rounded-full shadow-md hover:shadow-lg transition-all"
             >
               View Menu
             </Link>
@@ -89,14 +93,12 @@ export default function Header() {
 
           {/* Mobile Actions */}
           <div className="flex lg:hidden items-center gap-3">
-
-
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-white"
+              className="p-2.5 text-white hover:text-[#B18C56] transition-colors rounded-xl bg-white/5 active:bg-white/10"
               aria-label="Toggle menu"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 {isMobileMenuOpen ? (
                   <>
                     <line x1="18" y1="6" x2="6" y2="18" />
@@ -116,30 +118,30 @@ export default function Header() {
 
         {/* Mobile Menu Drawer */}
         <div
-          className={`lg:hidden absolute top-full left-0 w-full bg-[#1E1C59] border-t border-white/10 shadow-xl overflow-hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+          className={`lg:hidden absolute top-full left-0 w-full bg-[#1E1C59]/98 backdrop-blur-xl border-t border-white/10 shadow-2xl overflow-hidden transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className="px-4 pt-4 pb-8 flex flex-col gap-4">
+          <div className="px-6 pt-5 pb-8 flex flex-col gap-3">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-lg font-semibold py-2 border-b border-white/10 ${
-                  pathname === link.href ? 'text-[#B18C56]' : 'text-white'
+                className={`text-xl font-bold py-3.5 border-b border-white/10 tracking-wide transition-colors ${
+                  pathname === link.href ? 'text-[#B18C56]' : 'text-white hover:text-[#B18C56]'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2 pb-4 flex flex-col gap-4">
-              <a href={BUSINESS.phoneTel} className="text-white font-bold flex items-center gap-2">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B18C56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <div className="pt-4 pb-2 flex flex-col gap-4">
+              <a href={BUSINESS.phoneTel} className="text-white font-bold text-lg flex items-center gap-3 py-1 hover:text-[#B18C56] transition-colors">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B18C56" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                 </svg>
-                {BUSINESS.phone}
+                <span>{BUSINESS.phone}</span>
               </a>
-              <Link href="/menu" className="btn-gold !w-full !justify-center">
+              <Link href="/menu" className="btn-gold !w-full !justify-center !py-4 !text-lg !font-bold !rounded-full shadow-lg">
                 View Menu
               </Link>
             </div>

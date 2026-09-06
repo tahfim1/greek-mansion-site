@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { useScroll } from 'framer-motion';
-import { formatPrice, Product } from '@/data/menu';
+import { formatPrice, Product, MENU_CATEGORIES } from '@/data/menu';
 import ProductModal from '@/components/menu/ProductModal';
 
 type CategoryWithProducts = {
@@ -15,6 +15,21 @@ type CategoryWithProducts = {
   products: Product[];
 };
 
+function getFallbackFeaturedCategories(): CategoryWithProducts[] {
+  const featuredIds = ['dinner-plates', 'pita-wraps', 'appetizers', 'mansion-favourites'];
+  return featuredIds
+    .map(id => MENU_CATEGORIES.find(c => c.id === id))
+    .filter((cat): cat is typeof MENU_CATEGORIES[number] => Boolean(cat))
+    .map(cat => ({
+      id: cat.id,
+      name: cat.name,
+      slug: cat.slug,
+      description: cat.description || '',
+      image: cat.image || '',
+      products: (cat.products || []).filter(p => p.status === 'active').slice(0, 6),
+    }));
+}
+
 export default function FeaturedCategoriesScroll() {
   const [categories, setCategories] = useState<CategoryWithProducts[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,11 +37,21 @@ export default function FeaturedCategoriesScroll() {
   useEffect(() => {
     // Use aggressive caching for the fetch
     fetch('/api/home-categories/featured', { cache: 'force-cache' })
-      .then(res => res.json())
-      .then(data => {
-        setCategories(data);
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
       })
-      .catch(err => console.error(err))
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setCategories(data);
+        } else {
+          setCategories(getFallbackFeaturedCategories());
+        }
+      })
+      .catch(err => {
+        console.warn('Featured categories API unavailable, using fallback data:', err);
+        setCategories(getFallbackFeaturedCategories());
+      })
       .finally(() => setIsLoading(false));
   }, []);
 
@@ -38,7 +63,7 @@ export default function FeaturedCategoriesScroll() {
     );
   }
 
-  if (categories.length === 0) {
+  if (!Array.isArray(categories) || categories.length === 0) {
     return null; 
   }
 
@@ -46,6 +71,9 @@ export default function FeaturedCategoriesScroll() {
 }
 
 function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWithProducts[] }) {
+  if (!Array.isArray(categories) || categories.length === 0) {
+    return null;
+  }
   // Modal State
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -136,7 +164,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                   className="flex-1 w-full max-w-6xl mx-auto overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden px-4 sm:px-6 lg:px-2 pb-2 min-h-0 relative hide-scrollbar lg:custom-scrollbar snap-x snap-mandatory lg:snap-none"
                 >
                   <div className="flex lg:grid lg:grid-cols-3 gap-4 lg:gap-8 w-full lg:h-auto">
-                      {category.products.map(product => (
+                      {(category.products || []).map(product => (
                         <div 
                           key={product.id} 
                           className="group cursor-pointer shrink-0 w-[78vw] sm:w-[320px] lg:w-auto snap-center"
@@ -196,7 +224,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
 
                 {/* Mobile Pagination Dots */}
                 <div className="lg:hidden flex justify-center gap-2 mt-4 shrink-0">
-                  {category.products.map((_, i) => (
+                  {(category.products || []).map((_, i) => (
                     <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-[#B18C56]' : 'bg-[#1E1C59]/20'}`} />
                   ))}
                 </div>
