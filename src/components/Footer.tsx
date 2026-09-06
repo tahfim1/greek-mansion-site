@@ -15,19 +15,14 @@ export default function Footer() {
           
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-2 flex flex-col items-center lg:items-start text-center lg:text-left lg:pr-12">
-            <Link href="/" className="flex items-center justify-center lg:justify-start gap-3 mb-4">
-              <div className="relative w-10 h-10">
+            <Link href="/" className="inline-block mb-4" aria-label="Greek Mansion Restaurant — Home">
+              <div className="relative h-12 w-44">
                 <Image
-                  src="/images/logo/logo-icon.png"
-                  alt=""
+                  src="/images/logo/logo.png"
+                  alt="Greek Mansion Restaurant"
                   fill
-                  className="object-contain"
+                  className="object-contain object-center lg:object-left"
                 />
-              </div>
-              <div>
-                <span className="text-white font-bold text-lg" style={{ fontFamily: "'Marcellus', serif" }}>
-                  {BUSINESS.shortName}
-                </span>
               </div>
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-4">

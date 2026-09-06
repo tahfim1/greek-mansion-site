@@ -38,38 +38,37 @@ export default function SplashScreen() {
       {/* Subtle Greek texture background */}
       <div className="absolute inset-0 opacity-5" style={{ backgroundImage: `repeating-linear-gradient(45deg, #B18C56 0px, #B18C56 1px, transparent 1px, transparent 20px)` }} />
 
-      <div className="flex flex-col items-center relative z-10">
-            {/* Greek Column Logo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative w-24 h-28 mb-8"
-            >
-              <motion.img
-                src="/images/logo/greek-column-icon.png"
-                alt="Greek Mansion"
-                className="w-full h-full object-contain"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
-              />
-            </motion.div>
+      <div className="flex flex-col items-center relative z-10 px-6">
+        {/* Greek Mansion Official Logo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85, y: 15 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative w-72 sm:w-96 max-w-[85vw] aspect-[992/316] mb-4"
+        >
+          <motion.img
+            src="/images/logo/logo.png"
+            alt="Greek Mansion Restaurant"
+            className="w-full h-full object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)]"
+            animate={{ scale: [1, 1.03, 1] }}
+            transition={{ duration: 2.4, ease: "easeInOut", repeat: Infinity }}
+          />
+        </motion.div>
 
-        <motion.h1
+        <motion.p
           initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ delay: 0.2, duration: 1 }}
-          className="text-[#B18C56] text-3xl md:text-4xl tracking-[0.2em] uppercase font-bold text-center"
-          style={{ fontFamily: "'Marcellus', serif" }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="text-[#B18C56] text-xs sm:text-sm tracking-[0.3em] uppercase font-medium text-center"
         >
-          Greek Mansion
-        </motion.h1>
+          Authentic Greek Cuisine • Scarborough
+        </motion.p>
 
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ delay: 0.6, duration: 1.5, ease: "easeInOut" }}
-          className="h-[1px] bg-[#B18C56]/50 w-full max-w-[200px] mt-6"
+          transition={{ delay: 0.5, duration: 1.2, ease: "easeInOut" }}
+          className="h-[1px] bg-gradient-to-r from-transparent via-[#B18C56]/70 to-transparent w-48 sm:w-64 mt-4"
         />
       </div>
     </div>

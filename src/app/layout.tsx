@@ -66,6 +66,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: BUSINESS.website,
   },
+  icons: {
+    icon: "/images/logo/logo-icon.png",
+    apple: "/images/logo/logo-icon.png",
+  },
 };
 
 // JSON-LD structured data
@@ -76,7 +80,7 @@ const jsonLd = {
   url: BUSINESS.website,
   telephone: BUSINESS.phone,
   image: `${BUSINESS.website}images/food/hero-hq.jpg`,
-  logo: `${BUSINESS.website}images/logo/logo-icon.png`,
+  logo: `${BUSINESS.website}images/logo/logo.png`,
   servesCuisine: "Greek",
   menu: `${BUSINESS.website}menu`,
   address: {

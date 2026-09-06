@@ -37,23 +37,15 @@ export default function Header() {
       >
         <div className="container-custom mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group" aria-label="Greek Mansion Restaurant — Home">
-            <div className="relative w-10 h-10 sm:w-12 sm:h-12">
+          <Link href="/" className="flex items-center group py-1" aria-label="Greek Mansion Restaurant — Home">
+            <div className="relative h-9 sm:h-11 w-32 sm:w-40">
               <Image
-                src="/images/logo/logo-icon.png"
-                alt=""
+                src="/images/logo/logo.png"
+                alt="Greek Mansion Restaurant"
                 fill
-                className="object-contain"
+                className="object-contain object-left"
                 priority
               />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-white font-bold text-base sm:text-lg leading-tight tracking-wide" style={{ fontFamily: "'Marcellus', serif" }}>
-                {BUSINESS.shortName}
-              </span>
-              <span className="text-[#B18C56] text-[10px] sm:text-xs font-medium tracking-widest uppercase">
-                Restaurant
-              </span>
             </div>
           </Link>
 

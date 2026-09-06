@@ -68,13 +68,16 @@ export default function AdminLoginPage() {
     <div className="min-h-screen bg-[#F7F3EA] flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-[#E8DCCB] max-w-md w-full">
         <div className="text-center mb-8">
-          <div className="relative w-16 h-16 mx-auto mb-4">
-            <Image
-              src="/images/logo/logo-icon.png"
-              alt="Greek Mansion"
-              fill
-              className="object-contain"
-            />
+          <div className="bg-[#1E1C59] rounded-2xl p-4 mx-auto mb-5 w-52 shadow-md flex items-center justify-center">
+            <div className="relative h-10 w-44">
+              <Image
+                src="/images/logo/logo.png"
+                alt="Greek Mansion"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </div>
           <h1 className="text-2xl font-bold text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
             Admin Login
