@@ -13,7 +13,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: 'Dashboard', href: '/admin' },
     { name: 'Menu Products', href: '/admin/menu/products' },
     { name: 'Categories', href: '/admin/menu/categories' },
-    { name: 'Collections', href: '/admin/menu/collections' },
     { name: 'Homepage', href: '/admin/homepage' },
     { name: 'Media Library', href: '/admin/media' },
     { name: 'Settings', href: '/admin/settings' },

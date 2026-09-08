@@ -102,7 +102,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-28 lg:pt-32 pb-12 bg-[#1E1C59] texture-indigo overflow-hidden">
+      <section className="relative pt-28 lg:pt-32 pb-12 bg-black texture-indigo overflow-hidden">
         <div className="absolute inset-0 opacity-15">
           <Image src="/images/food/hero.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>

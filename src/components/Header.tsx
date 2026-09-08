@@ -31,14 +31,14 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#1E1C59]/98 backdrop-blur-md shadow-lg py-3 lg:py-3.5'
-            : 'bg-[#1E1C59] py-3.5 sm:py-4 lg:py-5'
+            ? 'bg-[#1E1C59]/98 backdrop-blur-md shadow-lg py-2.5 lg:py-2'
+            : 'bg-[#1E1C59] py-3 lg:py-3'
         }`}
       >
         <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center group py-0.5" aria-label="Greek Mansion Restaurant — Home">
-            <div className="relative h-[46px] sm:h-[54px] lg:h-[62px] xl:h-[68px] w-[145px] sm:w-[170px] lg:w-[195px] xl:w-[214px] transition-all duration-300">
+            <div className="relative h-[40px] sm:h-[46px] lg:h-[50px] xl:h-[54px] w-[126px] sm:w-[145px] lg:w-[157px] xl:w-[170px] transition-all duration-300">
               <Image
                 src="/images/logo/logo.png"
                 alt="Greek Mansion Restaurant"

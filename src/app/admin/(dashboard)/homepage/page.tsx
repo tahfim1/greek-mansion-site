@@ -162,32 +162,30 @@ export default function HomepageSettingsPage() {
                       <span className="font-bold text-[#1E1C59] text-lg">{cat.name}</span>
                     </div>
                     
-                    <div className="flex items-center gap-1">
-                      <div className="flex flex-col gap-1 mr-2">
-                        <button 
-                          onClick={() => moveUp(index)}
-                          disabled={index === 0}
-                          className="p-1 rounded bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:hover:bg-gray-100 transition-colors"
-                          title="Move up"
-                        >
-                          ↑
-                        </button>
-                        <button 
-                          onClick={() => moveDown(index)}
-                          disabled={index === featuredIds.length - 1}
-                          className="p-1 rounded bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:hover:bg-gray-100 transition-colors"
-                          title="Move down"
-                        >
-                          ↓
-                        </button>
-                      </div>
+                    <div className="flex items-center gap-2">
+                      <button 
+                        onClick={(e) => { e.preventDefault(); moveUp(index); }}
+                        disabled={index === 0}
+                        className="p-2.5 rounded-lg bg-[#F7F3EA] text-[#1E1C59] hover:bg-[#E8DCCB] disabled:opacity-30 disabled:hover:bg-[#F7F3EA] transition-colors flex items-center justify-center cursor-pointer"
+                        title="Move up"
+                      >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+                      </button>
+                      <button 
+                        onClick={(e) => { e.preventDefault(); moveDown(index); }}
+                        disabled={index === featuredIds.length - 1}
+                        className="p-2.5 rounded-lg bg-[#F7F3EA] text-[#1E1C59] hover:bg-[#E8DCCB] disabled:opacity-30 disabled:hover:bg-[#F7F3EA] transition-colors flex items-center justify-center cursor-pointer"
+                        title="Move down"
+                      >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                      </button>
                       
                       <button 
-                        onClick={() => removeCategory(cat.id)}
-                        className="p-2 text-red-500 hover:bg-red-50 rounded transition-colors font-bold"
+                        onClick={(e) => { e.preventDefault(); removeCategory(cat.id); }}
+                        className="p-2.5 text-red-500 hover:bg-red-50 rounded-lg transition-colors font-bold ml-2 border border-transparent hover:border-red-200 cursor-pointer"
                         title="Remove"
                       >
-                        ✕
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                       </button>
                     </div>
                   </motion.div>

@@ -22,7 +22,7 @@ export default function CateringClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-24 pb-16 bg-[#1E1C59] texture-indigo overflow-hidden">
+      <section className="relative pt-24 pb-16 bg-black texture-indigo overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image src="/images/food/family-meal.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>
