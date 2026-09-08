@@ -87,9 +87,13 @@ export default function Header() {
               href="https://www.ubereats.com/ca/store/greek-mansion/2jMowxE1Ts6w_sOBYT_BQA?utm=greekfooddelivery.ca"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 xl:ml-3 bg-[#06C167] text-white hover:bg-[#04a053] !py-3 xl:!py-3.5 !px-5 xl:!px-7 !text-base xl:!text-[17px] !font-bold !rounded-full shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+              className="relative overflow-hidden ml-2 xl:ml-3 bg-[#06C167] text-white !py-3 xl:!py-3.5 !px-5 xl:!px-7 !text-base xl:!text-[17px] !font-bold !rounded-full shadow-md hover:shadow-lg transition-shadow flex items-center gap-2 group"
             >
-              Order on Uber Eats
+              <div className="absolute inset-0 bg-[#04a053] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
+              <span className="relative z-10 flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                Uber Eats
+              </span>
             </a>
             
             <Link
