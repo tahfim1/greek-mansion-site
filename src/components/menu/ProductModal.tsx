@@ -63,8 +63,14 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                   priority
                 />
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1E1C59]/10 to-[#E8DCCB]/50 texture-indigo">
-                  <span className="text-[#B18C56]/20 text-8xl font-bold" style={{ fontFamily: "'Marcellus', serif" }}>GM</span>
+                <div className="absolute inset-0 flex items-center justify-center bg-[#1E1C59]">
+                  <Image
+                    src="/images/logo/logo.png"
+                    alt={product.name}
+                    fill
+                    className="object-contain p-8 sm:p-12 lg:p-16 opacity-80"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                 </div>
               )}
               

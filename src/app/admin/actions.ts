@@ -167,3 +167,18 @@ export async function deleteProduct(id: string) {
     return { success: false, error: error.message };
   }
 }
+
+export async function toggleProductStock(id: string, isSoldOut: boolean) {
+  try {
+    const product = await prisma.product.update({
+      where: { id },
+      data: { isSoldOut }
+    });
+    revalidatePath('/admin/menu/products');
+    revalidatePath('/menu');
+    revalidatePath('/');
+    return { success: true, product };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}

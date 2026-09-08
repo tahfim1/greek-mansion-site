@@ -185,8 +185,19 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                                 )}
                               </div>
                             ) : (
-                              <div className="aspect-[16/10] sm:aspect-[4/3] w-full bg-[#E8DCCB] flex items-center justify-center shrink-0">
-                                <span className="text-[#B18C56]/50 text-3xl sm:text-4xl" style={{ fontFamily: "'Marcellus', serif" }}>GM</span>
+                              <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full bg-[#1E1C59] flex items-center justify-center shrink-0">
+                                <Image
+                                  src="/images/logo/logo.png"
+                                  alt={product.name}
+                                  fill
+                                  className="object-contain p-6 opacity-80"
+                                  sizes="(max-width: 1024px) 85vw, 33vw"
+                                />
+                                {product.status === 'sold_out' && (
+                                  <div className="absolute top-3 left-3 bg-red-600 text-white text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full shadow-lg uppercase tracking-widest z-10">
+                                    Sold Out
+                                  </div>
+                                )}
                               </div>
                             )}
                             <div className="p-3.5 sm:p-4 lg:p-5 flex-1 flex flex-col justify-between">

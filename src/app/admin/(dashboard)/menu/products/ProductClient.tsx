@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useTransition, useRef, useMemo } from 'react';
-import { createProduct, updateProduct, deleteProduct } from '@/app/admin/actions';
-
+import { createProduct, updateProduct, deleteProduct, toggleProductStock } from '@/app/admin/actions';
 export default function ProductClient({ 
   initialProducts, 
   categories 
@@ -30,6 +29,17 @@ export default function ProductClient({
     isFeatured: false,
     image: '',
   });
+
+  const handleToggleStock = (prod: any) => {
+    startTransition(async () => {
+      const res = await toggleProductStock(prod.id, !prod.isSoldOut);
+      if (res.success) {
+        setProducts(products.map(p => p.id === prod.id ? { ...p, isSoldOut: !prod.isSoldOut } : p));
+      } else {
+        alert(res.error || 'Failed to toggle stock');
+      }
+    });
+  };
 
   const openNew = () => {
     setEditingProduct(null);
@@ -197,6 +207,9 @@ export default function ProductClient({
                     <p className="text-[#11102F]/60 text-xs line-clamp-2 mb-4 flex-1">{p.shortDescription || p.fullDescription}</p>
                     
                     <div className="flex gap-2 pt-4 border-t border-[#E8DCCB] mt-auto">
+                      <button onClick={() => handleToggleStock(p)} disabled={isPending} className={`flex-1 font-semibold py-1.5 rounded border transition-colors text-sm disabled:opacity-50 ${p.isSoldOut ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100' : 'bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100'}`}>
+                        {p.isSoldOut ? 'Set In Stock' : 'Set Sold Out'}
+                      </button>
                       <button onClick={() => openEdit(p)} className="flex-1 bg-[#F7F3EA] text-[#1E1C59] font-semibold py-1.5 rounded border border-[#E8DCCB] hover:bg-[#E8DCCB] transition-colors text-sm">
                         Edit
                       </button>

@@ -44,6 +44,13 @@ export async function GET() {
     });
 
     // Map to Menu structure and preserve the explicit order defined by the admin
+    const settings = await prisma.restaurantSetting.findMany();
+    const config = settings.reduce((acc: Record<string, string>, curr) => {
+      acc[curr.key] = curr.value;
+      return acc;
+    }, {});
+    const hideNoImages = config['HIDE_PRODUCTS_WITHOUT_IMAGES'] === 'true';
+
     const orderedCategories = featuredCategoryIds
       .map(id => categories.find(c => c.id === id))
       .filter(Boolean)
@@ -55,16 +62,21 @@ export async function GET() {
           slug: cat.slug,
           description: cat.description || '',
           image: cat.image || '',
-          products: cat.products.map(p => ({
-            id: p.id,
-            name: p.name,
-            slug: p.slug,
-            description: p.shortDescription || p.fullDescription || '',
-            price: p.basePrice,
-            image: p.images[0]?.url || '',
-            status: p.status === 'sold_out' ? 'sold_out' : 'available',
-            variants: p.menuInfoGroups ? JSON.parse(p.menuInfoGroups) : []
-          }))
+          products: cat.products
+            .filter(p => {
+              if (!hideNoImages) return true;
+              return p.images && p.images.length > 0;
+            })
+            .map(p => ({
+              id: p.id,
+              name: p.name,
+              slug: p.slug,
+              description: p.shortDescription || p.fullDescription || '',
+              price: p.basePrice,
+              image: p.images[0]?.url || '',
+              status: p.status === 'sold_out' ? 'sold_out' : 'available',
+              variants: p.menuInfoGroups ? JSON.parse(p.menuInfoGroups) : []
+            }))
         };
       })
       .filter(cat => cat !== null);

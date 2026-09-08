@@ -42,6 +42,24 @@ export default function SettingsForm({ initialConfig }: { initialConfig: Record<
         </button>
       </div>
 
+      <div className="bg-white rounded-lg shadow-sm border border-[#E8DCCB] p-6 max-w-3xl mb-8">
+        <h2 className="text-xl font-bold text-[#1E1C59] mb-4">Product Visibility</h2>
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="font-semibold text-gray-900">Hide products without images</h3>
+            <p className="text-sm text-gray-500 mt-1">If enabled, any product that doesn't have an image will be hidden from the Menu and Homepage Featured scroll.</p>
+          </div>
+          <button
+            onClick={() => handleChange('HIDE_PRODUCTS_WITHOUT_IMAGES', config['HIDE_PRODUCTS_WITHOUT_IMAGES'] === 'true' ? 'false' : 'true')}
+            className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${config['HIDE_PRODUCTS_WITHOUT_IMAGES'] === 'true' ? 'bg-[#B18C56]' : 'bg-gray-200'}`}
+          >
+            <span
+              className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${config['HIDE_PRODUCTS_WITHOUT_IMAGES'] === 'true' ? 'translate-x-5' : 'translate-x-0'}`}
+            />
+          </button>
+        </div>
+      </div>
+
       <div className="bg-white rounded-lg shadow-sm border border-[#E8DCCB] p-6 max-w-3xl">
         <h2 className="text-xl font-bold text-[#1E1C59] mb-4">Business Information</h2>
         <div className="space-y-4">

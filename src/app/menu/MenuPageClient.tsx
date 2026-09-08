@@ -81,11 +81,8 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
     return () => observer.disconnect();
   }, [categories]);
 
-  // Filter out products that have no images
-  const categoriesWithValidProducts = categories.map(cat => ({
-    ...cat,
-    products: cat.products.filter(p => p.image !== '')
-  })).filter(cat => cat.products.length > 0);
+  // Categories with products are already filtered by the API based on the admin setting
+  const categoriesWithValidProducts = categories;
 
   // Filter products by search
   const filteredCategories = searchQuery.trim()
@@ -245,7 +242,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
                       tabIndex={0}
                     >
                       {/* Image */}
-                      {product.image && (
+                      {product.image ? (
                         <div className="relative aspect-[16/10] img-zoom shrink-0">
                           <Image
                             src={product.image}
@@ -255,6 +252,32 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           />
                           <div className="absolute top-3 left-3 flex flex-col gap-2">
+                            {product.status === 'sold_out' ? (
+                              <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                                Sold Out
+                              </span>
+                            ) : (
+                              <span className="bg-[#1E1C59]/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider border border-[#1E1C59]/20">
+                                In Stock
+                              </span>
+                            )}
+                            {product.cateringOnly && (
+                              <span className="bg-[#1E1C59] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                                Catering Only
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="relative aspect-[16/10] shrink-0 bg-[#1E1C59] flex items-center justify-center">
+                          <Image
+                            src="/images/logo/logo.png"
+                            alt={product.name}
+                            fill
+                            className="object-contain p-6 opacity-80"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          />
+                          <div className="absolute top-3 left-3 flex flex-col gap-2 z-10">
                             {product.status === 'sold_out' ? (
                               <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
                                 Sold Out
