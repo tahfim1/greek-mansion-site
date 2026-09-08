@@ -117,8 +117,8 @@ export default function HomePage() {
 
       {/* ── Quick Service Choices ──────────────────────────── */}
       <section className="section-padding !pt-16 sm:!pt-28 lg:!pt-48 relative z-20 mt-0 lg:-mt-24 overflow-hidden" id="services">
-        {/* Base Color */}
-        <div className="absolute inset-0 pointer-events-none -z-20 bg-[#F7F3EA]" />
+        {/* Base Color that crossfades over the hero */}
+        <div className="absolute inset-0 pointer-events-none -z-20 bg-gradient-to-b from-transparent via-[#F7F3EA]/90 to-[#F7F3EA]" />
         
         {/* Killer Greek Texture Pattern */}
         <div 
@@ -127,13 +127,12 @@ export default function HomePage() {
             backgroundImage: "url('/images/textures/ivory-meander.jpg')",
             backgroundSize: '600px',
             backgroundPosition: 'center',
-            backgroundRepeat: 'repeat'
+            backgroundRepeat: 'repeat',
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 90%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 90%, transparent 100%)'
           }} 
         />
 
-        {/* Top/Bottom Fading Gradients */}
-        <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-transparent to-[#F7F3EA] -z-10 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F7F3EA] to-transparent -z-10 pointer-events-none" />
         
         <div className="container-custom mx-auto relative z-10 px-6 sm:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 text-center md:text-left">
