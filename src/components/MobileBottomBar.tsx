@@ -20,24 +20,13 @@ export default function MobileBottomBar() {
 
         {/* Menu */}
         <Link
-          href="/catering"
-          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-4 bg-[#1E1C59]/98 backdrop-blur-md text-white/80 hover:text-[#B18C56] transition-colors active:bg-white/5"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-          </svg>
-          <span className="text-[10px] font-semibold mt-0.5">Catering</span>
-        </Link>
-
-        {/* Order - Prominent */}
-        <Link
           href="/menu"
-          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-4 bg-[#B18C56] text-white hover:bg-[#8F7045] transition-colors active:bg-[#8F7045]"
+          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-4 bg-[#1E1C59]/98 backdrop-blur-md text-white/80 hover:text-[#B18C56] transition-colors active:bg-white/5"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-          <span className="text-[10px] font-bold mt-0.5">Menu</span>
+          <span className="text-[10px] font-semibold mt-0.5">Menu</span>
         </Link>
         {/* Uber Eats */}
         <a
@@ -46,11 +35,10 @@ export default function MobileBottomBar() {
           rel="noopener noreferrer"
           className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-4 bg-[#06C167] text-white hover:bg-[#05a357] transition-colors active:bg-[#05a357]"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
           </svg>
-          <span className="text-[10px] font-bold mt-0.5">Delivery</span>
+          <span className="text-[10px] font-bold mt-0.5">Uber Eats</span>
         </a>
     </div>
   );
