@@ -8,12 +8,12 @@ import LogoutButton from './LogoutButton';
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
   const navLinks = [
     { name: 'Dashboard', href: '/admin' },
     { name: 'Menu Products', href: '/admin/menu/products' },
     { name: 'Categories', href: '/admin/menu/categories' },
     { name: 'Homepage', href: '/admin/homepage' },
+    { name: 'Catering Inquiries', href: '/admin/catering' },
     { name: 'Media Library', href: '/admin/media' },
     { name: 'Settings', href: '/admin/settings' },
   ];
