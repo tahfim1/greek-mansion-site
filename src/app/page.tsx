@@ -425,13 +425,19 @@ export default function HomePage() {
       </section>
 
       {/* ── Meaningful Cursive Interstitial ─────────────────── */}
-      <section className="bg-white py-12 lg:py-20 text-center px-6 sm:px-8 relative z-20">
+      <section className="bg-[#1E1C59] py-16 lg:py-24 text-center px-6 sm:px-8 relative z-20 overflow-hidden texture-indigo">
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `repeating-linear-gradient(45deg, #B18C56 0px, #B18C56 1px, transparent 1px, transparent 20px)`,
+          }} />
+        </div>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          className="text-[#B18C56] text-4xl sm:text-5xl lg:text-6xl max-w-4xl mx-auto"
-          style={{ fontFamily: "'BlessedDay', cursive", textShadow: '0 2px 8px rgba(177, 140, 86, 0.15)' }}
+          className="text-[#B18C56] text-4xl sm:text-5xl lg:text-6xl max-w-4xl mx-auto relative z-10"
+          style={{ fontFamily: "'BlessedDay', cursive", textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}
         >
           "Good food is the foundation of genuine happiness."
         </motion.p>
@@ -443,22 +449,27 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Map Area */}
             <motion.div 
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#E8DCCB] border-2 border-[#E8DCCB]"
+              className="relative aspect-[4/3] rounded-2xl"
               variants={slideInLeftSlow}
               initial="initial"
               whileInView="whileInView"
             >
-              <iframe
-                src={`https://www.google.com/maps?q=${encodeURIComponent(BUSINESS.address.full)}&output=embed`}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Google Maps - Greek Mansion"
-                className="absolute inset-0"
-              ></iframe>
+              {/* Decorative Golden Blob */}
+              <div className="absolute -top-8 -left-4 sm:-top-12 sm:-left-8 w-48 h-48 sm:w-64 sm:h-64 bg-[#B18C56] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] -z-10 opacity-40"></div>
+              
+              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#E8DCCB] border-2 border-[#E8DCCB] shadow-lg">
+                <iframe
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(BUSINESS.address.full)}&output=embed`}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Google Maps - Greek Mansion"
+                  className="absolute inset-0"
+                ></iframe>
+              </div>
             </motion.div>
 
             {/* Info */}
@@ -467,6 +478,7 @@ export default function HomePage() {
               whileInView="whileInView"
               viewport={{ once: true, margin: "-50px" }}
               variants={staggerContainerSlow}
+              className="text-center lg:text-left flex flex-col items-center lg:items-start"
             >
               <motion.p variants={slideInRightSlow} className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">
                 Find Us
@@ -474,10 +486,10 @@ export default function HomePage() {
               <motion.h2 variants={slideInRightSlow} className="text-3xl sm:text-4xl text-[#1E1C59] leading-tight mb-6" style={{ fontFamily: "'Marcellus', serif" }}>
                 Visit Greek Mansion
               </motion.h2>
-              <motion.div variants={slideInRightSlow} className="gold-line mb-8" />
+              <motion.div variants={slideInRightSlow} className="gold-line mb-8 mx-auto lg:mx-0" />
 
-              <div className="space-y-5">
-                <motion.div variants={slideInRightSlow} className="flex items-start gap-4">
+              <div className="space-y-5 w-full flex flex-col items-center lg:items-start">
+                <motion.div variants={slideInRightSlow} className="flex items-start gap-4 text-left">
                   <div className="w-10 h-10 rounded-full bg-[#1E1C59]/5 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MapPin size={20} color="#B18C56" />
                   </div>
@@ -489,7 +501,7 @@ export default function HomePage() {
                   </div>
                 </motion.div>
 
-                <motion.div variants={slideInRightSlow} className="flex items-start gap-4">
+                <motion.div variants={slideInRightSlow} className="flex items-start gap-4 text-left">
                   <div className="w-10 h-10 rounded-full bg-[#1E1C59]/5 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Phone size={20} color="#B18C56" />
                   </div>
@@ -502,7 +514,7 @@ export default function HomePage() {
                 </motion.div>
               </div>
 
-              <motion.div variants={slideInRightSlow} className="flex flex-wrap gap-4 mt-8">
+              <motion.div variants={slideInRightSlow} className="flex flex-wrap justify-center lg:justify-start gap-4 mt-8">
                 <a
                   href={BUSINESS.googleMapsUrl}
                   target="_blank"
