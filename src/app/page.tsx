@@ -75,7 +75,7 @@ export default function HomePage() {
 
         {/* Content */}
         <motion.div 
-          className="relative z-30 container-custom mx-auto px-6 sm:px-8 text-center pt-24 pb-16 sm:py-36 lg:py-40"
+          className="relative z-30 container-custom mx-auto px-6 sm:px-8 text-center pt-24 pb-16 sm:py-36 lg:pt-52 lg:pb-32"
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true }}
