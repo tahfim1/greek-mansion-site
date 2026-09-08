@@ -116,21 +116,24 @@ export default function HomePage() {
       </section>
 
       {/* ── Quick Service Choices ──────────────────────────── */}
-      <section className="section-padding !pt-16 sm:!pt-28 lg:!pt-48 relative z-20 mt-0 lg:-mt-24 overflow-hidden bg-[#F7F3EA]" id="services">
-        {/* Killer Greek Background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#F7F3EA]/90 to-[#F7F3EA] -z-10 pointer-events-none" />
+      <section className="section-padding !pt-16 sm:!pt-28 lg:!pt-48 relative z-20 mt-0 lg:-mt-24 overflow-hidden" id="services">
+        {/* Base Color */}
+        <div className="absolute inset-0 pointer-events-none -z-20 bg-[#F7F3EA]" />
         
-        {/* Giant Greek Meander Motifs */}
-        <div className="absolute -left-20 sm:-left-32 top-[10%] opacity-[0.04] pointer-events-none -z-10">
-          <svg width="500" height="500" viewBox="0 0 100 100" fill="none" stroke="#1E1C59" strokeWidth="3">
-            <path d="M-20,50 L20,50 L20,20 L80,20 L80,80 L40,80 L40,40 L60,40 L60,60" />
-          </svg>
-        </div>
-        <div className="absolute -right-20 sm:-right-40 bottom-[-5%] opacity-[0.05] pointer-events-none -z-10 rotate-180">
-          <svg width="600" height="600" viewBox="0 0 100 100" fill="none" stroke="#B18C56" strokeWidth="2">
-            <path d="M-20,50 L20,50 L20,20 L80,20 L80,80 L40,80 L40,40 L60,40 L60,60" />
-          </svg>
-        </div>
+        {/* Killer Greek Texture Pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.35] pointer-events-none -z-10 mix-blend-multiply animate-slow-pan" 
+          style={{ 
+            backgroundImage: "url('/images/textures/ivory-meander.jpg')",
+            backgroundSize: '600px',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'repeat'
+          }} 
+        />
+
+        {/* Top/Bottom Fading Gradients */}
+        <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-transparent to-[#F7F3EA] -z-10 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F7F3EA] to-transparent -z-10 pointer-events-none" />
         
         <div className="container-custom mx-auto relative z-10 px-6 sm:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 text-center md:text-left">
