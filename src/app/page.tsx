@@ -82,24 +82,24 @@ export default function HomePage() {
           variants={staggerHero}
         >
           {/* Eyebrow */}
-          <motion.p variants={heroFadeInUp} className="text-[#B18C56] text-sm sm:text-base lg:text-lg font-bold tracking-[0.25em] uppercase mb-4 sm:mb-6">
+          <motion.p variants={heroFadeInUp} className="text-[#B18C56] text-xs sm:text-base lg:text-lg font-bold tracking-[0.25em] uppercase mb-4 sm:mb-6 px-4">
             {BUSINESS.tagline}
           </motion.p>
           
           {/* Main Heading */}
-          <motion.h1 variants={heroFadeInUp} className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-normal leading-tight mb-6 sm:mb-8" style={{ fontFamily: "'BlessedDay', cursive", color: '#ffffff', textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
+          <motion.h1 variants={heroFadeInUp} className="text-white text-6xl sm:text-7xl md:text-7xl lg:text-[7.5rem] font-normal leading-tight mb-5 sm:mb-8" style={{ fontFamily: "'BlessedDay', cursive", color: '#ffffff', textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
             Discover Our Flavours
           </motion.h1>
 
           {/* Supporting line */}
-          <motion.p variants={heroFadeInUp} className="text-white/90 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed font-light">
+          <motion.p variants={heroFadeInUp} className="text-white/90 text-sm sm:text-lg lg:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed font-light px-6 sm:px-0">
             Fresh Greek favourites for dine-in, takeout, and catering at {BUSINESS.address.shortLocation}.
           </motion.p>
 
           {/* CTAs */}
-          <motion.div variants={heroFadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8">
-            <Link href="/menu" className="btn-gold !rounded-full !px-8 sm:!px-10 !py-3.5 sm:!py-4 !text-base sm:!text-lg shadow-xl shadow-black/20 font-semibold tracking-wide w-full sm:w-auto justify-center">
-              View Our Menu
+          <motion.div variants={heroFadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 px-6 sm:px-0">
+            <Link href="/menu" className="btn-gold !rounded-full !px-8 sm:!px-10 !py-3.5 sm:!py-4 !text-sm sm:!text-lg shadow-xl shadow-[#B18C56]/20 font-bold tracking-wide w-auto justify-center group flex items-center gap-2 transition-all hover:scale-105">
+              View Our Menu <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
 
@@ -188,7 +188,7 @@ export default function HomePage() {
                   <h3 className="text-2xl text-[#1E1C59] mb-3" style={{ fontFamily: "'Marcellus', serif" }}>
                     {service.title}
                   </h3>
-                  <p className="text-[#11102F]/60 text-sm leading-relaxed mb-6 flex-1">
+                  <p className="text-[#11102F]/60 text-sm leading-relaxed mb-8 flex-1">
                     {service.desc}
                   </p>
                   <div className="mt-auto">
@@ -197,16 +197,16 @@ export default function HomePage() {
                         href={service.cta.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#B18C56] font-bold text-sm hover:text-[#8F7045] transition-colors inline-flex items-center gap-1 uppercase tracking-wider"
+                        className="flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full border-2 border-[#B18C56] text-[#B18C56] font-bold text-sm uppercase tracking-wider hover:bg-[#B18C56] hover:text-white transition-all group"
                       >
-                        {service.cta.label} <ArrowRight size={18} />
+                        {service.cta.label} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                       </a>
                     ) : (
                       <Link
                         href={service.cta.href}
-                        className="text-[#B18C56] font-bold text-sm hover:text-[#8F7045] transition-colors inline-flex items-center gap-1 uppercase tracking-wider"
+                        className="flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full border-2 border-[#B18C56] text-[#B18C56] font-bold text-sm uppercase tracking-wider hover:bg-[#B18C56] hover:text-white transition-all group"
                       >
-                        {service.cta.label} <ArrowRight size={18} />
+                        {service.cta.label} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                       </Link>
                     )}
                   </div>
@@ -489,25 +489,26 @@ export default function HomePage() {
               <motion.div variants={slideInRightSlow} className="gold-line mb-8 mx-auto lg:mx-0" />
 
               <div className="space-y-5 w-full flex flex-col items-center lg:items-start">
-                <motion.div variants={slideInRightSlow} className="flex items-start gap-4 text-left">
-                  <div className="w-10 h-10 rounded-full bg-[#1E1C59]/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <motion.div variants={slideInRightSlow} className="flex flex-col lg:flex-row items-center lg:items-start gap-3 lg:gap-4 text-center lg:text-left w-full">
+                  <div className="w-10 h-10 rounded-full bg-[#1E1C59]/5 flex items-center justify-center flex-shrink-0 lg:mt-0.5">
                     <MapPin size={20} color="#B18C56" />
                   </div>
                   <div>
                     <p className="font-bold text-[#1E1C59]">{BUSINESS.name}</p>
-                    <address className="not-italic text-[#11102F]/60 text-sm leading-relaxed">
-                      {BUSINESS.address.full}
+                    <address className="not-italic text-[#11102F]/60 text-sm leading-relaxed mt-1">
+                      {BUSINESS.address.street} <br />
+                      {BUSINESS.address.city}, {BUSINESS.address.province} {BUSINESS.address.postalCode}
                     </address>
                   </div>
                 </motion.div>
 
-                <motion.div variants={slideInRightSlow} className="flex items-start gap-4 text-left">
-                  <div className="w-10 h-10 rounded-full bg-[#1E1C59]/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <motion.div variants={slideInRightSlow} className="flex flex-col lg:flex-row items-center lg:items-start gap-3 lg:gap-4 text-center lg:text-left w-full">
+                  <div className="w-10 h-10 rounded-full bg-[#1E1C59]/5 flex items-center justify-center flex-shrink-0 lg:mt-0.5">
                     <Phone size={20} color="#B18C56" />
                   </div>
                   <div>
                     <p className="font-bold text-[#1E1C59]">Call Us</p>
-                    <a href={BUSINESS.phoneTel} className="text-[#B18C56] font-semibold hover:text-[#8F7045] transition-colors">
+                    <a href={BUSINESS.phoneTel} className="text-[#B18C56] font-semibold hover:text-[#8F7045] transition-colors mt-1 block">
                       {BUSINESS.phone}
                     </a>
                   </div>
