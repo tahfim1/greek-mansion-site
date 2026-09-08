@@ -28,7 +28,7 @@ export default function Footer() {
             <p className="text-white/60 text-sm leading-relaxed mb-4">
               {BUSINESS.tagline}. Fresh Greek favourites for dine-in, takeout, and catering at {BUSINESS.address.shortLocation}.
             </p>
-            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-2 text-sm">
+            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-2 text-sm mb-6">
               {BUSINESS.services.map((service, i) => (
                 <span key={service} className="flex items-center gap-2">
                   <span className="text-[#B18C56] font-semibold">{service}</span>
@@ -38,6 +38,14 @@ export default function Footer() {
                 </span>
               ))}
             </div>
+            <a
+              href="https://www.ubereats.com/ca/store/greek-mansion/2jMowxE1Ts6w_sOBYT_BQA?utm=greekfooddelivery.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#06C167] text-white hover:bg-[#04a053] py-3 px-6 text-sm font-bold rounded-full shadow-md hover:shadow-lg transition-all inline-flex items-center gap-2"
+            >
+              Order Delivery on Uber Eats
+            </a>
           </div>
 
           {/* Quick Links */}

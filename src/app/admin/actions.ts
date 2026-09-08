@@ -182,3 +182,18 @@ export async function toggleProductStock(id: string, isSoldOut: boolean) {
     return { success: false, error: error.message };
   }
 }
+
+export async function toggleProductStatus(id: string, newStatus: string) {
+  try {
+    const product = await prisma.product.update({
+      where: { id },
+      data: { status: newStatus }
+    });
+    revalidatePath('/admin/menu/products');
+    revalidatePath('/menu');
+    revalidatePath('/');
+    return { success: true, product };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}

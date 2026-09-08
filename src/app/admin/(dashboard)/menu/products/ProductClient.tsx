@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useTransition, useRef, useMemo } from 'react';
-import { createProduct, updateProduct, deleteProduct, toggleProductStock } from '@/app/admin/actions';
+import { createProduct, updateProduct, deleteProduct, toggleProductStock, toggleProductStatus } from '@/app/admin/actions';
 export default function ProductClient({ 
   initialProducts, 
   categories 
@@ -37,6 +37,18 @@ export default function ProductClient({
         setProducts(products.map(p => p.id === prod.id ? { ...p, isSoldOut: !prod.isSoldOut } : p));
       } else {
         alert(res.error || 'Failed to toggle stock');
+      }
+    });
+  };
+
+  const handleToggleVisibility = (prod: any) => {
+    startTransition(async () => {
+      const newStatus = prod.status === 'PUBLISHED' ? 'DRAFT' : 'PUBLISHED';
+      const res = await toggleProductStatus(prod.id, newStatus);
+      if (res.success) {
+        setProducts(products.map(p => p.id === prod.id ? { ...p, status: newStatus } : p));
+      } else {
+        alert(res.error || 'Failed to toggle visibility');
       }
     });
   };
@@ -207,13 +219,16 @@ export default function ProductClient({
                     <p className="text-[#11102F]/60 text-xs line-clamp-2 mb-4 flex-1">{p.shortDescription || p.fullDescription}</p>
                     
                     <div className="flex gap-2 pt-4 border-t border-[#E8DCCB] mt-auto">
-                      <button onClick={() => handleToggleStock(p)} disabled={isPending} className={`flex-1 font-semibold py-1.5 rounded border transition-colors text-sm disabled:opacity-50 ${p.isSoldOut ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100' : 'bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100'}`}>
-                        {p.isSoldOut ? 'Set In Stock' : 'Set Sold Out'}
+                      <button onClick={() => handleToggleVisibility(p)} disabled={isPending} className={`flex-1 font-semibold py-1.5 rounded border transition-colors text-xs disabled:opacity-50 ${p.status === 'PUBLISHED' ? 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100' : 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100'}`}>
+                        {p.status === 'PUBLISHED' ? 'Hide' : 'Show'}
                       </button>
-                      <button onClick={() => openEdit(p)} className="flex-1 bg-[#F7F3EA] text-[#1E1C59] font-semibold py-1.5 rounded border border-[#E8DCCB] hover:bg-[#E8DCCB] transition-colors text-sm">
+                      <button onClick={() => handleToggleStock(p)} disabled={isPending} className={`flex-1 font-semibold py-1.5 rounded border transition-colors text-xs disabled:opacity-50 ${p.isSoldOut ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100' : 'bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100'}`}>
+                        {p.isSoldOut ? 'In Stock' : 'Sold Out'}
+                      </button>
+                      <button onClick={() => openEdit(p)} className="flex-1 bg-[#F7F3EA] text-[#1E1C59] font-semibold py-1.5 rounded border border-[#E8DCCB] hover:bg-[#E8DCCB] transition-colors text-xs">
                         Edit
                       </button>
-                      <button onClick={() => handleDelete(p.id)} disabled={isPending} className="px-3 bg-red-50 text-red-600 font-semibold py-1.5 rounded border border-red-200 hover:bg-red-100 transition-colors text-sm disabled:opacity-50">
+                      <button onClick={() => handleDelete(p.id)} disabled={isPending} className="px-2 bg-red-50 text-red-600 font-semibold py-1.5 rounded border border-red-200 hover:bg-red-100 transition-colors text-xs disabled:opacity-50">
                         Delete
                       </button>
                     </div>

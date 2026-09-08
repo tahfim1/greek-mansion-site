@@ -83,9 +83,18 @@ export default function Header() {
               <span>{BUSINESS.phone}</span>
             </a>
 
+            <a
+              href="https://www.ubereats.com/ca/store/greek-mansion/2jMowxE1Ts6w_sOBYT_BQA?utm=greekfooddelivery.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 xl:ml-3 bg-[#06C167] text-white hover:bg-[#04a053] !py-3 xl:!py-3.5 !px-5 xl:!px-7 !text-base xl:!text-[17px] !font-bold !rounded-full shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+            >
+              Order on Uber Eats
+            </a>
+            
             <Link
               href="/menu"
-              className="ml-2 xl:ml-3 btn-gold !py-3 xl:!py-3.5 !px-6 xl:!px-8 !text-base xl:!text-[17px] !font-bold !rounded-full shadow-md hover:shadow-lg transition-all"
+              className="btn-gold !py-3 xl:!py-3.5 !px-5 xl:!px-7 !text-base xl:!text-[17px] !font-bold !rounded-full shadow-md hover:shadow-lg transition-all"
             >
               View Menu
             </Link>

@@ -31,7 +31,7 @@ export async function GET() {
       },
       include: {
         products: {
-          where: { status: { in: ['PUBLISHED', 'sold_out'] } },
+          where: { status: 'PUBLISHED' },
           orderBy: { displayOrder: 'asc' },
           include: {
             images: {
