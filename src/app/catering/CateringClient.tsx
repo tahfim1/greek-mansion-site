@@ -27,7 +27,7 @@ export default function CateringClient() {
           <Image src="/images/food/family-meal.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>
         <motion.div
-          className="relative z-10 container-custom mx-auto px-4 sm:px-6 text-center py-12"
+          className="relative z-10 container-custom mx-auto px-6 sm:px-8 text-center py-12"
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true }}
@@ -109,7 +109,7 @@ export default function CateringClient() {
                 {pitaPlatterCategory.products.map((pkg) => {
                   const people = pkg.name.match(/\d+/)?.[0] || '';
                   return (
-                    <div key={pkg.id} className="bg-[#F7F3EA] rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between sm:justify-start gap-3 sm:gap-4 w-full sm:w-auto transition-transform hover:-translate-y-1">
+                    <div key={pkg.id} className="bg-[#F7F3EA] rounded-xl px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-between sm:justify-start gap-3 sm:gap-4 w-full sm:w-auto transition-transform hover:-translate-y-1">
                       <span className="text-[#1E1C59] font-bold text-base sm:text-lg">{people} people</span>
                       <span className="text-[#B18C56] font-bold text-lg sm:text-xl">{formatPrice(pkg.price)}</span>
                     </div>

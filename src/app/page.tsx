@@ -75,7 +75,7 @@ export default function HomePage() {
 
         {/* Content */}
         <motion.div 
-          className="relative z-30 container-custom mx-auto px-6 sm:px-8 text-center pt-24 pb-16 sm:py-36 lg:pt-52 lg:pb-32"
+          className="relative z-30 container-custom mx-auto px-5 sm:px-8 text-center pt-24 pb-16 sm:py-36 lg:pt-52 lg:pb-32"
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true }}
@@ -121,7 +121,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-white -z-10 pointer-events-none" />
         <div className="absolute inset-0 texture-white -z-10 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)' }} />
         
-        <div className="container-custom mx-auto relative z-10">
+        <div className="container-custom mx-auto relative z-10 px-6 sm:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 text-center md:text-left">
             <motion.div variants={fadeInUpSlow} initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-50px" }} className="max-w-2xl mb-6 md:mb-0 flex flex-col items-center md:items-start">
               <p className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">How We Serve You</p>
@@ -235,7 +235,7 @@ export default function HomePage() {
           }} />
         </div>
         
-        <div className="container-custom mx-auto relative z-10">
+        <div className="container-custom mx-auto relative z-10 px-6 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-12 lg:gap-16 items-center">
             {/* Image */}
             <motion.div 
@@ -297,7 +297,7 @@ export default function HomePage() {
              style={{ backgroundImage: 'repeating-linear-gradient(45deg, #1E1C59 0px, #1E1C59 2px, transparent 2px, transparent 12px)' }}>
         </div>
 
-        <div className="container-custom mx-auto relative z-10 px-4 sm:px-6">
+        <div className="container-custom mx-auto relative z-10 px-6 sm:px-8">
           <div className="relative flex flex-col lg:flex-row items-center gap-12">
             
             {/* Content (Left) */}
@@ -327,11 +327,11 @@ export default function HomePage() {
                   { icon: <Landmark color="#B18C56" size={24} />, title: 'Community Events' },
                   { icon: <Users color="#B18C56" size={24} />, title: 'Team Gatherings' }
                 ].map((item) => (
-                  <div key={item.title} className="flex items-center gap-4 bg-white p-4 rounded-2xl border border-[#E8DCCB] hover:border-[#B18C56]/50 hover:bg-[#E8DCCB] transition-all card-hover">
-                    <div className="w-12 h-12 rounded-full bg-[#1E1C59]/5 flex items-center justify-center shrink-0">
+                  <div key={item.title} className="flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left gap-3 sm:gap-4 bg-gradient-to-br from-white to-[#F7F3EA] p-5 rounded-2xl border border-[#E8DCCB] shadow-sm hover:shadow-md hover:border-[#B18C56]/60 hover:-translate-y-1 transition-all">
+                    <div className="w-12 h-12 rounded-full bg-[#1E1C59]/5 flex items-center justify-center shrink-0 shadow-inner">
                       {item.icon}
                     </div>
-                    <span className="text-[#1E1C59] font-semibold text-sm">{item.title}</span>
+                    <span className="text-[#1E1C59] font-bold text-[15px]">{item.title}</span>
                   </div>
                 ))}
               </motion.div>
@@ -388,7 +388,7 @@ export default function HomePage() {
 
       {/* ── Food Gallery Mosaic ────────────────────────────── */}
       <section className="section-padding bg-white relative texture-white overflow-hidden">
-        <div className="container-custom mx-auto relative z-10">
+        <div className="container-custom mx-auto relative z-10 px-6 sm:px-8">
           <motion.div variants={fadeInUpSlow} initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-50px" }} className="text-center mb-12">
             <p className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Gallery</p>
             <h2 className="text-3xl sm:text-4xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
@@ -425,7 +425,7 @@ export default function HomePage() {
 
       {/* ── Location & Visit ──────────────────────────────── */}
       <section className="section-padding bg-white relative texture-white overflow-hidden" id="location">
-        <div className="container-custom mx-auto relative z-10">
+        <div className="container-custom mx-auto relative z-10 px-6 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Map Area */}
             <motion.div 
@@ -521,7 +521,7 @@ export default function HomePage() {
           <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.85)' }} />
         </div>
         <motion.div 
-          className="relative z-10 container-custom mx-auto px-4 sm:px-6 text-center"
+          className="relative z-10 container-custom mx-auto px-6 sm:px-8 text-center"
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true }}

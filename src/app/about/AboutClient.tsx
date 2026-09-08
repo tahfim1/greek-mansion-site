@@ -23,7 +23,7 @@ export default function AboutClient() {
           <Image src="/images/food/hero-hq.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>
         <motion.div 
-          className="relative z-10 container-custom mx-auto px-4 sm:px-6 text-center py-12"
+          className="relative z-10 container-custom mx-auto px-6 sm:px-8 text-center py-12"
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true }}
@@ -101,7 +101,7 @@ export default function AboutClient() {
 
       {/* Food Gallery Strip */}
       <section className="bg-white py-12 texture-white overflow-hidden">
-        <div className="container-custom mx-auto px-4 sm:px-6">
+        <div className="container-custom mx-auto px-6 sm:px-8">
           <motion.div 
             className="grid grid-cols-2 md:grid-cols-4 gap-3"
             initial="initial"

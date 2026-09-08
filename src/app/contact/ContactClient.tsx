@@ -22,7 +22,7 @@ export default function ContactClient() {
           <Image src="/images/food/hero.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>
         <motion.div 
-          className="relative z-10 container-custom mx-auto px-4 sm:px-6 text-center py-12"
+          className="relative z-10 container-custom mx-auto px-6 sm:px-8 text-center py-12"
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true }}

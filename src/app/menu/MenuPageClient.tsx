@@ -104,7 +104,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
           <Image src="/images/food/hero.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>
         <motion.div 
-          className="relative z-10 container-custom mx-auto px-4 sm:px-6 text-center py-8"
+          className="relative z-10 container-custom mx-auto px-6 sm:px-8 text-center py-8"
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true }}
@@ -135,7 +135,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
 
       {/* Search + Category Navigation (Sticky) */}
       <div className="sticky top-[64px] sm:top-[72px] lg:top-[88px] z-30 bg-white/95 backdrop-blur-md border-b border-[#E8DCCB] shadow-sm">
-        <div className="container-custom mx-auto px-4 sm:px-6">
+        <div className="container-custom mx-auto px-6 sm:px-8">
           {/* Search */}
           <div className="py-3">
             <div className="relative max-w-md mx-auto">

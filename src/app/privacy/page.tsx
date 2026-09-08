@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <section className="pt-32 pb-20 bg-[#F7F3EA]">
-      <div className="container-custom mx-auto px-4 sm:px-6 max-w-3xl">
+      <div className="container-custom mx-auto px-6 sm:px-8 max-w-3xl">
         <h1 className="text-4xl text-[#1E1C59] mb-8" style={{ fontFamily: "'Marcellus', serif" }}>
           Privacy Policy
         </h1>
