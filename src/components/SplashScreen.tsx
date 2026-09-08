@@ -55,14 +55,7 @@ export default function SplashScreen() {
           />
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-[#B18C56] text-xs sm:text-sm tracking-[0.3em] uppercase font-medium text-center"
-        >
-          Authentic Greek Cuisine • Scarborough
-        </motion.p>
+
 
         <motion.div
           initial={{ scaleX: 0 }}

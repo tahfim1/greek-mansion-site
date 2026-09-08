@@ -141,7 +141,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                 index === activeIndex ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
               }`}
             >
-              <div className="container-custom mx-auto relative px-4 sm:px-4 h-full pt-[90px] pb-[80px] sm:pt-20 sm:pb-24 lg:pt-32 lg:pb-12 flex flex-col min-h-0">
+              <div className="container-custom mx-auto relative px-4 sm:px-4 h-full pt-[90px] pb-[80px] sm:pt-20 sm:pb-24 lg:pt-32 lg:pb-12 flex flex-col justify-center min-h-0">
                 {/* Category Title Area */}
                 <div className="text-center mb-3 sm:mb-6 lg:mb-8 shrink-0">
                   <p className="text-[#B18C56] text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase mb-1 sm:mb-3">From Our Kitchen</p>
@@ -159,7 +159,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                 {/* Products Grid (Scrollable Inner Wheel) */}
                 <div 
                   id={`grid-scroll-${index}`}
-                  className="flex-1 w-full max-w-6xl mx-auto overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden px-2 sm:px-6 lg:px-2 pb-2 min-h-0 relative hide-scrollbar lg:custom-scrollbar snap-x snap-mandatory lg:snap-none"
+                  className="shrink w-full max-w-6xl mx-auto overflow-x-auto overflow-y-hidden lg:overflow-y-auto lg:overflow-x-hidden px-2 sm:px-6 lg:px-2 pb-2 min-h-0 relative hide-scrollbar lg:custom-scrollbar snap-x snap-mandatory lg:snap-none"
                 >
                   <div className="flex lg:grid lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-8 w-full lg:h-auto">
                       {(category.products || []).map(product => (
