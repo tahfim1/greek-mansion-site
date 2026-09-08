@@ -116,10 +116,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Quick Service Choices ──────────────────────────── */}
-      <section className="section-padding !pt-16 sm:!pt-28 lg:!pt-48 relative z-20 mt-0 lg:-mt-24 overflow-hidden" id="services">
-        {/* Base Color that crossfades over the hero */}
-        <div className="absolute inset-0 pointer-events-none -z-20 bg-gradient-to-b from-transparent via-[#F7F3EA]/90 to-[#F7F3EA]" />
-        
+      <section className="section-padding relative z-20 overflow-hidden bg-[#F7F3EA]" id="services">
         {/* Killer Greek Texture Pattern */}
         <div 
           className="absolute inset-0 opacity-[0.35] pointer-events-none -z-10 mix-blend-multiply animate-slow-pan" 
@@ -128,8 +125,8 @@ export default function HomePage() {
             backgroundSize: '600px',
             backgroundPosition: 'center',
             backgroundRepeat: 'repeat',
-            maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 90%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 90%, transparent 100%)'
+            maskImage: 'linear-gradient(to bottom, black 0%, black 95%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 95%, transparent 100%)'
           }} 
         />
 
