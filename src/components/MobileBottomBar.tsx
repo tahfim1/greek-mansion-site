@@ -9,7 +9,8 @@ export default function MobileBottomBar() {
         {/* Call */}
         <a
           href={BUSINESS.phoneTel}
-          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] bg-[#1E1C59]/98 backdrop-blur-md text-white/80 hover:text-[#B18C56] transition-colors active:bg-white/5"
+          style={{ paddingBottom: 'max(10px, env(safe-area-inset-bottom))' }}
+          className="flex-1 flex flex-col items-center justify-center pt-2.5 bg-[#1E1C59]/98 backdrop-blur-md text-white/80 hover:text-[#B18C56] transition-colors active:bg-white/5"
           aria-label="Call Greek Mansion"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -21,7 +22,8 @@ export default function MobileBottomBar() {
         {/* Menu */}
         <Link
           href="/catering"
-          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] bg-[#1E1C59]/98 backdrop-blur-md text-white/80 hover:text-[#B18C56] transition-colors active:bg-white/5"
+          style={{ paddingBottom: 'max(10px, env(safe-area-inset-bottom))' }}
+          className="flex-1 flex flex-col items-center justify-center pt-2.5 bg-[#1E1C59]/98 backdrop-blur-md text-white/80 hover:text-[#B18C56] transition-colors active:bg-white/5"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
@@ -32,7 +34,8 @@ export default function MobileBottomBar() {
         {/* Order - Prominent */}
         <Link
           href="/menu"
-          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] bg-[#B18C56] text-white hover:bg-[#8F7045] transition-colors active:bg-[#8F7045]"
+          style={{ paddingBottom: 'max(10px, env(safe-area-inset-bottom))' }}
+          className="flex-1 flex flex-col items-center justify-center pt-2.5 bg-[#B18C56] text-white hover:bg-[#8F7045] transition-colors active:bg-[#8F7045]"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 6h16M4 12h16M4 18h16" />

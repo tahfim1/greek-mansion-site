@@ -35,8 +35,8 @@ export default function FeaturedCategoriesScroll() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Use aggressive caching for the fetch
-    fetch('/api/home-categories/featured', { cache: 'force-cache' })
+    // Always fetch fresh data to prevent PC showing old cached data
+    fetch('/api/home-categories/featured', { cache: 'no-store' })
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
@@ -141,7 +141,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                 index === activeIndex ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
               }`}
             >
-              <div className="container-custom mx-auto relative px-3 sm:px-4 h-full pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-32 lg:pb-12 flex flex-col min-h-0">
+              <div className="container-custom mx-auto relative px-4 sm:px-4 h-full pt-[90px] pb-[80px] sm:pt-20 sm:pb-24 lg:pt-32 lg:pb-12 flex flex-col min-h-0">
                 {/* Category Title Area */}
                 <div className="text-center mb-3 sm:mb-6 lg:mb-8 shrink-0">
                   <p className="text-[#B18C56] text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase mb-1 sm:mb-3">From Our Kitchen</p>

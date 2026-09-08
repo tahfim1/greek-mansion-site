@@ -70,29 +70,29 @@ export default function HomePage() {
             sizes="100vw"
           />
           {/* Overlay */}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.5), rgba(0,0,0,0.8))' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.7), rgba(0,0,0,0.9))' }} />
         </div>
 
         {/* Content */}
         <motion.div 
-          className="relative z-30 container-custom mx-auto px-4 sm:px-6 text-center pt-28 pb-16 sm:py-36 lg:py-40"
+          className="relative z-30 container-custom mx-auto px-6 sm:px-8 text-center pt-24 pb-16 sm:py-36 lg:py-40"
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true }}
           variants={staggerHero}
         >
           {/* Eyebrow */}
-          <motion.p variants={heroFadeInUp} className="text-[#B18C56] text-sm sm:text-lg lg:text-xl font-bold tracking-[0.25em] uppercase mb-4 sm:mb-6">
+          <motion.p variants={heroFadeInUp} className="text-[#B18C56] text-sm sm:text-base lg:text-lg font-bold tracking-[0.25em] uppercase mb-4 sm:mb-6">
             {BUSINESS.tagline}
           </motion.p>
           
           {/* Main Heading */}
-          <motion.h1 variants={heroFadeInUp} className="text-white text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-normal leading-tight mb-6 sm:mb-8" style={{ fontFamily: "'BlessedDay', cursive", color: '#ffffff', textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
+          <motion.h1 variants={heroFadeInUp} className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-normal leading-tight mb-6 sm:mb-8" style={{ fontFamily: "'BlessedDay', cursive", color: '#ffffff', textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
             Discover Our Flavours
           </motion.h1>
 
           {/* Supporting line */}
-          <motion.p variants={heroFadeInUp} className="text-white/90 text-base sm:text-xl lg:text-2xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed font-light">
+          <motion.p variants={heroFadeInUp} className="text-white/90 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed font-light">
             Fresh Greek favourites for dine-in, takeout, and catering at {BUSINESS.address.shortLocation}.
           </motion.p>
 
