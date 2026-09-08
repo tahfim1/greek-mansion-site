@@ -239,12 +239,12 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-12 lg:gap-16 items-center">
             {/* Image */}
             <motion.div 
-              className="relative max-w-sm mx-auto lg:max-w-none w-full"
+              className="relative max-w-[280px] sm:max-w-sm mx-auto lg:max-w-none w-full"
               variants={slideInLeftSlow}
               initial="initial"
               whileInView="whileInView"
             >
-              <div className="relative w-full aspect-[3/4] rounded-t-[100px] rounded-b-2xl overflow-hidden">
+              <div className="relative w-full aspect-square lg:aspect-[3/4] rounded-full lg:rounded-t-[100px] lg:rounded-b-2xl overflow-hidden shadow-2xl lg:shadow-none border-4 lg:border-none border-[#B18C56]/20">
                 <Image
                   src="/images/food/greek-salad.jpg"
                   alt="Fresh Greek salad with feta, olives, tomatoes, and cucumbers"
@@ -253,8 +253,8 @@ export default function HomePage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              {/* Gold border accent */}
-              <div className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-full h-full rounded-t-[100px] rounded-b-2xl border-2 border-[#B18C56]/30 -z-10" />
+              {/* Gold border accent - Desktop only */}
+              <div className="hidden lg:block absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-full h-full rounded-t-[100px] rounded-b-2xl border-2 border-[#B18C56]/30 -z-10" />
             </motion.div>
 
             {/* Text */}
@@ -263,6 +263,7 @@ export default function HomePage() {
               whileInView="whileInView"
               viewport={{ once: true, margin: "-50px" }}
               variants={staggerContainerSlow}
+              className="text-center lg:text-left flex flex-col items-center lg:items-start"
             >
               <motion.p variants={slideInRightSlow} className="text-[#B18C56] text-base sm:text-lg font-bold tracking-[0.15em] uppercase mb-4">
                 Our Story
@@ -270,14 +271,14 @@ export default function HomePage() {
               <motion.h2 variants={slideInRightSlow} className="text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6" style={{ fontFamily: "'Marcellus', serif", color: '#ffffff' }}>
                 A Taste of Greece, Right Here in Scarborough
               </motion.h2>
-              <motion.div variants={slideInRightSlow} className="gold-line mb-6" />
-              <motion.p variants={slideInRightSlow} className="text-white/70 leading-relaxed mb-4">
+              <motion.div variants={slideInRightSlow} className="gold-line mb-6 lg:mx-0 mx-auto" />
+              <motion.p variants={slideInRightSlow} className="text-white/70 leading-relaxed mb-4 max-w-2xl">
                 At Greek Mansion, we bring the bold, fresh flavours of Mediterranean cuisine to your table. Every dish is prepared with care — from our signature souvlaki cooked over an open flame to our creamy tzatziki made in-house.
               </motion.p>
-              <motion.p variants={slideInRightSlow} className="text-white/70 leading-relaxed mb-8">
+              <motion.p variants={slideInRightSlow} className="text-white/70 leading-relaxed mb-8 max-w-2xl">
                 Whether you&apos;re stopping by for a quick lunch box, gathering the family for a feast, or planning catering for your next event, we&apos;re here to make it memorable.
               </motion.p>
-              <motion.div variants={slideInRightSlow} className="flex flex-wrap gap-4">
+              <motion.div variants={slideInRightSlow} className="flex flex-wrap justify-center lg:justify-start gap-4">
                 <Link href="/about" className="btn-gold !rounded-full">
                   Learn More
                 </Link>
@@ -423,8 +424,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Meaningful Cursive Interstitial ─────────────────── */}
+      <section className="bg-white py-12 lg:py-20 text-center px-6 sm:px-8 relative z-20">
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          className="text-[#B18C56] text-4xl sm:text-5xl lg:text-6xl max-w-4xl mx-auto"
+          style={{ fontFamily: "'BlessedDay', cursive", textShadow: '0 2px 8px rgba(177, 140, 86, 0.15)' }}
+        >
+          "Good food is the foundation of genuine happiness."
+        </motion.p>
+      </section>
+
       {/* ── Location & Visit ──────────────────────────────── */}
-      <section className="section-padding bg-white relative texture-white overflow-hidden" id="location">
+      <section className="pb-16 pt-8 lg:pb-32 lg:pt-12 bg-white relative texture-white overflow-hidden" id="location">
         <div className="container-custom mx-auto relative z-10 px-6 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Map Area */}
