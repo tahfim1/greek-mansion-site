@@ -31,7 +31,7 @@ const marcellus = Marcellus({
 
 export const metadata: Metadata = {
   title: {
-    default: `${BUSINESS.name} — ${BUSINESS.tagline}`,
+    default: BUSINESS.name,
     template: `%s | ${BUSINESS.name}`,
   },
   description: `${BUSINESS.name} serves authentic Greek cuisine in Scarborough. Fresh Greek favourites for dine-in, takeout, and catering at ${BUSINESS.address.shortLocation}. Call ${BUSINESS.phone}.`,
@@ -117,8 +117,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <head>
-        <meta name="color-scheme" content="light" />
-        <meta name="supported-color-schemes" content="light" />
+        <meta name="color-scheme" content="light only" />
+        <meta name="supported-color-schemes" content="light only" />
         <meta name="theme-color" content="#FFFFFF" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <script

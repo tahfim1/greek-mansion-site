@@ -26,6 +26,20 @@
   supported-color-schemes: light;
   --background: #FFFFFF;
   --foreground: #11102F;
+  color-scheme: light only;
+}
+
+/* Force light mode — override any browser-forced dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #FFFFFF;
+    --foreground: #11102F;
+    color-scheme: light only;
+  }
+  html, body {
+    background-color: #FFFFFF !important;
+    color: #11102F !important;
+  }
 }
 
 /* Smooth scrolling and forced light mode */
