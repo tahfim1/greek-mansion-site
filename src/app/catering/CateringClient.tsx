@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { BUSINESS } from '@/lib/constants';
 import { MENU_CATEGORIES, formatPrice } from '@/data/menu';
+import { Briefcase, PartyPopper, Users, HeartHandshake, Medal, Building2 } from 'lucide-react';
 import CateringForm from './CateringForm';
 import {
   heroFadeInUp,
@@ -75,15 +76,24 @@ export default function CateringClient() {
               {cateringCategory.products.map((pkg) => {
                 const people = pkg.name.match(/\d+/)?.[0] || '';
                 return (
-                  <motion.div variants={fadeInScale} key={pkg.id} className="bg-white rounded-2xl p-6 text-center card-hover border border-[#E8DCCB]/60 shadow-sm hover:shadow-xl transition-all">
-                    <div className="w-16 h-16 rounded-full bg-[#1E1C59] flex items-center justify-center mx-auto mb-4">
-                      <span className="text-white text-xl font-bold">{people}</span>
+                  <motion.div variants={fadeInScale} key={pkg.id} className="relative bg-white rounded-2xl p-8 text-center border border-[#E8DCCB] shadow-lg hover:shadow-2xl transition-all group overflow-hidden">
+                    {/* Decorative Top Accent */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B18C56]/20 via-[#B18C56] to-[#B18C56]/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    
+                    <div className="w-20 h-20 rounded-full border border-[#B18C56]/30 p-1 mx-auto mb-6 group-hover:scale-105 transition-transform duration-500">
+                      <div className="w-full h-full rounded-full bg-gradient-to-br from-[#1E1C59] to-[#2A2870] flex flex-col items-center justify-center shadow-inner">
+                        <span className="text-white text-2xl font-bold leading-none mb-0.5">{people}</span>
+                        <span className="text-[#B18C56] text-[10px] uppercase tracking-widest font-semibold">Guests</span>
+                      </div>
                     </div>
-                    <p className="text-[#11102F]/50 text-sm mb-1">People</p>
-                    <p className="text-3xl font-bold text-[#1E1C59] mb-4" style={{ fontFamily: "'Marcellus', serif" }}>
+                    
+                    <p className="text-4xl font-normal text-[#1E1C59] mb-4" style={{ fontFamily: "'Marcellus', serif" }}>
                       {formatPrice(pkg.price)}
                     </p>
-                    <p className="text-[#11102F]/50 text-xs leading-relaxed">
+                    
+                    <div className="gold-line-center opacity-50 mb-4" />
+                    
+                    <p className="text-[#11102F]/60 text-sm leading-relaxed">
                       {pkg.description}
                     </p>
                   </motion.div>
@@ -143,25 +153,27 @@ export default function CateringClient() {
               viewport={{ once: true, margin: "-50px" }}
               variants={staggerContainerSlow}
             >
-              <motion.p variants={slideInRightSlow} className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Perfect For</motion.p>
-              <motion.h2 variants={slideInRightSlow} className="text-3xl sm:text-4xl text-[#1E1C59] leading-tight mb-6" style={{ fontFamily: "'Marcellus', serif" }}>
+              <motion.p variants={slideInRightSlow} className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3 text-center lg:text-left">Perfect For</motion.p>
+              <motion.h2 variants={slideInRightSlow} className="text-3xl sm:text-4xl text-[#1E1C59] leading-tight mb-6 text-center lg:text-left" style={{ fontFamily: "'Marcellus', serif" }}>
                 Every Occasion
               </motion.h2>
-              <motion.div variants={slideInRightSlow} className="gold-line mb-6" />
+              <motion.div variants={slideInRightSlow} className="gold-line mb-8 mx-auto lg:mx-0" />
               <motion.div variants={staggerContainerSlow} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { icon: '🏢', title: 'Office Lunches', desc: 'Keep your team fuelled and happy' },
-                  { icon: '🎉', title: 'Celebrations', desc: 'Birthdays, graduations, milestones' },
-                  { icon: '👨‍👩‍👧‍👦', title: 'Family Gatherings', desc: 'Bring everyone together over great food' },
-                  { icon: '⛪', title: 'Community Events', desc: 'Church groups, clubs, and fundraisers' },
-                  { icon: '🏟️', title: 'Game Day', desc: 'Fuel the fans with Greek favourites' },
-                  { icon: '🤝', title: 'Corporate Events', desc: 'Impress clients and partners' },
+                  { icon: <Briefcase size={24} className="text-[#B18C56]" />, title: 'Office Lunches', desc: 'Keep your team fuelled and happy' },
+                  { icon: <PartyPopper size={24} className="text-[#B18C56]" />, title: 'Celebrations', desc: 'Birthdays, graduations, milestones' },
+                  { icon: <Users size={24} className="text-[#B18C56]" />, title: 'Family Gatherings', desc: 'Bring everyone together over great food' },
+                  { icon: <HeartHandshake size={24} className="text-[#B18C56]" />, title: 'Community Events', desc: 'Church groups, clubs, and fundraisers' },
+                  { icon: <Medal size={24} className="text-[#B18C56]" />, title: 'Game Day', desc: 'Fuel the fans with Greek favourites' },
+                  { icon: <Building2 size={24} className="text-[#B18C56]" />, title: 'Corporate Events', desc: 'Impress clients and partners' },
                 ].map((item) => (
-                  <motion.div variants={fadeInUpSlow} key={item.title} className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#F7F3EA] transition-colors">
-                    <span className="text-2xl flex-shrink-0">{item.icon}</span>
-                    <div>
-                      <p className="font-bold text-[#1E1C59] text-sm">{item.title}</p>
-                      <p className="text-[#11102F]/50 text-xs">{item.desc}</p>
+                  <motion.div variants={fadeInUpSlow} key={item.title} className="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-5 rounded-2xl hover:bg-[#F7F3EA] border border-transparent hover:border-[#E8DCCB] transition-all group cursor-default">
+                    <div className="w-12 h-12 rounded-full bg-[#1E1C59]/5 group-hover:bg-[#1E1C59]/10 flex items-center justify-center flex-shrink-0 transition-colors">
+                      {item.icon}
+                    </div>
+                    <div className="text-center sm:text-left mt-2 sm:mt-0">
+                      <p className="font-bold text-[#1E1C59] text-base mb-1" style={{ fontFamily: "'Marcellus', serif" }}>{item.title}</p>
+                      <p className="text-[#11102F]/60 text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
