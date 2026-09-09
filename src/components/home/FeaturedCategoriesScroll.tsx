@@ -120,18 +120,18 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
         className="relative w-full bg-[#08071A]"
       >
         <div className="!sticky top-0 h-[100dvh] w-full overflow-hidden bg-[#08071A]">  
-          {/* Gold Sprinkle Dust on Dark Background */}
-          <div className="absolute inset-0 z-0 pointer-events-none">
+          {/* Custom Background Image */}
+          <div className="absolute inset-0 z-0 pointer-events-none bg-black">
             <Image
-              src="/images/golden-particle-dust-wallpaper.jpg"
-              alt="Golden Dust Background"
+              src="/images/vertical-scroll-bg.jpg"
+              alt="Background"
               fill
               priority
-              className="object-cover opacity-85"
+              className="object-cover opacity-70"
               sizes="100vw"
             />
             {/* Elegant dark vignette overlay to ensure pristine contrast */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#08071A]/75 via-[#08071A]/30 to-[#08071A]/85" />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.9) 100%)' }} />
           </div>
 
           {/* Progress Indicators */}
