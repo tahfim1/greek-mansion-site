@@ -33,10 +33,14 @@ export default function MobileBottomBar() {
           href="https://www.ubereats.com/ca/store/greek-mansion/2jMowxE1Ts6w_sOBYT_BQA?utm=greekfooddelivery.ca"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-4 bg-[#1E1C59]/98 backdrop-blur-md text-white/80 hover:text-[#F3BA2F] transition-colors active:bg-white/5"
+          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-4 bg-gradient-to-t from-[#E5A91A] to-[#F3BA2F] text-[#1E1C59] hover:brightness-110 transition-all active:scale-95 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]"
         >
-          <span className="font-sans font-bold text-sm leading-none flex items-center justify-center h-[20px] tracking-tight">Uber Eats</span>
-          <span className="text-[10px] font-semibold mt-1">Order</span>
+          <svg className="w-[20px] h-[20px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span className="text-[10px] font-bold mt-1 tracking-tight">Uber Eats</span>
         </a>
     </div>
   );

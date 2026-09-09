@@ -42,9 +42,14 @@ export default function Footer() {
               href="https://www.ubereats.com/ca/store/greek-mansion/2jMowxE1Ts6w_sOBYT_BQA?utm=greekfooddelivery.ca"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#06C167] text-white hover:bg-[#04a053] py-3 px-6 text-sm font-bold rounded-full shadow-md hover:shadow-lg transition-all inline-flex items-center gap-2"
+              className="bg-transparent border border-[#F3BA2F] text-[#F3BA2F] hover:bg-[#F3BA2F] hover:text-[#1E1C59] py-3 px-6 text-sm font-bold rounded-full shadow-md hover:shadow-lg transition-all inline-flex items-center gap-2 group"
             >
-              Order Delivery on Uber Eats
+              <svg className="w-5 h-5 group-hover:animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
+              </svg>
+              <span className="font-sans">Uber Eats</span>
             </a>
           </div>
 
