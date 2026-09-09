@@ -58,13 +58,13 @@ export default function Header() {
                 href={link.href}
                 className={`px-3.5 xl:px-4 py-2.5 text-base xl:text-[17px] font-bold tracking-wide transition-colors relative group ${
                   pathname === link.href
-                    ? 'text-[#D4AF37]'
+                    ? 'text-[#F3BA2F]'
                     : 'text-white/90 hover:text-white'
                 }`}
               >
                 {link.label}
                 <span
-                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-[3px] rounded-full bg-[#D4AF37] transition-all duration-300 ${
+                  className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-[3px] rounded-full bg-[#F3BA2F] transition-all duration-300 ${
                     pathname === link.href ? 'opacity-100 scale-100' : 'opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100'
                   }`}
                 />
@@ -90,7 +90,7 @@ export default function Header() {
             
             <Link
               href="/menu"
-              className="btn-gold !py-3 xl:!py-3.5 !px-5 xl:!px-7 !text-base xl:!text-[17px] !font-bold !rounded-full shadow-md hover:shadow-lg transition-all"
+              className="btn-gold !text-black !py-3 xl:!py-3.5 !px-5 xl:!px-7 !text-base xl:!text-[17px] !font-bold !rounded-full shadow-md hover:shadow-lg transition-all"
             >
               View Menu
             </Link>
@@ -100,7 +100,7 @@ export default function Header() {
           <div className="flex lg:hidden items-center gap-3">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2.5 text-white hover:text-[#D4AF37] transition-colors rounded-xl bg-white/5 active:bg-white/10"
+              className="p-2.5 text-white hover:text-[#F3BA2F] transition-colors rounded-xl bg-white/5 active:bg-white/10"
               aria-label="Toggle menu"
             >
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -133,20 +133,20 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={`text-lg sm:text-xl font-bold py-3 border-b border-white/10 tracking-wide transition-colors ${
-                  pathname === link.href ? 'text-[#D4AF37]' : 'text-white hover:text-[#D4AF37]'
+                  pathname === link.href ? 'text-[#F3BA2F]' : 'text-white hover:text-[#F3BA2F]'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
             <div className="pt-3 pb-2 flex flex-col gap-3.5">
-              <a href={BUSINESS.phoneTel} className="text-white font-bold text-base sm:text-lg flex items-center gap-3 py-1 hover:text-[#D4AF37] transition-colors">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <a href={BUSINESS.phoneTel} className="text-white font-bold text-base sm:text-lg flex items-center gap-3 py-1 hover:text-[#F3BA2F] transition-colors">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F3BA2F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                 </svg>
                 <span>{BUSINESS.phone}</span>
               </a>
-              <Link href="/menu" className="btn-gold !w-full !justify-center !py-3.5 !text-base sm:!text-lg !font-bold !rounded-full shadow-lg">
+              <Link href="/menu" className="btn-gold !text-black !w-full !justify-center !py-3.5 !text-base sm:!text-lg !font-bold !rounded-full shadow-lg">
                 View Menu
               </Link>
             </div>

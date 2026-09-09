@@ -82,7 +82,7 @@ export default function HomePage() {
           variants={staggerHero}
         >
           {/* Eyebrow */}
-          <motion.p variants={heroFadeInUp} className="text-[#D4AF37] text-xs sm:text-base lg:text-lg font-bold tracking-[0.25em] uppercase mb-4 sm:mb-6 px-4">
+          <motion.p variants={heroFadeInUp} className="text-[#F3BA2F] text-xs sm:text-base lg:text-lg font-bold tracking-[0.25em] uppercase mb-4 sm:mb-6 px-4">
             {BUSINESS.tagline}
           </motion.p>
           
@@ -98,7 +98,7 @@ export default function HomePage() {
 
           {/* CTAs */}
           <motion.div variants={heroFadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 px-6 sm:px-0">
-            <Link href="/menu" className="btn-gold !rounded-full !px-8 sm:!px-10 !py-3.5 sm:!py-4 !text-sm sm:!text-lg shadow-xl shadow-[#D4AF37]/20 font-bold tracking-wide w-auto justify-center group flex items-center gap-2 transition-all hover:scale-105">
+            <Link href="/menu" className="btn-gold !text-black !rounded-full !px-8 sm:!px-10 !py-3.5 sm:!py-4 !text-sm sm:!text-lg shadow-xl shadow-[#F3BA2F]/20 font-bold tracking-wide w-auto justify-center group flex items-center gap-2 transition-all hover:scale-105">
               View Our Menu <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
@@ -107,7 +107,7 @@ export default function HomePage() {
           <motion.a
             variants={heroFadeInUp}
             href={BUSINESS.phoneTel}
-            className="inline-flex items-center gap-2.5 text-white/80 hover:text-[#D4AF37] transition-colors text-sm sm:text-base font-medium"
+            className="inline-flex items-center gap-2.5 text-white/80 hover:text-[#F3BA2F] transition-colors text-sm sm:text-base font-medium"
           >
             <Phone size={18} />
             Call {BUSINESS.phone}
@@ -134,7 +134,7 @@ export default function HomePage() {
         <div className="container-custom mx-auto relative z-10 px-6 sm:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 text-center md:text-left">
             <motion.div variants={fadeInUpSlow} initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-50px" }} className="max-w-2xl mb-6 md:mb-0 flex flex-col items-center md:items-start">
-              <p className="text-[#D4AF37] text-sm font-semibold tracking-[0.15em] uppercase mb-3">How We Serve You</p>
+              <p className="text-[#F3BA2F] text-sm font-semibold tracking-[0.15em] uppercase mb-3">How We Serve You</p>
               <h2 className="text-4xl sm:text-5xl text-[#1E1C59] leading-tight" style={{ fontFamily: "'Marcellus', serif" }}>
                 Three Ways to Enjoy <br className="hidden sm:block"/> Greek Mansion
               </h2>
@@ -207,14 +207,14 @@ export default function HomePage() {
                         href={service.cta.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full border-2 border-[#D4AF37] text-[#D4AF37] font-bold text-sm uppercase tracking-wider hover:bg-[#D4AF37] hover:text-white transition-all group"
+                        className="flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full border-2 border-[#F3BA2F] text-[#F3BA2F] font-bold text-sm uppercase tracking-wider hover:bg-[#F3BA2F] hover:text-black transition-all group"
                       >
                         {service.cta.label} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                       </a>
                     ) : (
                       <Link
                         href={service.cta.href}
-                        className="flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full border-2 border-[#D4AF37] text-[#D4AF37] font-bold text-sm uppercase tracking-wider hover:bg-[#D4AF37] hover:text-white transition-all group"
+                        className="flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full border-2 border-[#F3BA2F] text-[#F3BA2F] font-bold text-sm uppercase tracking-wider hover:bg-[#F3BA2F] hover:text-black transition-all group"
                       >
                         {service.cta.label} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                       </Link>
@@ -241,7 +241,7 @@ export default function HomePage() {
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
-            backgroundImage: `repeating-linear-gradient(45deg, #D4AF37 0px, #D4AF37 1px, transparent 1px, transparent 20px)`,
+            backgroundImage: `repeating-linear-gradient(45deg, #F3BA2F 0px, #F3BA2F 1px, transparent 1px, transparent 20px)`,
           }} />
         </div>
         
@@ -254,7 +254,7 @@ export default function HomePage() {
               initial="initial"
               whileInView="whileInView"
             >
-              <div className="relative w-full aspect-square lg:aspect-[3/4] rounded-full lg:rounded-t-[100px] lg:rounded-b-2xl overflow-hidden shadow-2xl lg:shadow-none border-4 lg:border-none border-[#D4AF37]/20">
+              <div className="relative w-full aspect-square lg:aspect-[3/4] rounded-full lg:rounded-t-[100px] lg:rounded-b-2xl overflow-hidden shadow-2xl lg:shadow-none border-4 lg:border-none border-[#F3BA2F]/20">
                 <Image
                   src="/images/food/greek-salad.jpg"
                   alt="Fresh Greek salad with feta, olives, tomatoes, and cucumbers"
@@ -264,7 +264,7 @@ export default function HomePage() {
                 />
               </div>
               {/* Gold border accent - Desktop only */}
-              <div className="hidden lg:block absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-full h-full rounded-t-[100px] rounded-b-2xl border-2 border-[#D4AF37]/30 -z-10" />
+              <div className="hidden lg:block absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-full h-full rounded-t-[100px] rounded-b-2xl border-2 border-[#F3BA2F]/30 -z-10" />
             </motion.div>
 
             {/* Text */}
@@ -275,7 +275,7 @@ export default function HomePage() {
               variants={staggerContainerSlow}
               className="text-center lg:text-left flex flex-col items-center lg:items-start"
             >
-              <motion.p variants={slideInRightSlow} className="text-[#D4AF37] text-base sm:text-lg font-bold tracking-[0.15em] uppercase mb-4">
+              <motion.p variants={slideInRightSlow} className="text-[#F3BA2F] text-base sm:text-lg font-bold tracking-[0.15em] uppercase mb-4">
                 Our Story
               </motion.p>
               <motion.h2 variants={slideInRightSlow} className="text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6" style={{ fontFamily: "'Marcellus', serif", color: '#ffffff' }}>
@@ -289,7 +289,7 @@ export default function HomePage() {
                 Whether you&apos;re stopping by for a quick lunch box, gathering the family for a feast, or planning catering for your next event, we&apos;re here to make it memorable.
               </motion.p>
               <motion.div variants={slideInRightSlow} className="flex flex-wrap justify-center lg:justify-start gap-4">
-                <Link href="/about" className="btn-gold !rounded-full">
+                <Link href="/about" className="btn-gold !text-black !rounded-full">
                   Learn More
                 </Link>
                 <Link href="/menu" className="btn-outline-white !rounded-full">
@@ -319,7 +319,7 @@ export default function HomePage() {
               viewport={{ once: true, margin: "-50px" }}
               variants={staggerContainerSlow}
             >
-              <motion.p variants={fadeInUpSlow} className="text-[#D4AF37] text-sm sm:text-base font-bold tracking-[0.2em] uppercase mb-4">
+              <motion.p variants={fadeInUpSlow} className="text-[#F3BA2F] text-sm sm:text-base font-bold tracking-[0.2em] uppercase mb-4">
                 Greek Mansion Catering
               </motion.p>
               <motion.h2 variants={fadeInUpSlow} className="text-4xl sm:text-5xl lg:text-6xl mb-6 leading-tight text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
@@ -333,12 +333,12 @@ export default function HomePage() {
               {/* 2x2 Grid for features */}
               <motion.div variants={fadeInUpSlow} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 w-full max-w-xl mx-auto lg:mx-0">
                 {[
-                  { icon: <Briefcase color="#D4AF37" size={24} />, title: 'Corporate Lunches' },
-                  { icon: <PartyPopper color="#D4AF37" size={24} />, title: 'Family Celebrations' },
-                  { icon: <Landmark color="#D4AF37" size={24} />, title: 'Community Events' },
-                  { icon: <Users color="#D4AF37" size={24} />, title: 'Team Gatherings' }
+                  { icon: <Briefcase color="#F3BA2F" size={24} />, title: 'Corporate Lunches' },
+                  { icon: <PartyPopper color="#F3BA2F" size={24} />, title: 'Family Celebrations' },
+                  { icon: <Landmark color="#F3BA2F" size={24} />, title: 'Community Events' },
+                  { icon: <Users color="#F3BA2F" size={24} />, title: 'Team Gatherings' }
                 ].map((item) => (
-                  <div key={item.title} className="flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left gap-3 sm:gap-4 bg-gradient-to-br from-white to-[#F7F3EA] p-5 rounded-2xl border border-[#E8DCCB] shadow-sm hover:shadow-md hover:border-[#D4AF37]/60 hover:-translate-y-1 transition-all">
+                  <div key={item.title} className="flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left gap-3 sm:gap-4 bg-gradient-to-br from-white to-[#F7F3EA] p-5 rounded-2xl border border-[#E8DCCB] shadow-sm hover:shadow-md hover:border-[#F3BA2F]/60 hover:-translate-y-1 transition-all">
                     <div className="w-12 h-12 rounded-full bg-[#1E1C59]/5 flex items-center justify-center shrink-0 shadow-inner">
                       {item.icon}
                     </div>
@@ -348,7 +348,7 @@ export default function HomePage() {
               </motion.div>
 
               <motion.div variants={fadeInUpSlow} className="flex flex-wrap justify-center lg:justify-start gap-4">
-                <Link href="/catering" className="btn-gold !rounded-full">
+                <Link href="/catering" className="btn-gold !text-black !rounded-full">
                   Plan Your Catering
                 </Link>
                 <a href={BUSINESS.phoneTel} className="btn-outline !rounded-full">
@@ -381,11 +381,11 @@ export default function HomePage() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                 >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#D4AF37] rounded-full flex items-center justify-center text-white shrink-0 shadow-lg">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#F3BA2F] rounded-full flex items-center justify-center text-black font-bold shrink-0 shadow-lg">
                     <Landmark size={22} />
                   </div>
                   <div>
-                    <p className="text-[#D4AF37] text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">Packages From</p>
+                    <p className="text-[#F3BA2F] text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">Packages From</p>
                     <p className="text-2xl sm:text-3xl font-bold text-white leading-none" style={{ fontFamily: "'Marcellus', serif", color: '#ffffff' }}>$129.95</p>
                     <p className="text-white/50 text-[11px] sm:text-xs mt-1">Feeds up to 10 people</p>
                   </div>
@@ -401,7 +401,7 @@ export default function HomePage() {
       <section className="section-padding bg-white relative texture-white overflow-hidden">
         <div className="container-custom mx-auto relative z-10 px-6 sm:px-8">
           <motion.div variants={fadeInUpSlow} initial="initial" whileInView="whileInView" viewport={{ once: true, margin: "-50px" }} className="text-center mb-12">
-            <p className="text-[#D4AF37] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Gallery</p>
+            <p className="text-[#F3BA2F] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Gallery</p>
             <h2 className="text-3xl sm:text-4xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
               Made Fresh, Served with Love
             </h2>
@@ -439,14 +439,14 @@ export default function HomePage() {
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
-            backgroundImage: `repeating-linear-gradient(45deg, #D4AF37 0px, #D4AF37 1px, transparent 1px, transparent 20px)`,
+            backgroundImage: `repeating-linear-gradient(45deg, #F3BA2F 0px, #F3BA2F 1px, transparent 1px, transparent 20px)`,
           }} />
         </div>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          className="text-[#D4AF37] text-4xl sm:text-5xl lg:text-6xl max-w-4xl mx-auto relative z-10"
+          className="text-[#F3BA2F] text-4xl sm:text-5xl lg:text-6xl max-w-4xl mx-auto relative z-10"
           style={{ fontFamily: "'BlessedDay', cursive", textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}
         >
           "Good food is the foundation of genuine happiness."
@@ -465,7 +465,7 @@ export default function HomePage() {
               whileInView="whileInView"
             >
               {/* Decorative Golden Blob */}
-              <div className="absolute -top-8 -left-4 sm:-top-12 sm:-left-8 w-48 h-48 sm:w-64 sm:h-64 bg-[#D4AF37] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] -z-10 opacity-40"></div>
+              <div className="absolute -top-8 -left-4 sm:-top-12 sm:-left-8 w-48 h-48 sm:w-64 sm:h-64 bg-[#F3BA2F] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] -z-10 opacity-40"></div>
               
               <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#E8DCCB] border-2 border-[#E8DCCB] shadow-lg">
                 <iframe
@@ -490,7 +490,7 @@ export default function HomePage() {
               variants={staggerContainerSlow}
               className="text-center lg:text-left flex flex-col items-center lg:items-start"
             >
-              <motion.p variants={slideInRightSlow} className="text-[#D4AF37] text-sm font-semibold tracking-[0.15em] uppercase mb-3">
+              <motion.p variants={slideInRightSlow} className="text-[#F3BA2F] text-sm font-semibold tracking-[0.15em] uppercase mb-3">
                 Find Us
               </motion.p>
               <motion.h2 variants={slideInRightSlow} className="text-3xl sm:text-4xl text-[#1E1C59] leading-tight mb-6" style={{ fontFamily: "'Marcellus', serif" }}>
@@ -501,7 +501,7 @@ export default function HomePage() {
               <div className="space-y-5 w-full flex flex-col items-center lg:items-start">
                 <motion.div variants={slideInRightSlow} className="flex flex-col lg:flex-row items-center lg:items-start gap-3 lg:gap-4 text-center lg:text-left w-full">
                   <div className="w-10 h-10 rounded-full bg-[#1E1C59]/5 flex items-center justify-center flex-shrink-0 lg:mt-0.5">
-                    <MapPin size={20} color="#D4AF37" />
+                    <MapPin size={20} color="#F3BA2F" />
                   </div>
                   <div>
                     <p className="font-bold text-[#1E1C59]">{BUSINESS.name}</p>
@@ -514,11 +514,11 @@ export default function HomePage() {
 
                 <motion.div variants={slideInRightSlow} className="flex flex-col lg:flex-row items-center lg:items-start gap-3 lg:gap-4 text-center lg:text-left w-full">
                   <div className="w-10 h-10 rounded-full bg-[#1E1C59]/5 flex items-center justify-center flex-shrink-0 lg:mt-0.5">
-                    <Phone size={20} color="#D4AF37" />
+                    <Phone size={20} color="#F3BA2F" />
                   </div>
                   <div>
                     <p className="font-bold text-[#1E1C59]">Call Us</p>
-                    <a href={BUSINESS.phoneTel} className="text-[#D4AF37] font-semibold hover:text-[#AA8B24] transition-colors mt-1 block">
+                    <a href={BUSINESS.phoneTel} className="text-[#F3BA2F] font-semibold hover:text-[#C68B15] transition-colors mt-1 block">
                       {BUSINESS.phone}
                     </a>
                   </div>
@@ -571,7 +571,7 @@ export default function HomePage() {
             Explore our full menu, or plan your next event with our catering packages.
           </motion.p>
           <motion.div variants={fadeInScale} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/menu" className="btn-gold !rounded-full !px-8 !py-3.5">
+            <Link href="/menu" className="btn-gold !text-black !rounded-full !px-8 !py-3.5">
               View Menu
             </Link>
             <Link href="/catering" className="btn-outline-white !rounded-full !px-8 !py-3.5">

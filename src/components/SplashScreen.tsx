@@ -36,7 +36,7 @@ export default function SplashScreen() {
         }`}
     >
       {/* Subtle Greek texture background */}
-      <div className="absolute inset-0 opacity-5" style={{ backgroundImage: `repeating-linear-gradient(45deg, #D4AF37 0px, #D4AF37 1px, transparent 1px, transparent 20px)` }} />
+      <div className="absolute inset-0 opacity-5" style={{ backgroundImage: `repeating-linear-gradient(45deg, #F3BA2F 0px, #F3BA2F 1px, transparent 1px, transparent 20px)` }} />
 
       <div className="flex flex-col items-center relative z-10 px-6">
         {/* Greek Mansion Official Logo */}
@@ -61,7 +61,7 @@ export default function SplashScreen() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ delay: 0.5, duration: 1.2, ease: "easeInOut" }}
-          className="h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent w-48 sm:w-64 mt-4"
+          className="h-[1px] bg-gradient-to-r from-transparent via-[#F3BA2F]/70 to-transparent w-48 sm:w-64 mt-4"
         />
       </div>
     </div>

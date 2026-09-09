@@ -36,7 +36,7 @@ export default function SettingsForm({ initialConfig }: { initialConfig: Record<
         <button 
           onClick={handleSave} 
           disabled={isPending}
-          className="bg-[#D4AF37] text-white px-4 py-2 rounded shadow disabled:opacity-50"
+          className="bg-[#F3BA2F] text-black px-4 py-2 rounded shadow font-bold disabled:opacity-50"
         >
           {isPending ? 'Saving...' : status === 'success' ? 'Saved!' : 'Save Changes'}
         </button>
@@ -51,7 +51,7 @@ export default function SettingsForm({ initialConfig }: { initialConfig: Record<
           </div>
           <button
             onClick={() => handleChange('HIDE_PRODUCTS_WITHOUT_IMAGES', config['HIDE_PRODUCTS_WITHOUT_IMAGES'] === 'true' ? 'false' : 'true')}
-            className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${config['HIDE_PRODUCTS_WITHOUT_IMAGES'] === 'true' ? 'bg-[#D4AF37]' : 'bg-gray-200'}`}
+            className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${config['HIDE_PRODUCTS_WITHOUT_IMAGES'] === 'true' ? 'bg-[#F3BA2F]' : 'bg-gray-200'}`}
           >
             <span
               className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${config['HIDE_PRODUCTS_WITHOUT_IMAGES'] === 'true' ? 'translate-x-5' : 'translate-x-0'}`}
@@ -169,7 +169,7 @@ export default function SettingsForm({ initialConfig }: { initialConfig: Record<
                     const newGallery = [...gallery, { src: '', alt: '' }];
                     handleChange('HOMEPAGE_GALLERY', JSON.stringify(newGallery));
                   }}
-                  className="mt-4 px-4 py-2 border-2 border-dashed border-[#D4AF37] text-[#D4AF37] font-medium rounded hover:bg-[#F7F3EA] w-full"
+                  className="mt-4 px-4 py-2 border-2 border-dashed border-[#F3BA2F] text-[#F3BA2F] font-medium rounded hover:bg-[#F7F3EA] w-full"
                 >
                   + Add Another Image
                 </button>

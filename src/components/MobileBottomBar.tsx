@@ -6,11 +6,11 @@ import { BUSINESS } from '@/lib/constants';
 
 export default function MobileBottomBar() {
   return (
-    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 flex items-stretch border-t border-[#D4AF37]/30 bg-transparent">
+    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 flex items-stretch border-t border-[#F3BA2F]/30 bg-transparent">
         {/* Call */}
         <a
           href={BUSINESS.phoneTel}
-          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-4 bg-[#1E1C59]/98 backdrop-blur-md text-white/80 hover:text-[#D4AF37] transition-colors active:bg-white/5"
+          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-4 bg-[#1E1C59]/98 backdrop-blur-md text-white/80 hover:text-[#F3BA2F] transition-colors active:bg-white/5"
           aria-label="Call Greek Mansion"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -22,7 +22,7 @@ export default function MobileBottomBar() {
         {/* Menu */}
         <Link
           href="/menu"
-          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-4 bg-[#1E1C59]/98 backdrop-blur-md text-white/80 hover:text-[#D4AF37] transition-colors active:bg-white/5"
+          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-4 bg-[#1E1C59]/98 backdrop-blur-md text-white/80 hover:text-[#F3BA2F] transition-colors active:bg-white/5"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 6h16M4 12h16M4 18h16" />

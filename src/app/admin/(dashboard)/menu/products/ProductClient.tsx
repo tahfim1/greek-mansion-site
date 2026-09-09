@@ -173,7 +173,7 @@ export default function ProductClient({
           <h1 className="text-3xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>Products</h1>
           <p className="text-[#11102F]/60">Manage your menu items (Block View)</p>
         </div>
-        <button onClick={openNew} className="bg-[#D4AF37] text-white px-4 py-2 rounded shadow">
+        <button onClick={openNew} className="bg-[#F3BA2F] text-black px-4 py-2 rounded shadow font-bold">
           + Add Product
         </button>
       </div>
@@ -215,7 +215,7 @@ export default function ProductClient({
                        </div>
                     )}
                     <h3 className="text-lg font-bold text-[#1E1C59] mb-1" style={{ fontFamily: "'Marcellus', serif" }}>{p.name}</h3>
-                    <p className="text-sm font-bold text-[#D4AF37] mb-3">${(p.basePrice / 100).toFixed(2)}</p>
+                    <p className="text-sm font-bold text-[#F3BA2F] mb-3">${(p.basePrice / 100).toFixed(2)}</p>
                     <p className="text-[#11102F]/60 text-xs line-clamp-2 mb-4 flex-1">{p.shortDescription || p.fullDescription}</p>
                     
                     <div className="flex gap-2 pt-4 border-t border-[#E8DCCB] mt-auto">
@@ -345,13 +345,13 @@ export default function ProductClient({
                     </div>
                     <div className="flex flex-col justify-end pb-2">
                       <label className="flex items-center space-x-2 cursor-pointer">
-                        <input type="checkbox" checked={formData.isFeatured} onChange={e => setFormData({...formData, isFeatured: e.target.checked})} className="rounded text-[#D4AF37] focus:ring-[#D4AF37] w-5 h-5" />
+                        <input type="checkbox" checked={formData.isFeatured} onChange={e => setFormData({...formData, isFeatured: e.target.checked})} className="rounded text-[#F3BA2F] focus:ring-[#F3BA2F] w-5 h-5" />
                         <span className="text-sm font-bold text-[#1E1C59]">Featured on Home</span>
                       </label>
                     </div>
                     <div className="flex flex-col justify-end pb-2">
                       <label className="flex items-center space-x-2 cursor-pointer">
-                        <input type="checkbox" checked={formData.isSoldOut} onChange={e => setFormData({...formData, isSoldOut: e.target.checked})} className="rounded text-[#D4AF37] focus:ring-[#D4AF37] w-5 h-5" />
+                        <input type="checkbox" checked={formData.isSoldOut} onChange={e => setFormData({...formData, isSoldOut: e.target.checked})} className="rounded text-[#F3BA2F] focus:ring-[#F3BA2F] w-5 h-5" />
                         <span className="text-sm font-bold text-red-600">Mark as Sold Out</span>
                       </label>
                     </div>
@@ -365,7 +365,7 @@ export default function ProductClient({
               <button type="button" onClick={() => setIsModalOpen(false)} className="px-6 py-2.5 rounded-lg border border-[#E8DCCB] text-[#11102F] font-semibold hover:bg-white transition-colors bg-transparent">
                 Cancel
               </button>
-              <button type="submit" form="productForm" disabled={isPending || isUploading} className="bg-[#D4AF37] text-white px-8 py-2.5 rounded-lg shadow font-semibold hover:bg-[#E5C76B] transition-colors disabled:opacity-50">
+              <button type="submit" form="productForm" disabled={isPending || isUploading} className="bg-[#F3BA2F] text-black px-8 py-2.5 rounded-lg shadow font-bold hover:bg-[#FFE27A] transition-colors disabled:opacity-50">
                 {isPending ? 'Saving...' : 'Save Product'}
               </button>
             </div>

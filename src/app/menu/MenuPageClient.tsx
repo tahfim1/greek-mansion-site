@@ -110,7 +110,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
           viewport={{ once: true }}
           variants={staggerHero}
         >
-          <motion.p variants={heroFadeInUp} className="text-[#D4AF37] text-sm font-semibold tracking-[0.15em] uppercase mb-3">
+          <motion.p variants={heroFadeInUp} className="text-[#F3BA2F] text-sm font-semibold tracking-[0.15em] uppercase mb-3">
             Greek Mansion Restaurant
           </motion.p>
           <motion.h1 variants={heroFadeInUp} className="text-4xl sm:text-5xl text-white mb-4" style={{ fontFamily: "'Marcellus', serif", color: '#ffffff' }}>
@@ -124,7 +124,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
               href="/Greek-Mansion-Menu.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold !rounded-full !px-8 !py-3 !text-sm shadow-xl shadow-black/20 font-semibold tracking-wide"
+              className="btn-gold !text-black !rounded-full !px-8 !py-3 !text-sm shadow-xl shadow-black/20 font-semibold tracking-wide"
             >
               See Original Print Menu
             </a>
@@ -139,7 +139,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
           {/* Search */}
           <div className="py-3">
             <div className="relative max-w-md mx-auto">
-              <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-[#D4AF37]" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-[#F3BA2F]" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
@@ -198,7 +198,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
               </p>
               <p className="text-[#11102F]/50 text-sm">
                 Try a different search term or{' '}
-                <button onClick={() => setSearchQuery('')} className="text-[#D4AF37] font-semibold hover:underline">
+                <button onClick={() => setSearchQuery('')} className="text-[#F3BA2F] font-semibold hover:underline">
                   clear your search
                 </button>
               </p>
@@ -220,7 +220,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
                   <h2 className="text-xl sm:text-3xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
                     {category.name}
                   </h2>
-                  <div className="flex-1 h-px bg-[#D4AF37]/20" />
+                  <div className="flex-1 h-px bg-[#F3BA2F]/20" />
                 </motion.div>
                 {category.description && (
                   <motion.p variants={fadeInUpSlow} className="text-[#11102F]/50 text-sm mb-6 max-w-2xl">
@@ -320,7 +320,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
                             ))}
                           </div>
                         ) : (
-                          <p className="text-[#D4AF37] font-bold text-lg mb-4">
+                          <p className="text-[#F3BA2F] font-bold text-lg mb-4">
                             {formatPrice(product.price)}
                           </p>
                         )}

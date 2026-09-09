@@ -81,7 +81,7 @@ export default function CategoryClient({ initialCategories }: { initialCategorie
           <h1 className="text-3xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>Categories</h1>
           <p className="text-[#11102F]/60">Manage your menu categories</p>
         </div>
-        <button onClick={openNew} className="bg-[#D4AF37] text-white px-4 py-2 rounded shadow">
+        <button onClick={openNew} className="bg-[#F3BA2F] text-black px-4 py-2 rounded shadow font-bold">
           + Add Category
         </button>
       </div>
@@ -105,7 +105,7 @@ export default function CategoryClient({ initialCategories }: { initialCategorie
                   {cat.isHidden ? 'Hidden' : cat.isArchived ? 'Archived' : 'Active'}
                 </td>
                 <td className="p-4">
-                  <button onClick={() => openEdit(cat)} className="text-[#D4AF37] font-semibold text-sm mr-4 hover:underline">Edit</button>
+                  <button onClick={() => openEdit(cat)} className="text-[#F3BA2F] font-semibold text-sm mr-4 hover:underline">Edit</button>
                   <button onClick={() => handleDelete(cat.id)} className="text-red-600 font-semibold text-sm hover:underline disabled:opacity-50" disabled={isPending}>Delete</button>
                 </td>
               </tr>
@@ -144,14 +144,14 @@ export default function CategoryClient({ initialCategories }: { initialCategorie
               </div>
               <div>
                 <label className="flex items-center space-x-2">
-                  <input type="checkbox" checked={formData.isHidden} onChange={e => setFormData({...formData, isHidden: e.target.checked})} className="rounded text-[#D4AF37] focus:ring-[#D4AF37]" />
+                  <input type="checkbox" checked={formData.isHidden} onChange={e => setFormData({...formData, isHidden: e.target.checked})} className="rounded text-[#F3BA2F] focus:ring-[#F3BA2F]" />
                   <span className="text-sm font-semibold text-[#1E1C59]">Hide Category</span>
                 </label>
               </div>
               
               <div className="flex justify-end space-x-2 pt-4">
                 <button type="button" onClick={() => setIsModalOpen(false)} className="px-4 py-2 rounded border border-[#E8DCCB] text-[#11102F]">Cancel</button>
-                <button type="submit" disabled={isPending} className="bg-[#D4AF37] text-white px-4 py-2 rounded shadow disabled:opacity-50">
+                <button type="submit" disabled={isPending} className="bg-[#F3BA2F] text-black px-4 py-2 rounded shadow font-bold disabled:opacity-50">
                   {isPending ? 'Saving...' : 'Save'}
                 </button>
               </div>

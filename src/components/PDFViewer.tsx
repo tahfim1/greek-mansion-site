@@ -83,7 +83,7 @@ export default function PDFViewer({ file }: { file: string }) {
               <button
                 key={`dot_${index}`}
                 onClick={() => setCurrentPage(index + 1)}
-                className={`w-3 h-3 rounded-full transition-colors ${currentPage === index + 1 ? 'bg-[#1E1C59]' : 'bg-[#E8DCCB] hover:bg-[#D4AF37]'}`}
+                className={`w-3 h-3 rounded-full transition-colors ${currentPage === index + 1 ? 'bg-[#1E1C59]' : 'bg-[#E8DCCB] hover:bg-[#F3BA2F]'}`}
                 aria-label={`Go to page ${index + 1}`}
               />
             ))}
@@ -123,7 +123,7 @@ export default function PDFViewer({ file }: { file: string }) {
             
             <button 
               onClick={() => setIsLightboxOpen(false)} 
-              className="bg-[#D4AF37] hover:bg-[#E5C76B] text-white p-2 sm:px-6 rounded-lg font-bold transition-colors flex items-center gap-2"
+              className="bg-[#F3BA2F] hover:bg-[#FFE27A] text-black font-bold p-2 sm:px-6 rounded-lg font-bold transition-colors flex items-center gap-2"
             >
               <span className="hidden sm:inline">Close</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>

@@ -43,7 +43,7 @@ export default function CateringForm() {
         </h3>
         <p className="text-[#11102F]/60 text-sm">
           Thank you for your inquiry. We&apos;ll be in touch shortly. You can also reach us at{' '}
-          <a href="tel:+14162923333" className="text-[#D4AF37] font-semibold">+1 416-292-3333</a>.
+          <a href="tel:+14162923333" className="text-[#F3BA2F] font-semibold">+1 416-292-3333</a>.
         </p>
       </div>
     );
@@ -119,7 +119,7 @@ export default function CateringForm() {
 
       <div className="mt-5">
         <label className="flex items-start gap-3 cursor-pointer">
-          <input type="checkbox" required className="mt-1 w-4 h-4 rounded border-[#E8DCCB] text-[#1E1C59] focus:ring-[#D4AF37]" />
+          <input type="checkbox" required className="mt-1 w-4 h-4 rounded border-[#E8DCCB] text-[#1E1C59] focus:ring-[#F3BA2F]" />
           <span className="text-[#11102F]/60 text-xs leading-relaxed">
             I consent to Greek Mansion Restaurant collecting this information to respond to my catering inquiry. My information will not be shared with third parties.
           </span>
