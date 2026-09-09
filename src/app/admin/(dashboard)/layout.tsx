@@ -21,7 +21,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
     <div className="min-h-screen bg-[#F7F3EA] flex pt-20 md:pt-28">
       {/* Mobile Header & Hamburger */}
-      <div className="md:hidden fixed top-0 left-0 right-0 h-20 bg-white border-b border-[#E8DCCB] z-40 flex items-center justify-between px-6">
+      <div className="md:hidden fixed top-0 left-0 right-0 h-20 bg-white border-b border-[#E8DCCB] z-[60] flex items-center justify-between px-6">
         <h2 className="text-[#1E1C59] font-bold tracking-widest uppercase text-sm">Admin CMS</h2>
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -40,7 +40,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar (Desktop & Mobile) */}
       <aside className={`
         fixed md:sticky top-20 md:top-28 left-0 h-[calc(100vh-5rem)] md:h-[calc(100vh-7rem)]
-        w-64 bg-white border-r border-[#E8DCCB] overflow-y-auto z-30
+        w-64 bg-white border-r border-[#E8DCCB] overflow-y-auto z-[60] md:z-30
         transition-transform duration-300 ease-in-out
         ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
       `}>
@@ -75,7 +75,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Mobile Overlay */}
       {isMobileMenuOpen && (
         <div 
-          className="fixed inset-0 bg-[#11102F]/20 backdrop-blur-sm z-20 md:hidden"
+          className="fixed inset-0 bg-[#11102F]/20 backdrop-blur-sm z-[55] md:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
