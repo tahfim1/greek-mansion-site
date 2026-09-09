@@ -60,7 +60,7 @@ export default function HomePage() {
       {/* ── Hero Section ─────────────────────────────────── */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 bg-black">
+        <div className="absolute inset-x-0 bottom-0 top-[60px] md:top-[80px] bg-black">
           <Image
             src="/images/hero-bg-zeus.jpg"
             alt="Greek Mansion Restaurant — Authentic Greek cuisine in Scarborough"
