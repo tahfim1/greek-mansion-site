@@ -62,15 +62,15 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/food/home-hero.jpg"
-            alt="Greek Mansion Restaurant — Authentic Greek cuisine spread with gyro, souvlaki, salads, and pita"
+            src="/images/golden-particle-dust-wallpaper.jpg"
+            alt="Greek Mansion Restaurant — Authentic Greek cuisine in Scarborough"
             fill
             priority
             className="object-cover"
             sizes="100vw"
           />
-          {/* Overlay */}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.7), rgba(0,0,0,0.9))' }} />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(8,7,26,0.65) 0%, rgba(8,7,26,0.35) 50%, rgba(8,7,26,0.8) 100%)' }} />
         </div>
 
         {/* Content */}

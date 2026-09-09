@@ -123,7 +123,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
           {/* Gold Sprinkle Dust on Dark Background */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
-              src="/images/gold-dust-bg.jpg"
+              src="/images/golden-particle-dust-wallpaper.jpg"
               alt="Golden Dust Background"
               fill
               priority
