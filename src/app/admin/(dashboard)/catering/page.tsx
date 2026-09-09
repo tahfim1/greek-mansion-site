@@ -1,9 +1,16 @@
 import prisma from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 export default async function CateringInquiriesPage() {
-  const inquiries = await prisma.cateringInquiry.findMany({
-    orderBy: { createdAt: 'desc' },
-  });
+  let inquiries: any[] = [];
+  try {
+    inquiries = await prisma.cateringInquiry.findMany({
+      orderBy: { createdAt: 'desc' },
+    });
+  } catch (e) {
+    console.warn('Could not fetch catering inquiries (database not available):', e);
+  }
 
   return (
     <div className="max-w-6xl mx-auto">
