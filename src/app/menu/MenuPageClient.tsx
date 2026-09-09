@@ -134,7 +134,7 @@ export default function MenuPageClient({ initialCategories }: MenuPageClientProp
 
 
       {/* Search + Category Navigation (Sticky) */}
-      <div className="sticky top-[64px] sm:top-[72px] lg:top-[88px] z-30 bg-white/95 backdrop-blur-md border-b border-[#E8DCCB] shadow-sm">
+      <div className="sticky top-[64px] sm:top-[70px] lg:top-[70px] xl:top-[74px] z-30 bg-white/95 backdrop-blur-md border-b border-[#E8DCCB] shadow-sm">
         <div className="container-custom mx-auto px-6 sm:px-8">
           {/* Search */}
           <div className="py-3">
