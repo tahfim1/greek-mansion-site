@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { Truck } from 'lucide-react';
 import { BUSINESS } from '@/lib/constants';
 
 export default function MobileBottomBar() {
@@ -34,10 +33,10 @@ export default function MobileBottomBar() {
           href="https://www.ubereats.com/ca/store/greek-mansion/2jMowxE1Ts6w_sOBYT_BQA?utm=greekfooddelivery.ca"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-4 bg-[#06C167] text-white hover:bg-[#05a357] transition-colors active:bg-[#05a357]"
+          className="flex-1 flex flex-col items-center justify-center pt-2.5 pb-4 bg-[#1E1C59]/98 backdrop-blur-md text-white/80 hover:text-[#F3BA2F] transition-colors active:bg-white/5"
         >
-          <Truck size={20} strokeWidth={2} />
-          <span className="text-[10px] font-bold mt-0.5">Uber Eats</span>
+          <span className="font-sans font-bold text-sm leading-none flex items-center justify-center h-[20px] tracking-tight">Uber Eats</span>
+          <span className="text-[10px] font-semibold mt-1">Order</span>
         </a>
     </div>
   );

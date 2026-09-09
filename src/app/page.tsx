@@ -66,7 +66,7 @@ export default function HomePage() {
             alt="Greek Mansion Restaurant — Authentic Greek cuisine in Scarborough"
             fill
             priority
-            className="object-cover opacity-80"
+            className="object-cover object-[center_15%] opacity-80"
             sizes="100vw"
           />
           {/* Gradient Overlay (Black Shade) */}

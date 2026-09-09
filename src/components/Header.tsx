@@ -79,11 +79,9 @@ export default function Header() {
               href="https://www.ubereats.com/ca/store/greek-mansion/2jMowxE1Ts6w_sOBYT_BQA?utm=greekfooddelivery.ca"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative overflow-hidden ml-2 xl:ml-3 bg-[#06C167] text-white !py-3 xl:!py-3.5 !px-5 xl:!px-7 !text-base xl:!text-[17px] !font-bold !rounded-full shadow-md hover:shadow-lg transition-shadow flex items-center gap-2 group"
+              className="relative overflow-hidden ml-2 xl:ml-3 bg-[#1E1C59] border border-[#F3BA2F]/50 text-white hover:text-[#F3BA2F] !py-3 xl:!py-3.5 !px-5 xl:!px-7 !text-base xl:!text-[17px] !font-bold !rounded-full shadow-md hover:shadow-[#F3BA2F]/20 hover:border-[#F3BA2F] transition-all flex items-center gap-2 group"
             >
-              <div className="absolute inset-0 bg-[#04a053] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
-              <span className="relative z-10 flex items-center gap-2">
-                <Truck size={18} strokeWidth={2.5} />
+              <span className="relative z-10 flex items-center gap-2 font-sans tracking-tight">
                 Uber Eats
               </span>
             </a>
