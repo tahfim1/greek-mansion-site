@@ -28,7 +28,7 @@ export default function ContactClient() {
           viewport={{ once: true }}
           variants={staggerHero}
         >
-          <motion.p variants={heroFadeInUp} className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Get In Touch</motion.p>
+          <motion.p variants={heroFadeInUp} className="text-[#D4AF37] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Get In Touch</motion.p>
           <motion.h1 variants={heroFadeInUp} className="text-4xl sm:text-5xl text-white mb-4" style={{ fontFamily: "'Marcellus', serif", color: '#ffffff' }}>
             Contact Us
           </motion.h1>
@@ -58,7 +58,7 @@ export default function ContactClient() {
                 {/* Address */}
                 <motion.div variants={slideInRightSlow} className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-[#1E1C59]/5 flex items-center justify-center flex-shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B18C56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                       <circle cx="12" cy="10" r="3" />
                     </svg>
@@ -74,7 +74,7 @@ export default function ContactClient() {
                       href={BUSINESS.googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#B18C56] font-semibold text-sm hover:text-[#8F7045] transition-colors inline-flex items-center gap-1 mt-2"
+                      className="text-[#D4AF37] font-semibold text-sm hover:text-[#AA8B24] transition-colors inline-flex items-center gap-1 mt-2"
                     >
                       Get Directions →
                     </a>
@@ -84,13 +84,13 @@ export default function ContactClient() {
                 {/* Phone */}
                 <motion.div variants={slideInRightSlow} className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-[#1E1C59]/5 flex items-center justify-center flex-shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B18C56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                     </svg>
                   </div>
                   <div>
                     <p className="font-bold text-[#1E1C59] mb-1">Phone</p>
-                    <a href={BUSINESS.phoneTel} className="text-[#B18C56] font-bold text-xl hover:text-[#8F7045] transition-colors">
+                    <a href={BUSINESS.phoneTel} className="text-[#D4AF37] font-bold text-xl hover:text-[#AA8B24] transition-colors">
                       {BUSINESS.phone}
                     </a>
                   </div>
@@ -99,7 +99,7 @@ export default function ContactClient() {
                 {/* Services */}
                 <motion.div variants={slideInRightSlow} className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-[#1E1C59]/5 flex items-center justify-center flex-shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B18C56" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
@@ -109,7 +109,7 @@ export default function ContactClient() {
                       {BUSINESS.services.map((service, i) => (
                         <span key={service} className="flex items-center gap-2">
                           <span>{service}</span>
-                          {i < BUSINESS.services.length - 1 && <span className="text-[#B18C56]">•</span>}
+                          {i < BUSINESS.services.length - 1 && <span className="text-[#D4AF37]">•</span>}
                         </span>
                       ))}
                     </div>
@@ -170,7 +170,7 @@ export default function ContactClient() {
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainerSlow}
         >
-          <motion.p variants={fadeInUpSlow} className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Planning an Event?</motion.p>
+          <motion.p variants={fadeInUpSlow} className="text-[#D4AF37] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Planning an Event?</motion.p>
           <motion.h2 variants={fadeInUpSlow} className="text-3xl sm:text-4xl text-[#1E1C59] mb-4" style={{ fontFamily: "'Marcellus', serif" }}>
             Let Us Cater for You
           </motion.h2>

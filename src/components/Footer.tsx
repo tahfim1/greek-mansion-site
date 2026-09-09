@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1E1C59] text-white pb-24 lg:pb-0">
       {/* Gold meander line */}
-      <div className="h-1 bg-gradient-to-r from-transparent via-[#B18C56] to-transparent opacity-60" />
+      <div className="h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-60" />
       
       <div className="container-custom mx-auto px-4 sm:px-6 py-8 lg:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
@@ -31,7 +31,7 @@ export default function Footer() {
             <div className="flex flex-wrap justify-center lg:justify-start items-center gap-2 text-sm mb-6">
               {BUSINESS.services.map((service, i) => (
                 <span key={service} className="flex items-center gap-2">
-                  <span className="text-[#B18C56] font-semibold">{service}</span>
+                  <span className="text-[#D4AF37] font-semibold">{service}</span>
                   {i < BUSINESS.services.length - 1 && (
                     <span className="text-white/30">|</span>
                   )}
@@ -80,7 +80,7 @@ export default function Footer() {
               </address>
               <a
                 href={BUSINESS.phoneTel}
-                className="text-white hover:text-[#B18C56] font-semibold transition-colors inline-flex items-center gap-2"
+                className="text-white hover:text-[#D4AF37] font-semibold transition-colors inline-flex items-center gap-2"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
@@ -91,7 +91,7 @@ export default function Footer() {
                 href={BUSINESS.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/70 hover:text-[#B18C56] transition-colors inline-flex items-center gap-2"
+                className="text-white/70 hover:text-[#D4AF37] transition-colors inline-flex items-center gap-2"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />

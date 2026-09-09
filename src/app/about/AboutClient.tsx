@@ -29,7 +29,7 @@ export default function AboutClient() {
           viewport={{ once: true }}
           variants={staggerHero}
         >
-          <motion.p variants={heroFadeInUp} className="text-[#B18C56] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Our Story</motion.p>
+          <motion.p variants={heroFadeInUp} className="text-[#D4AF37] text-sm font-semibold tracking-[0.15em] uppercase mb-3">Our Story</motion.p>
           <motion.h1 variants={heroFadeInUp} className="text-4xl sm:text-5xl text-white mb-4" style={{ fontFamily: "'Marcellus', serif", color: '#ffffff' }}>
             About Greek Mansion
           </motion.h1>
@@ -59,7 +59,7 @@ export default function AboutClient() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 w-full h-full rounded-t-[100px] rounded-b-2xl border-2 border-[#B18C56]/20 -z-10" />
+              <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 w-full h-full rounded-t-[100px] rounded-b-2xl border-2 border-[#D4AF37]/20 -z-10" />
             </motion.div>
 
             <motion.div

@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <section className="min-h-[70vh] flex items-center justify-center bg-[#F7F3EA]">
       <div className="text-center px-4">
-        <p className="text-[#B18C56] text-8xl font-bold mb-4" style={{ fontFamily: "'Marcellus', serif" }}>404</p>
+        <p className="text-[#D4AF37] text-8xl font-bold mb-4" style={{ fontFamily: "'Marcellus', serif" }}>404</p>
         <h1 className="text-2xl sm:text-3xl text-[#1E1C59] mb-4" style={{ fontFamily: "'Marcellus', serif" }}>
           Page Not Found
         </h1>

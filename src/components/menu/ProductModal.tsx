@@ -98,7 +98,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 
                 {/* Price Display */}
                 {product.variants && product.variants.length === 0 && (
-                  <p className="text-2xl sm:text-3xl text-[#B18C56] font-bold" style={{ fontFamily: "'Marcellus', serif" }}>
+                  <p className="text-2xl sm:text-3xl text-[#D4AF37] font-bold" style={{ fontFamily: "'Marcellus', serif" }}>
                     {formatPrice(product.price)}
                   </p>
                 )}
@@ -125,12 +125,12 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                         onClick={() => setSelectedVariant(v)}
                         className={`p-4 rounded-xl border-2 text-left transition-all flex flex-col items-start ${
                           selectedVariant?.label === v.label 
-                            ? 'border-[#B18C56] bg-white shadow-md text-[#1E1C59]' 
-                            : 'border-[#E8DCCB] bg-white/50 text-[#11102F]/70 hover:border-[#B18C56]/50 hover:bg-white'
+                            ? 'border-[#D4AF37] bg-white shadow-md text-[#1E1C59]' 
+                            : 'border-[#E8DCCB] bg-white/50 text-[#11102F]/70 hover:border-[#D4AF37]/50 hover:bg-white'
                         }`}
                       >
                         <span className="font-bold text-lg mb-1" style={{ fontFamily: "'Marcellus', serif" }}>{v.label}</span>
-                        <span className="text-[#B18C56] font-bold">{formatPrice(v.price)}</span>
+                        <span className="text-[#D4AF37] font-bold">{formatPrice(v.price)}</span>
                       </button>
                     ))}
                   </div>

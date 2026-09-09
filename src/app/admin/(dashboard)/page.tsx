@@ -24,14 +24,14 @@ export default async function AdminDashboard() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
         <div>
-          <p className="text-[#B18C56] text-sm font-bold tracking-widest uppercase mb-2">Overview</p>
+          <p className="text-[#D4AF37] text-sm font-bold tracking-widest uppercase mb-2">Overview</p>
           <h1 className="text-3xl md:text-4xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
             Admin Dashboard
           </h1>
         </div>
         <Link 
           href="/admin/menu/products"
-          className="bg-[#1E1C59] text-white px-6 py-3 rounded-full font-bold hover:bg-[#B18C56] transition-colors shadow-md flex items-center gap-2"
+          className="bg-[#1E1C59] text-white px-6 py-3 rounded-full font-bold hover:bg-[#D4AF37] transition-colors shadow-md flex items-center gap-2"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="12" y1="5" x2="12" y2="19" />
@@ -43,7 +43,7 @@ export default async function AdminDashboard() {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-        <Link href="/admin/menu/products" className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8DCCB] hover:border-[#B18C56] hover:shadow-lg transition-all group relative overflow-hidden flex flex-col justify-between">
+        <Link href="/admin/menu/products" className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8DCCB] hover:border-[#D4AF37] hover:shadow-lg transition-all group relative overflow-hidden flex flex-col justify-between">
           <div className="absolute top-0 right-0 w-24 h-24 bg-[#1E1C59]/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110" />
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-full bg-[#1E1C59]/10 flex items-center justify-center text-[#1E1C59]">
@@ -55,13 +55,13 @@ export default async function AdminDashboard() {
             </div>
             <p className="text-[#11102F]/60 text-sm font-bold uppercase tracking-wider">Published</p>
           </div>
-          <p className="text-4xl font-bold text-[#1E1C59] group-hover:text-[#B18C56] transition-colors">{publishedProducts}</p>
+          <p className="text-4xl font-bold text-[#1E1C59] group-hover:text-[#D4AF37] transition-colors">{publishedProducts}</p>
         </Link>
 
-        <Link href="/admin/menu/products" className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8DCCB] hover:border-[#B18C56] hover:shadow-lg transition-all group relative overflow-hidden flex flex-col justify-between">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-[#B18C56]/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110" />
+        <Link href="/admin/menu/products" className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8DCCB] hover:border-[#D4AF37] hover:shadow-lg transition-all group relative overflow-hidden flex flex-col justify-between">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-[#D4AF37]/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110" />
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-[#B18C56]/10 flex items-center justify-center text-[#B18C56]">
+            <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 20h9" />
                 <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
@@ -111,7 +111,7 @@ export default async function AdminDashboard() {
           <div className="space-y-4">
             <Link href="/admin/homepage" className="flex items-center justify-between p-4 rounded-xl hover:bg-[#F7F3EA] border border-transparent hover:border-[#E8DCCB] transition-all group">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#B18C56]/10 flex items-center justify-center text-[#B18C56]">
+                <div className="w-12 h-12 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
                     <polyline points="9 22 9 12 15 12 15 22" />
@@ -122,7 +122,7 @@ export default async function AdminDashboard() {
                   <p className="text-sm text-[#11102F]/60">{homepageSections} sections featured</p>
                 </div>
               </div>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#B18C56] opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity">
                 <polyline points="9 18 15 12 9 6" />
               </svg>
             </Link>
@@ -156,7 +156,7 @@ export default async function AdminDashboard() {
           </p>
           <Link 
             href="/admin/settings"
-            className="inline-flex items-center gap-2 bg-white text-[#1E1C59] px-6 py-3 rounded-full font-bold hover:bg-[#B18C56] hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 bg-white text-[#1E1C59] px-6 py-3 rounded-full font-bold hover:bg-[#D4AF37] hover:text-white transition-colors"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="3" />

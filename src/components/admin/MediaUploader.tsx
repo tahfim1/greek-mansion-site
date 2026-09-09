@@ -68,7 +68,7 @@ export default function MediaUploader() {
         <button 
           type="submit" 
           disabled={isUploading}
-          className="bg-[#B18C56] text-white px-6 py-2 rounded shadow font-semibold hover:bg-[#8A6A40] disabled:opacity-50 transition-colors whitespace-nowrap"
+          className="bg-[#D4AF37] text-white px-6 py-2 rounded shadow font-semibold hover:bg-[#AA8B24] disabled:opacity-50 transition-colors whitespace-nowrap"
         >
           {isUploading ? 'Uploading...' : 'Upload Image'}
         </button>

@@ -58,7 +58,7 @@ export default function FeaturedCategoriesScroll() {
   if (isLoading) {
     return (
       <div className="h-screen flex items-center justify-center bg-[#F7F3EA] texture-ivory">
-        <div className="loader w-12 h-12 rounded-full border-4 border-[#B18C56] border-t-transparent animate-spin"></div>
+        <div className="loader w-12 h-12 rounded-full border-4 border-[#D4AF37] border-t-transparent animate-spin"></div>
       </div>
     );
   }
@@ -127,7 +127,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
               <div 
                 key={idx} 
                 className={`w-2 rounded-full transition-all duration-500 ${
-                  idx === activeIndex ? 'h-10 bg-[#B18C56]' : 'h-2 bg-[#1E1C59]/20'
+                  idx === activeIndex ? 'h-10 bg-[#D4AF37]' : 'h-2 bg-[#1E1C59]/20'
                 }`}
               />
             ))}
@@ -144,7 +144,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
               <div className="container-custom mx-auto relative px-4 sm:px-4 h-full pt-[90px] pb-[80px] sm:pt-20 sm:pb-24 lg:pt-32 lg:pb-12 flex flex-col justify-center min-h-0">
                 {/* Category Title Area */}
                 <div className="text-center mb-3 sm:mb-6 lg:mb-8 shrink-0">
-                  <p className="text-[#B18C56] text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase mb-1 sm:mb-3">From Our Kitchen</p>
+                  <p className="text-[#D4AF37] text-xs sm:text-sm font-semibold tracking-[0.15em] uppercase mb-1 sm:mb-3">From Our Kitchen</p>
                   <h2 className="text-2xl sm:text-4xl lg:text-5xl text-[#1E1C59]" style={{ fontFamily: "'Marcellus', serif" }}>
                     {category.name}
                   </h2>
@@ -202,7 +202,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                             )}
                             <div className="p-3.5 sm:p-4 lg:p-5 flex-1 flex flex-col justify-between">
                               <div>
-                                <p className="text-[#B18C56] text-[10px] sm:text-xs font-semibold tracking-wider uppercase mb-1">
+                                <p className="text-[#D4AF37] text-[10px] sm:text-xs font-semibold tracking-wider uppercase mb-1">
                                   {category.name}
                                 </p>
                                 <h3 className="text-base sm:text-lg text-[#1E1C59] mb-1 leading-snug" style={{ fontFamily: "'Marcellus', serif" }}>
@@ -219,7 +219,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                                     : formatPrice(product.price)
                                   }
                                 </span>
-                                <span className="text-[#B18C56] text-xs sm:text-sm font-semibold group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                                <span className="text-[#D4AF37] text-xs sm:text-sm font-semibold group-hover:translate-x-1 transition-transform flex items-center gap-1">
                                   View 
                                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                                 </span>
@@ -234,7 +234,7 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
                 {/* Mobile Pagination Dots */}
                 <div className="lg:hidden flex justify-center gap-1.5 mt-2 sm:mt-4 shrink-0">
                   {(category.products || []).map((_, i) => (
-                    <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-[#B18C56]' : 'bg-[#1E1C59]/20'}`} />
+                    <div key={i} className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-[#D4AF37]' : 'bg-[#1E1C59]/20'}`} />
                   ))}
                 </div>
                 
@@ -258,11 +258,11 @@ function FeaturedCategoriesScrollInner({ categories }: { categories: CategoryWit
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(177, 140, 86, 0.5);
+          background: rgba(212, 175, 55, 0.5);
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(177, 140, 86, 0.8);
+          background: rgba(212, 175, 55, 0.8);
         }
       `}</style>
     </>

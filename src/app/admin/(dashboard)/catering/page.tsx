@@ -51,8 +51,8 @@ export default async function CateringInquiriesPage() {
                     <td className="p-4">
                       <div className="font-bold text-[#1E1C59]">{inquiry.name}</div>
                       <div className="text-sm text-[#11102F]/70 mt-1">
-                        <a href={`mailto:${inquiry.email}`} className="text-[#B18C56] hover:underline block">{inquiry.email}</a>
-                        <a href={`tel:${inquiry.phone}`} className="text-[#B18C56] hover:underline block mt-0.5">{inquiry.phone}</a>
+                        <a href={`mailto:${inquiry.email}`} className="text-[#D4AF37] hover:underline block">{inquiry.email}</a>
+                        <a href={`tel:${inquiry.phone}`} className="text-[#D4AF37] hover:underline block mt-0.5">{inquiry.phone}</a>
                       </div>
                     </td>
                     <td className="p-4">

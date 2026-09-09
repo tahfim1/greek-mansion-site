@@ -23,15 +23,15 @@ export const BUSINESS = {
 
 export const BRAND = {
   indigo: '#1E1C59',
-  gold: '#B18C56',
+  gold: '#D4AF37',
   white: '#FFFFFF',
   ivory: '#F7F3EA',
   sand: '#E8DCCB',
   ink: '#11102F',
   olive: '#73704A',
   indigoLight: '#2A2870',
-  goldLight: '#C9A872',
-  goldDark: '#8F7045',
+  goldLight: '#E5C76B',
+  goldDark: '#AA8B24',
 } as const;
 
 export const NAV_LINKS = [

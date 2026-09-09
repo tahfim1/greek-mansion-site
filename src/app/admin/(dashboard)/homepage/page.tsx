@@ -100,7 +100,7 @@ export default function HomepageSettingsPage() {
           <button 
             onClick={handleSave} 
             disabled={isSaving}
-            className="bg-[#B18C56] text-white px-6 py-2 rounded shadow hover:bg-[#8F7045] transition-colors disabled:opacity-50"
+            className="bg-[#D4AF37] text-white px-6 py-2 rounded shadow hover:bg-[#AA8B24] transition-colors disabled:opacity-50"
           >
             {isSaving ? 'Saving...' : 'Save Changes'}
           </button>
@@ -115,7 +115,7 @@ export default function HomepageSettingsPage() {
           </div>
           <div className="p-4 overflow-y-auto flex-1">
             {availableCategories.filter(cat => !featuredIds.includes(cat.id)).map(cat => (
-              <div key={cat.id} className="flex justify-between items-center p-3 mb-2 border border-gray-200 rounded hover:border-[#B18C56] transition-colors">
+              <div key={cat.id} className="flex justify-between items-center p-3 mb-2 border border-gray-200 rounded hover:border-[#D4AF37] transition-colors">
                 <span className="font-semibold text-[#1E1C59]">{cat.name}</span>
                 <button 
                   onClick={() => addCategory(cat.id)}
@@ -132,10 +132,10 @@ export default function HomepageSettingsPage() {
         </div>
 
         {/* Featured Categories (Selected) */}
-        <div className="bg-white rounded border border-[#B18C56] shadow-sm overflow-hidden flex flex-col h-[600px]">
-          <div className="bg-white border-b border-[#B18C56] p-4 font-bold text-[#1E1C59] flex justify-between">
+        <div className="bg-white rounded border border-[#D4AF37] shadow-sm overflow-hidden flex flex-col h-[600px]">
+          <div className="bg-white border-b border-[#D4AF37] p-4 font-bold text-[#1E1C59] flex justify-between">
             <span>Featured on Homepage (Vertical Scroll)</span>
-            <span className="text-[#B18C56] bg-[#F7F3EA] px-2 py-0.5 rounded text-sm">{featuredIds.length} sections</span>
+            <span className="text-[#D4AF37] bg-[#F7F3EA] px-2 py-0.5 rounded text-sm">{featuredIds.length} sections</span>
           </div>
           <div className="p-4 overflow-y-auto flex-1">
             {featuredIds.length === 0 ? (
