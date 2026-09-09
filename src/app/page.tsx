@@ -60,17 +60,17 @@ export default function HomePage() {
       {/* ── Hero Section ─────────────────────────────────── */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-black">
           <Image
-            src="/images/golden-particle-dust-wallpaper.jpg"
+            src="/images/hero-bg-zeus.jpg"
             alt="Greek Mansion Restaurant — Authentic Greek cuisine in Scarborough"
             fill
             priority
-            className="object-cover"
+            className="object-cover opacity-80"
             sizes="100vw"
           />
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(8,7,26,0.65) 0%, rgba(8,7,26,0.35) 50%, rgba(8,7,26,0.8) 100%)' }} />
+          {/* Gradient Overlay (Black Shade) */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.85) 100%)' }} />
         </div>
 
         {/* Content */}
