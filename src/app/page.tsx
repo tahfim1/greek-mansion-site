@@ -62,7 +62,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-x-0 bottom-0 top-[60px] md:top-[80px] bg-black">
           <Image
-            src="/images/hero-bg-zeus.jpg"
+            src="/images/hero-temple.jpg"
             alt="Greek Mansion Restaurant — Authentic Greek cuisine in Scarborough"
             fill
             priority
